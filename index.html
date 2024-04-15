@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JEB | </title>
+    <link rel="stylesheet" href="src/css/style.css">
+
+    <link rel="stylesheet" href="src/css/responsive.css">
+    <script src="src/js/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="menu-bar-mobile-show">  
+        <div>
+            <div style="color:black;align-items:center" class="flex between">
+                <span>Menu</span>
+                <!-- {{-- <button class="danger"> --}}
+                    <svg xmlns="http://www.w3.org/2000/svg" onclick="$('.menu-bar-mobile-show').hide()" style="width: 15%" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                      </svg>
+                      
+                    {{-- <svg onclick="$('.menu-bar-mobile-show').hide()" style="width: 30%" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                      </svg> --}}
+                {{-- </button> --}} -->
+            </div>
+            
+            <span onclick="window.open('home#home','_self');$('.menu-bar-mobile-show').hide()">Accueil</span>
+            <span onclick="window.open('home#services','_self');$('.menu-bar-mobile-show').hide()">Nos services</span>
+            <span onclick="window.open('','_self')">Nos produits</span>
+        </div>
+    </div> 
+    <div class="show" onclick="$('.show').hide()">
+
+    </div>
+    <div class="more">
+        <div class="investissement p10">
+
+            <div CLASS="flex items-center between">
+                <h2>INVERSTISSEMENT</h2>
+                <button class="danger" onclick="$('.more').hide();$('.more>div').hide()">
+                    &cross;
+                </button>
+            </div>
+
+
+            <p>
+                Nous investissons beaucoup de temps et de ressources dans le développement et le perfectionnement d’équipement intérieur moderne du bâtiment d’élevage des animaux. Pour quoi ? La consommation mondiale de viande augmente, un développement qui n’est pas dû au hasard : elle est avantageuse économiquement, nourrissante et savoureuse.
+                Conjuguée à l’évolution des habitudes alimentaires dans des nombreux pays émergents et en développement et à la croissance démographique mondiale, cela signifie : l’élevage de porc continuera d’augmenter et restera un besoin et une nécessité pour toute la communauté.
+                Voilà donc pour quoi JEB voudrait intervenir et aider la communauté n’ayant pas de temps, de bâtiments, d’équipements nécessaires pour y arriver, à pratiquer un bon élevage des porcs grâce à leurs capitaux et la confiance envers lui et cela dans son projeté «  promotion des grands porcs ».
+            </p>
+            <button onclick="$('.more').hide();$('.login').css('display','grid');$('.login>div').toggle()">Investire</button>
+            <button  onclick="window.open('')">Lire plus</button>
+        </div>
+
+        <div class="formation p10">
+
+            <div CLASS="flex items-center between">
+                <h2>FORMATION</h2>
+                <button class="danger" onclick="$('.more').hide();$('.more>div').hide()">
+                    &cross;
+                </button>
+            </div>
+
+
+            <p>
+                Nous investissons beaucoup de temps et de ressources dans le développement et le perfectionnement d’équipement intérieur moderne du bâtiment d’élevage des PORCS. Pour quoi ? La consommation mondiale de viande blanche augmente, un développement qui n’est pas dû au hasard : elle est avantageuse économiquement, nourrissante et savoureuse.
+                Conjuguée à l’évolution des habitudes alimentaires dans des nombreux pays émergents et en développement et à la croissance démographique mondiale, cela signifie : l’élevage de porc continuera d’augmenter et restera un besoin et une nécessité pour toute la communauté.
+                Voilà donc pour quoi JEB voudrait intervenir et aider la communauté n’ayant pas de temps, de bâtiments, d’équipements nécessaires pour y arriver, à pratiquer un bon élevage des porcs grâce à leurs capitaux et la confiance envers lui et cela dans son projeté «  promotion des grands porcs ».
+            </p>
+            <button onclick="$('.more').hide();$('.login').css('display','grid');$('.login>div').toggle()">Investire</button>
+            <button  onclick="window.open('')">Lire plus</button>
+        </div>
+
+    </div>
+    <div class="login">
+        <div class="card" hidden>
+            <div>
+                <h2>
+                    Connexion
+                </h2>
+                <button onclick="$('.login').hide()" class="danger">&cross;</button>
+            </div>
+            <form id="login">
+                @csrf
+                <input placeholder="Numero de telephone (ex:+2439494593595)"  type="tel" name="telephone" required>
+                <input placeholder="Mot de pass"  type="password" name="mot_de_passe" required>
+                <button>Valider</button>
+
+            </form>
+            <p class="center btn-" onclick="$('.login>div').toggle()">Nouveau compte</p>
+        </div>
+
+        <div class="card" >
+            <div>
+                <h2>
+                    Inscription
+                </h2>
+                <button onclick="$('.login').hide()" class="danger">&cross;</button>
+            </div>
+            <form id="new">
+                @csrf
+                <input placeholder="Nom" name="nom"  type="text" required>
+                <input placeholder="Postnom" name="postnom"  type="text" required>
+                <input placeholder="Prenom" name="prenom"  type="text" required>
+
+                <div>
+                    <fieldset>
+                        <span>Numero de telephone</span>
+                        <input placeholder="ex:+2439494593595" name="telephone"  type="tel" required>
+                    </fieldset>
+                    <fieldset>
+                        <span>Genre</span>
+                        <select name="genre">
+                            <option>Feminin</option>
+                            <option>Masculin</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <div>
+                    <fieldset>
+                        <span>Localisation</span>
+                        <select name="localisation">
+                            <option>Beni</option>
+                            <option>Butembo</option>
+                            <option>Goma</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <span>Date de naissance</span>
+                        <input type="date" name="date_de_naissance" id="">
+                    </fieldset>
+                </div>
+                <div>
+                    <fieldset>
+                        <span>Mot de passe</span>
+                        <input placeholder="Mot de passe" name="mot_de_passe"   type="password" required>
+                    </fieldset>
+                    <fieldset>
+                        <span>Repete le mot de passe</span>
+                        <input placeholder="Mot de pass" name="mot_de_passe2"  type="password" required>
+                    </fieldset>
+                </div>
+
+
+                <button>Valider</button>
+
+            </form>
+            <p class="center btn-" onclick="$('.login>div').toggle()">Connexion</p>
+        </div>
+    </div>
+    <header>
+        <div>
+            <svg onclick="$('.menu-bar-mobile-show').css('display','grid')" style="width: 90%" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <h1>JEB</h1>
+            
+            <div class="menu-bar">
+                <span onclick="window.open('','_self')">Accueil</span>
+                <span onclick="window.open('','_self')">Nos services</span>
+                <span onclick="window.open('','_self')">Nos produits</span>
+                <!-- @if($user!="") -->
+                    <button onclick="window.open('/users/','_self')" style="display:flex;align-items: center;justify-content: space-between;gap: 2px">
+                        <svg style="width: 20px"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                        <span>
+                            <!-- {{$user["nom"]}} {{$user["postnom"]}} -->
+                        </span>
+                    </button>
+                <!-- @endif -->
+                <button>Connexion</button>
+            </div>
+            <!-- @if($user!="") -->
+                    <button onclick="window.open('/users/','_self')" style="">
+                        <svg style="width: 20px"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                        <span>
+                            <!-- {{$user["nom"]}} -->
+                        </span>
+                    </button>
+            <!-- @endif -->
+            <button>Connexion</button>
+        </div>
+
+    </header>
+    <section class="body">
+        <!-- @yield('content') -->
+    </section>
+    <footer>
+        <div>
+            <h3>Nos contact</h3>
+            <span>Telephone : <a class="primary" href="tel:+243 994 557 806">+243 994 557 806</a> </span>
+            <span>Mail : <a class="primary" href="mailto:contact@jeb-elevage.org">contact@jeb-elevage.org</a></span>
+            
+        </div>
+        <div>
+            <h3>Nos adresses</h3>
+            <span>Beni : Residensiel</span>
+        </div>
+        <div>
+            <h3>JEB</h3>
+            <span>Ecris nous un message</span>
+            <form action="">
+                <input type="text" placeholder="Vos noms">
+                <input type="tel" placeholder="Votre numero de telephone">
+                <textarea placeholder="Laisser nous un message">Votre message</textarea>
+                <button>Envoyer</button>
+            </form>
+        </div>
+    </footer>
+    <div class="footer">
+        <span>
+            &copy; jeb-elevage.org
+        </span>
+        <span style="text-align: right">by &hearts; Frank M.
+        </span>
+    </div>
+    <script>
+        // $(".services>section>div").scrollTop(100px);
+        function formToDic(form) {
+            let dict={}
+            for(var i of form.entries()){
+                dict[i[0]]=i[1];
+            }
+            return dict
+        }
+        $('#login').submit(function (e){
+            e.preventDefault()
+            let data=new FormData(this)
+            console.log(data)
+            $.post('/users/connect',formToDic(data),function (d) {
+                if (d==1){
+                    alert("Connexion effectuée avec succes")
+                    window.open("users/",'_self')
+                }else{
+                    alert("Mot de passe ou numero de telephone incorrect!")
+                }
+
+            })
+        })
+
+        $('#new').submit(function (e){
+            e.preventDefault()
+            let data=new FormData(this)
+            if (data.get('mot_de_passe')==data.get('mot_de_passe2')){
+                data.delete('mot_de_passe2')
+                $.post('/users/new/',formToDic(data),function (d) {
+                    if (d==1){
+                        alert("Compte crée avec succes!")
+                        window.open("users/","_self")
+                    }else{
+                        alert("Erreur lors de la creation, essai de mettre un autre numero de telephone")
+                    }
+                })
+            }else{
+                alert("Mot de passe incorrect!!")
+            }
+        })
+
+        function show(img) {
+            $('.show').css('display',"grid")
+            $('.show').html(`
+               <div>
+                <img src="${img}">
+               </div>
+            `)
+        }
+        function service(s){
+            $('.more').css('display',"grid")
+            $('.more>.'+s).css('display',"block")
+
+        }
+    </script>
+</body>
+</html>
+

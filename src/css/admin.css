@@ -1,0 +1,94 @@
+#investissements>.list{
+display: grid;
+grid-template-columns: 45% 45%;
+justify-content: space-evenly;
+gap: 10px;
+}
+.list>div{
+padding: 15px;
+border-radius: 5px;
+}
+.inverstissement>div{
+font-weight: bold;
+gap: 4px;
+}
+.inverstissement>div>span{
+border-bottom: black 1px dotted;
+padding:1% 0;
+}
+.products>div{
+display:grid;
+grid-template-columns: auto auto;
+gap: 5%;
+}
+#clients>.list,#administrateur>.list{
+    border:solid 1px black
+}
+#clients>.list>div,#administrateur>.list>div{
+    display:grid;
+    grid-template-columns: 5% 25% 15% 10% 15% 10% 20%;
+    border-bottom:solid 1px black;
+    border-radius:0;
+    
+}
+#clients>.list>div>span{
+}
+
+#new_investissement>div>svg,#new_admin>div>svg{
+    width: 3%;
+}
+.new_investissement>div>form{
+    width: 60%;
+}
+@media (max-width: 600px){    
+        svg{
+            width: 20%;
+        }        
+        .new_investissement>div>form{
+            width: 100%;
+        }
+        
+        #dashboard>div{
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 5%;
+        }
+        #dashboard>div>div{
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+        }
+        #articles{
+            height: 100%;
+        }
+        .products>div{
+            display:grid;
+            grid-template-columns: 90%;
+            gap: 5%;
+            
+        }
+        #investissements>.list{
+            display: grid;
+            grid-template-columns: auto;
+            justify-content: space-evenly;
+            gap: 10px;
+        }
+
+        #clients>.list,#administrateur>.list{
+            border:solid 1px black
+        }
+        #clients>.list>div,#administrateur>.list>div{
+            display:grid;
+            grid-template-columns: 10% 45% 20% 25%;
+            border-bottom:solid 1px black;
+            border-radius:0;
+        }
+        #new_investissement>div>svg,#new_admin>div>svg{
+            width: 8%;
+        }
+    }

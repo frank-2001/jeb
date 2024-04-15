@@ -1,0 +1,192 @@
+
+
+header>div>button{
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2px
+}
+header>div>svg{
+    display: none;
+}
+@media (max-width: 600px){    
+    header>div>button{
+        display: block;
+    }    
+    header>svg{
+        display: none;
+    }
+    header>div{
+        display: grid;
+        grid-template-columns: 10% 70% auto;
+    }
+    header>div>button{
+        display: flex;
+    }
+    header>div>svg{
+        display: block;
+    }
+    .menu-bar-mobile-show{
+        display: none;
+        justify-content: stretch;
+        align-items: top;
+        position: fixed;
+        height: 100vh;
+        width: 70vw;
+        backdrop-filter: blur(5px);
+        z-index: 999;
+        /* padding: 20; */
+        background: var(--white);
+        /* border-radius: 20px; */
+    }
+    .menu-bar-mobile-show>div{
+        /* border-radius: 20px; */
+        /* background: white; */
+        display: grid;
+        height: 30vh;
+        justify-content: stretch;
+        align-items: center;
+        text-align: center;
+        padding: 10%;
+        width: 80%;
+    }
+    .menu-bar-mobile-show>div>span{
+        background: var(--primary);
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .menu-bar-mobile{
+        /* display: flex;
+        justify-content: left;
+        align-items: flex-end; */
+    }
+    .menu-bar{
+      display: none;   
+    }
+    header>div{
+        padding: 0 5%;
+        width: 90%;
+    }
+    body{
+        /* width: 100%; */
+    }
+    body>*>*{
+        width: 100%;
+        padding: 0;
+    }
+    footer{
+        height: auto;
+        display: grid;
+        align-items: stretch;
+        justify-content: space-around;
+        padding: 4vh 0;
+        
+        background: rgb(106, 106, 106);
+    }
+    footer>div{
+        display: grid;
+        gap: 10px;
+        width: 80vw;
+    }
+    footer>div>span{
+        color:black;
+    }
+    
+    footer>div>h3{
+        text-align: left;
+    }
+    .footer{
+        background: black;
+        /*color: grey;*/
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2vh 20px;
+        font-family: "Agency FB";
+    
+    }
+    .footer>span{
+        /*text-align: center;*/
+        animation: ft;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate-reverse;
+    }
+
+    .more{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        backdrop-filter: blur(5px);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    .more>div{
+        display: none;
+        background: white;
+        color: black;
+        width: 90%;
+        padding: 5%;
+    }
+
+    .login{
+        display: none;
+        height: 100vh;
+        width: 90vw;
+        padding: 0 5vw;
+        backdrop-filter: blur(5px);
+        justify-content: stretch;
+        align-items: center;
+        position: fixed;
+        z-index: 999;
+        overflow-y: auto;
+
+    }
+    .login>.card>div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+
+    }
+    .login>.card{
+        width: 80%;
+        padding: 0 10%;
+    }
+
+    fieldset{
+        display: grid;
+        background: var(--white);
+        border-radius: 5px;
+        border: solid grey 1px;
+        gap: 2px;
+    }
+    fieldset>span{
+        font-size: small;
+    }
+
+    form{
+        display: grid;
+        gap: 5px;
+        overflow-y: auto;
+    }
+    input,textarea,select{
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+    }
+    form>div{
+        display: grid;
+        justify-content: space-between;
+        align-items: center;
+        grid-template-columns: 100%;
+        gap: 5px;
+    }
+    .mobile-h{
+        display: none;
+    }
+    
+}

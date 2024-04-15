@@ -1,0 +1,75 @@
+    #dashboard>div{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 5%;
+    }
+    #dashboard>div>div{
+    padding: 15px;
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    }
+    #investissements>.list{
+    display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: space-evenly;
+    gap: 10px;
+    }
+    .list>div{
+    padding: 15px;
+    border-radius: 5px;
+    }
+    .inverstissement>div{
+    font-weight: bold;
+    gap: 4px;
+    }
+    .inverstissement>div>span{
+    border-bottom: black 1px dotted;
+    padding:1% 0;
+    }
+    .products>div{
+    display:grid;
+    grid-template-columns: auto auto;
+    gap: 5%;
+    }
+
+@media (max-width: 600px){    
+    #dashboard>div{
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 5%;
+    }  
+    #investissements>.list{
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: space-evenly;
+        gap: 10px;
+    }
+    #investissement>.tit{
+        display: grid;
+    }
+    .list>div{
+    padding: 15px;
+    border-radius: 5px;
+    }
+    .inverstissement>div{
+    font-weight: bold;
+    gap: 4px;
+    }
+    .inverstissement>div>span{
+    border-bottom: black 1px dotted;
+    padding:1% 0;
+    }
+    .products>div{
+        display:grid;
+        grid-template-columns: 100%;
+        gap: 5%;
+    }
+    #new_investissement>div>svg,#new_admin>div>svg{
+        width: 8%;
+    }
+}
