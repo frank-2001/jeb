@@ -24,7 +24,7 @@
                 </svg>
             </div>
             
-            <span onclick="window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">Accueil</span>
+            <span onclick="lacrea_load() ;window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">Accueil</span>
             <span onclick="window.open('/#services','_self');$('.menu-bar-mobile-show').hide()">Nos services</span>
             <span onclick="window.open('/#products','_self')">Nos produits</span>
         </div>
@@ -154,9 +154,9 @@
             <h1>JEB</h1>
             
             <div class="menu-bar">
-                <span onclick="window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">Accueil</span>
-            <span onclick="window.open('/#services','_self');$('.menu-bar-mobile-show').hide()">Nos services</span>
-            <span onclick="window.open('/#products','_self');$('.menu-bar-mobile-show').hide()">Nos produits</span>
+                <span class="" onclick="lacrea_load('.body','apps/home');window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">Accueil</span>
+                <span class="" onclick="window.open('/#services','_self');$('.menu-bar-mobile-show').hide()">Nos services</span>
+                <span class="" onclick="window.open('/#products','_self');$('.menu-bar-mobile-show').hide()">Nos produits</span>
                 <button class="btn_connexion"></button>
             </div>
             <button class="btn_connexion"></button>
@@ -203,7 +203,13 @@
     <script src="src/js/lacrea.js"></script>
     <script src="src/js/server.js"></script>
     <script>
-        lacrea_load()
+        if (db.get('app')) {
+            lacrea_load(".body",db.get('app'))    
+        }else{
+            lacrea_load()
+        }
+        
+        
         // $(".services>section>div").scrollTop(100px);
         function formToDic(form) {
             let dict={}
@@ -220,7 +226,10 @@
                 
                 if (d.data.length==1){
                     db.set("user",d.data[0])
-                    location.reload()
+                    navbar()
+                    profile()
+                    $('.login').hide();
+                    // location.reload()
                     // window.open("users/",'_self')
                 }else{
                     alert("Mot de passe ou numero de telephone incorrect!")
@@ -234,13 +243,23 @@
             let data=new FormData(this)
             if (data.get('mot_de_passe')==data.get('mot_de_passe2')){
                 data.delete('mot_de_passe2')
-                $.post('/server/?articles-new',formToDic(data),function (d) {
-                    if (d==1){
-                        alert("Compte crée avec succes!")
-                        window.open("users/","_self")
-                    }else{
-                        alert("Erreur lors de la creation, essai de mettre un autre numero de telephone")
-                    }
+                $.post('/server/?clients-new',formToDic(data),function (d) {
+                    $.post('/server/?clients-connect',{"telephone":formToDic(data).telephone,"mot_de_passe":formToDic(data).mot_de_passe},function (d) {
+                        if (d.data.length==1){
+                            db.set("user",d.data[0])
+                            navbar()
+                            profile()
+                            $('.login').hide();
+                            // location.reload()
+                            // window.open("users/",'_self')
+                        }else{
+                            alert("Mot de passe ou numero de telephone incorrect!")
+                        }
+
+                    })
+                }).fail(e=>{
+                    alert("Ce numero de telephone pourait déjà utilisé par un autre utilisateur")
+                    console.log(e);
                 })
             }else{
                 alert("Mot de passe incorrect!!")

@@ -4,6 +4,7 @@
                     $output=$clients->All();
                 }
                 if (isset($_GET[$clients->table."-new"])) {
+                    $_POST["mot_de_passe"]=md5($_POST["mot_de_passe"]);
                     $output=$clients->new($_POST);
                 }
                 if (isset($_GET[$clients->table."-byId"])) {

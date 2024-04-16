@@ -8,7 +8,7 @@
                 
                 function connect(){
                     if ($_SERVER['SERVER_NAME']=="localhost") {  
-                        $this->dbname='localhost';
+                        $this->dbname='jeb_easy';
                         $this->user='root';
                         $this->pass='';
                     }
@@ -40,8 +40,8 @@
 
                     return ["message"=>$fun." ".$this->table,"state"=>$req->execute($values),"data"=>$req->fetchAll()];
                 }
-                function all():array{
-                    $sql="SELECT * FROM ".$this->table;
+                function all($col="*",$param=""):array{
+                    $sql="SELECT ".$col." FROM ".$this->table." ".$param;
                     return $this->return($sql,__FUNCTION__);
                 }
 
@@ -66,7 +66,6 @@
                         $struc=$struc."".$key."='".$value."',";
                     }
                     $struc=substr($struc,0,-1);
-                    print_r($struc."\n");
                     $sql="UPDATE ".$this->table." set ".$struc." where id=".$id;
                     return $this->return($sql,__FUNCTION__);      
                 }
@@ -104,5 +103,57 @@
                     $sql="SELECT ".$param1." FROM ".$this->table." ".$param2." where ".$demand;
                     return $this->return($sql,__FUNCTION__);
                 }
+            }
+
+            function webp($image,$level,$prefix="",$dir='webp_compressed/'){
+                // Image
+                $newName = $prefix.".webp";
+                if(!is_dir($dir)){
+                    mkdir($dir);
+                }
+        
+                // Create and save
+                $imgInfo=getimagesize($image);
+                $mime=$imgInfo['mime'];
+                #Create a new image from file
+                switch ($mime) {
+                    case 'image/jpeg':
+                        $img =imagecreatefromjpeg($image);
+                        break;
+                    case 'image/png':
+                        $img =imagecreatefrompng($image);
+                        break;
+                    case 'image/gif':
+                        $img =imagecreatefromgif($image);
+                        break;
+                    default:
+                        return "Echec! image non reconue";
+                        $img =imagecreatefromjpeg($image);
+                        break;
+                }
+        
+                imagepalettetotruecolor($img);
+                imagealphablending($img, true);
+                imagesavealpha($img, true);
+                imagewebp($img, $dir . $newName, $level);
+                imagedestroy($img);
+                $origin=round(filesize($image)/(1024*1024),2);
+                $final=round(filesize($dir.$newName)/(1024*1024),2);
+                $red=$origin-$final;
+                $rate=($red*100)/$origin;
+        
+                $output = [
+                    "origin"=>[
+                        "path"=>$image,
+                        "size"=> $origin. " Mb"
+                    ],
+                    "final"=>[
+                        "path"=>$dir.$newName,
+                        "size"=>$final. " Mb",
+                        "name"=>$newName
+                    ],
+                    "result"=>$red." Mb Reduced or ".$rate."%"
+                ];
+                return $output;
             }
     ?>

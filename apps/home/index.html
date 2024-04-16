@@ -145,11 +145,13 @@
     <div class="products" id="products">
         <h1 style="width: 100%;" class="title">Nos produits</h1>
         <div>
-            <button style="font-weight: bolder" class="white" onclick="lacrea_load('apps/profile/')" >Voir tout nos produits</button>
+            <button style="font-weight: bolder" class="white" onclick="lacrea_load('apps/articles/')" >Voir tout nos produits</button>
         </div>
     </div>
 
     <script>
+        $("title").text('JEB | Home');
+
         $.getJSON("/server/?articles-all",
             function (data, textStatus, jqXHR) {
                 console.log(data);

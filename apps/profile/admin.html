@@ -1,0 +1,519 @@
+
+<link rel="stylesheet" href="src/css/user.css">
+<link rel="stylesheet" href="src/css/admin.css">
+    <div class="user">
+        <div class="infos">
+            <div class="head">
+                <img src="src/images/assets/jeb24.webp" alt="" srcset="">
+                <div class="info">
+
+                </div>
+                <svg  style="width: 50%" onclick="$('.menu-profil-mobile').toggle()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                 </svg>
+            </div>
+            <div class="menu-profil grid menu-profil-mobile">
+                <h3 class="">Menu</h3>
+                <div class="grid">
+                    <span class="primary p5 radius-5 dashboard" onclick="app('dashboard')">Dashboard</span>
+                    <span class="primary p5 radius-5 articles" onclick="app('articles')">Articles</span>
+                    <span class="primary p5 radius-5 investissements" onclick="app('investissements')">Investissements</span>
+                    <span class="primary p5 radius-5 clients" onclick="app('clients')">Clients</span>
+                    <span class="primary p5 radius-5 administrateur" onclick="app('administrateur')">Administrateur</span>
+                    <!-- <span class="primary p5 radius-5 administrateur" onclick="app('annonces')">Annonces</span> -->
+
+                </div>
+            </div>
+            <div class="grid menu-profil-mobile">
+                <button class="danger" onclick="deconnect()">
+                    Deconnexion
+                </button>
+            </div>
+                          
+        </div>
+        <div class="app">
+            <div id="dashboard">
+                <h2>
+                    DASHBOARD
+                </h2>
+
+                <div>
+                    <div id="nb_article">
+                         Articles
+                    </div>
+                    
+                    <div id="nb_client">
+                         Clients
+                    </div>
+
+                    <div id="nb_investissement">
+                         demandes d'investissements
+                    </div>
+
+
+                </div>
+            </div>
+            <div id="formations">
+                <h2>FORMATIONS</h2>
+            </div>
+            <div id="articles">
+                <div class="flex between centerq">
+                    <h2>ARTICLES</h2>
+                    <button onclick="app('new_investissement')">Nouvel Articles</button>
+                </div>
+                <div class="products">
+                    <div>
+                        
+                    </div>
+
+                </div>
+            </div>
+            <div id="new_investissement">
+                <div class="flex between center">
+                    <svg onclick="app('articles')"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                      </svg>
+
+                    <h2>
+                        Nouvel Article
+                    </h2>
+                </div>
+                <div class="flex center p10">
+                    <form class=" p10" action="" id="new_investissement_form" enctype="multipart/form-data">
+                        <fieldset>
+                            <span>Nom de l'article</span>
+                            <input type="text" name="title" required>
+                        </fieldset>
+                        <div class="between" style="display: grid;grid-auto-columns: 50% 50%">
+                            <fieldset>
+                                <span>Prix de vente</span>
+                                <input type="number" name="price" step="0.01" required>
+                            </fieldset>
+                            
+                            <fieldset>
+                                <span>Prix d'investissement</span>
+                                <input type="text" name="prix_investissement" step="0.01">
+                            </fieldset>
+                        </div>
+                        <div class="between" style="display: grid;grid-auto-columns: 50% 50%;align-items: stretch">
+                            <fieldset>
+                                <span>Montant d'interet sur investissement ($)</span>
+                                <input type="number" name="rate_return" step="0.01">
+                            </fieldset>
+                            <fieldset>
+                                <span>Delai de rembourssement des interet (Jours)</span>
+                                <input type="number" name="nb_day_return">
+                            </fieldset>
+                        </div>
+                        <fieldset>
+                            <span >Image</span>
+                            <input type="file" accept="image/*" name="image" required>
+                            <span id="progress"></span>
+                        </fieldset>
+                        <button>valider</button>
+                    </form>
+                </div>
+            </div>
+            <div id="annonces" class="news">
+                <div class="flex between center">
+
+                    <h2>
+                        ANNONCES
+                    </h2>
+                    <form class="flex between" action="/annonces/new">
+                        <fieldset>
+                            <span>Nouvelles</span>
+                        <input type="file" name="image" id="">
+                        </fieldset>
+                        <button>Ok</button>
+                    </form>
+                </div>
+            </div>
+            <div id="investissements">
+                <h2>INVESTISSEMENTS</h2>
+                <div class="list">
+
+                </div>
+            </div>
+
+            <div id="clients">
+                <h2>CLIENTS</h2>
+                <div class="list">
+                    <div style="font-weight: bolder">
+                        <span>No</span>
+                        <span>Noms</span>
+                        <span>Ville</span>
+                        <span class="mobile-h">Genre</span>
+                        <span>Telephone</span>
+                        <span class="mobile-h">Naissance</span>
+                        <span class="mobile-h">Creation</span>
+                    </div>
+                      
+                </div>
+            </div>
+            
+            <div id="administrateur">
+                <div class="flex between center">
+                    <h2>Administrateurs</h2>
+                    <button onclick="app('new_admin')">Nouvel Admin</button>
+                </div>
+                
+                <div class="list">
+                    <div style="font-weight: bolder">
+                        <span>No</span>
+                        <span>Noms</span>
+                        <span>Ville</span>
+                        <span class="mobile-h">Genre</span>
+                        <span>Telephone</span>
+                        <span class="mobile-h">Naissance</span>
+                        <span class="mobile-h">Creation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="new_admin">
+                <div class="flex between center">
+                    <svg onclick="app('administrateur')" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                      </svg>
+
+                    <h2>
+                        Nouvel Admin
+                    </h2>
+                </div>
+                <div class="flex center p10">
+                    <div class="card">
+                        <form id="new_admin_form">
+                            <input placeholder="Nom" name="nom"  type="text" required>
+                            <input placeholder="Postnom" name="postnom"  type="text" required>
+                            <input placeholder="Prenom" name="prenom"  type="text" required>
+                            <input type="hidden" value="administrateur" name="type">
+                            <div>
+                                <fieldset>
+                                    <span>Numero de telephone</span>
+                                    <input placeholder="ex:+2439494593595" name="telephone"  type="tel" required>
+                                </fieldset>
+                                <fieldset>
+                                    <span>Genre</span>
+                                    <select name="genre">
+                                        <option>Feminin</option>
+                                        <option>Masculin</option>
+                                    </select>
+                                </fieldset>
+                            </div>
+                            <div>
+                                <fieldset>
+                                    <span>Localisation</span>
+                                    <select name="localisation">
+                                        <option>Beni</option>
+                                        <option>Butembo</option>
+                                        <option>Goma</option>
+                                    </select>
+                                </fieldset>
+                                <fieldset>
+                                    <span>Date de naissance</span>
+                                    <input type="date" name="date_de_naissance" id="">
+                                </fieldset>
+                            </div>
+                            <div>
+                                <fieldset>
+                                    <span>Mot de passe</span>
+                                    <input placeholder="Mot de passe" name="mot_de_passe"   type="password" required>
+                                </fieldset>
+                                <fieldset>
+                                    <span>Repete le mot de passe</span>
+                                    <input placeholder="Mot de pass" name="mot_de_passe2"  type="password" required>
+                                </fieldset>
+                            </div>
+                            <button>Valider</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+    </div>
+    <script src="src/js/profile.js"></script>
+    <script>
+        function state(id,stat) {
+            if (stat=="Disponible") {
+                stat=0
+            }else{
+                stat=1
+            }
+            $.post("server/?articles-update="+id,{"state":stat},
+                function (data, textStatus, jqXHR) {
+                    console.log(data);
+                    get_articles()
+                }
+            );
+        }
+        function inv_state(id,val) {
+            $.getJSON("/investissements/state/"+id+"/"+val,
+                function (data, textStatus, jqXHR) {
+                    if (data==1) {
+                        alert("Investissment mis a jour avec succes! recharger la page pour verifier")                        
+                    }else{
+                        alert("Erreur : Action non effectuée!")
+                    }
+                }
+            ).fail(e=>{
+                alert("Erreur : Action non effectuée!")
+                console.log(e);
+            });
+        }
+        function delet(id) {
+            if (confirm("Voulez-vous vraiment supprimer cet article?")) {
+                $.getJSON("/server/?articles-delete="+id,
+                    function (data, textStatus, jqXHR) {
+                        get_articles()
+                    }
+                );    
+            }
+            
+        }
+        function app(ap="dashboard") {
+            db.set('admin_app',ap)
+            console.log("ADMIN : "+ap);
+            if ($("html").width()<=600) {
+                $('.menu-profil-mobile').hide();
+            }
+            
+            $('.menu-profil>div>span').removeClass('current_app')
+            $('.'+ap).addClass('current_app')
+            $('.app>div').hide()
+            $('#'+ap).show()
+        }
+        setTimeout(() => {
+            if (db.get('admin_app')) {
+                app(db.get('admin_app'))   
+            }else{
+                app()
+            }         
+        }, 100);
+        function get_articles() {
+            $.get('/server/?articles-all',function (e) {
+            $('#nb_article').text(`${e.data.length} Article.s`);
+            $('#articles>.products>div').html("")
+            e.data.forEach(article => {
+                stat="danger"
+                if (article.state) {
+                    article.state="Disponible"
+                    stat="primary"
+                } else {
+                    article.state="Indisponible" 
+                }
+                $('#articles>.products>div').append(`
+                                <div class="product-horizontal">
+                                    <img src="server/uploads/articles/${article.image}" alt="" srcset="">
+                                    <div>
+
+                                        <div class="state flex center between">
+                                            <strong>
+                                                ${article.title}
+                                            </strong>
+                                            <span class="${stat}">${article.state}</span>
+
+                                        </div>
+                                        <span class="">Prix de vente : ${article.price}$</span>
+                                        <span class="">Prix d'investissement : ${article.prix_investissement}$</span>
+                                        <span>Interet : ${article.rate_return}$</span>
+                                        <span>Periode : ${article.nb_day_return} Jours</span>
+                                        <div class="flex between">
+                                            <button onclick="state(${article.id},'${article.state}')">Changer Etat</button>
+                                            <button onclick="delet(${article.id})" class="danger">Supprimer</button>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                    `);
+                });
+            })
+        }
+        get_articles()
+        
+        function get_clients() {
+            $.get('/server/?clients-all',function (e) {
+            $('#nb_client').text(`${e.data.length} Client.s`);
+            console.log(e);
+            ad=0
+            cl=0 
+            $('#administrateur>.list').html(`
+            <div style="font-weight: bolder">
+                        <span>No</span>
+                        <span>Noms</span>
+                        <span>Ville</span>
+                        <span class="mobile-h">Genre</span>
+                        <span>Telephone</span>
+                        <span class="mobile-h">Naissance</span>
+                        <span class="mobile-h">Creation</span>
+                    </div>
+            
+            `)
+            $('#clients>.list').html(`
+                    <div style="font-weight: bolder">
+                        <span>No</span>
+                        <span>Noms</span>
+                        <span>Ville</span>
+                        <span class="mobile-h">Genre</span>
+                        <span>Telephone</span>
+                        <span class="mobile-h">Naissance</span>
+                        <span class="mobile-h">Creation</span>
+                    </div>
+            
+            `)
+            e.data.forEach((c,i) => {
+                if (c.type=='administrateur') {
+                    
+                    $('#administrateur>.list').append(`
+                        <div>
+                            <span>${ad}</span>
+                            <span>${c.nom} ${c.postnom}</span>
+                            <span>${c.localisation}</span>
+                            <span class="mobile-h">${c.genre}</span>
+                            <span>${c.telephone}</span>
+                            <span class="mobile-h">${c.date_de_naissance}</span>
+                            <span class="mobile-h">${c.created_at}</span>
+                        </div> 
+                    
+                    `);
+                    ad++
+                }else{
+                    $('#clients>.list').append(`
+                        <div>
+                            <span>${cl}</span>
+                            <span>${c.nom} ${c.postnom}</span>
+                            <span>${c.localisation}</span>
+                            <span class="mobile-h">${c.genre}</span>
+                            <span>${c.telephone}</span>
+                            <span class="mobile-h">${c.date_de_naissance}</span>
+                            <span class="mobile-h">${c.created_at}</span>
+                        </div> 
+                    
+                    `);
+                    cl++
+                }   
+                });
+            })
+        }
+        get_clients()
+        
+        $.get('/server/?investissements-all',function (e) {
+            $('#nb_investissement').text(`${e.data.length} Investissements`);
+            console.log(e);
+            e.data.forEach(el => {
+                dat=new Date()
+                now=new Date()
+                
+                validate=""
+                terminate=""
+                if (el.state=="1") {
+                    el.state="Términé depuis "+el.terminate
+                    cls="danger"
+                    now=new Date(el.terminate+" 12:00:00")
+                }else if(el.state=="0"){
+                    el.state="Validé depuis "+el.validate
+                    cls="white border"
+                    dat=new Date(el.validate+" 12:00:00")
+                }else{
+                    el.state="Non validé"
+                    cls="secondary border"
+                }
+                nb_day=Math.round((now.getTime()-dat.getTime())/(1000*60*60*24))
+                nb_pay=Math.round(nb_day/el.nb_day_return)
+                total=el.rate_return*nb_pay
+                $('#investissements>.list').append(`
+                    <div class="${cls} p10 inverstissement">
+                        
+                        <div class="grid">
+                            <div class="flex between">
+                                <span> Etat : ${el.state}</span>
+                                <span class="">le ${el.creation}</span>
+                            </div>
+                            <span> Client : ${el.nom} ${el.postnom} ${el.prenom}</span>
+                            <span> Produit : ${el.title}</span>
+                            <span> Prix : ${el.price}$ </span>
+                           
+                            <span> Nombre Pieces : ${el.pieces}</span>
+                            <span> Total investis : ${el.pieces*el.price}$</span>
+                            <span> Interet par piece : ${el.rate_return}$</span>
+                            <span> Durée avant chaque paiement : ${el.nb_day_return} Jours </span>
+                            <span> Nombre des Jours ecoulé :  ${nb_day} Jours</span>
+                            <span> Nombre des paiements reçu : ${nb_pay}</span>
+                            <span> Total encaissé : ${total}$</span>
+                            ${validate} ${terminate}
+                            <div class="flex between">
+                                <button onclick="inv_state(${el.id},0)">Valider</button>
+                                <button onclick="inv_state(${el.id},1)">Terminer</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                `);
+            });
+        })
+
+        $('#new_admin_form').submit(function (e){
+            e.preventDefault()
+            console.log(this);
+            let data=new FormData(this)
+            if (data.get('mot_de_passe')==data.get('mot_de_passe2')){
+                data.delete('mot_de_passe2')
+                $.post('server/?clients-new',formToDic(data),function (d) {
+                    app("administrateur")
+                    get_clients()
+                }).fail(e=>{
+                    console.log(e.responseText)
+                    alert("Erreur lors de la creation, essai de mettre un autre numero de telephone")
+
+                    
+                })
+            }else{
+                alert("Mot de passe incorrect!!")
+            }
+        })
+
+        $('#new_investissement_form').submit(function (e){
+            e.preventDefault()
+            console.log(this);
+            let data=new FormData(this)
+            $.ajax({
+                type: "POST",
+                url: "server/?articles-new",
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    console.log(response);
+                    app("articles")
+                    get_articles()
+                    // alert(response)
+                    // alert("Article posté avec succes!")
+
+                    // location.reload()    
+                },
+                xhr: function() {
+                    // Create a new XMLHttpRequest object
+                    var xhr = new XMLHttpRequest();                   
+                    // Set the XMLHttpRequest object's onprogress event listener
+                    xhr.upload.addEventListener("progress", function(event) {
+                        $("#progress").text(Math.round(progress)+" %");
+                    });
+                    return xhr;
+                },
+                error : function (error) { 
+                    alert("Echec !!")
+                    console.error(error.responseJSON);
+                }
+            });
+            // $.post('/investissements/new',data,function (d) {
+            //     console.log(d);
+            // }).fail(e=>{
+            //     console.log(e.responseText)
+            //     // alert("Erreur lors de la creation, essai de mettre un autre numero de telephone")
+            // })
+            }
+        )
+    </script>

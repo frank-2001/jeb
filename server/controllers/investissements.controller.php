@@ -1,7 +1,7 @@
 <?php
 
                 if (isset($_GET[$investissements->table."-all"])) {
-                    $output=$investissements->All();
+                    $output=$investissements->All("*","");
                 }
                 if (isset($_GET[$investissements->table."-new"])) {
                     $output=$investissements->new($_POST);
