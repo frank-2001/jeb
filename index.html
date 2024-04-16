@@ -19,20 +19,14 @@
         <div>
             <div style="color:black;align-items:center" class="flex between">
                 <span>Menu</span>
-                <!-- {{-- <button class="danger"> --}}
-                    <svg xmlns="http://www.w3.org/2000/svg" onclick="$('.menu-bar-mobile-show').hide()" style="width: 15%" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                      </svg>
-                      
-                    {{-- <svg onclick="$('.menu-bar-mobile-show').hide()" style="width: 30%" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                      </svg> --}}
-                {{-- </button> --}} -->
+                <svg xmlns="http://www.w3.org/2000/svg" onclick="$('.menu-bar-mobile-show').hide()" style="width: 15%" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
             </div>
             
-            <span onclick="window.open('home#home','_self');$('.menu-bar-mobile-show').hide()">Accueil</span>
-            <span onclick="window.open('home#services','_self');$('.menu-bar-mobile-show').hide()">Nos services</span>
-            <span onclick="window.open('','_self')">Nos produits</span>
+            <span onclick="window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">Accueil</span>
+            <span onclick="window.open('/#services','_self');$('.menu-bar-mobile-show').hide()">Nos services</span>
+            <span onclick="window.open('/#products','_self')">Nos produits</span>
         </div>
     </div> 
     <div class="show" onclick="$('.show').hide()">
@@ -160,9 +154,9 @@
             <h1>JEB</h1>
             
             <div class="menu-bar">
-                <span onclick="window.open('','_self')">Accueil</span>
-                <span onclick="window.open('','_self')">Nos services</span>
-                <span onclick="window.open('','_self')">Nos produits</span>
+                <span onclick="window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">Accueil</span>
+            <span onclick="window.open('/#services','_self');$('.menu-bar-mobile-show').hide()">Nos services</span>
+            <span onclick="window.open('/#products','_self');$('.menu-bar-mobile-show').hide()">Nos produits</span>
                 <button class="btn_connexion"></button>
             </div>
             <button class="btn_connexion"></button>
@@ -240,7 +234,7 @@
             let data=new FormData(this)
             if (data.get('mot_de_passe')==data.get('mot_de_passe2')){
                 data.delete('mot_de_passe2')
-                $.post('/users/new/',formToDic(data),function (d) {
+                $.post('/server/?articles-new',formToDic(data),function (d) {
                     if (d==1){
                         alert("Compte crée avec succes!")
                         window.open("users/","_self")

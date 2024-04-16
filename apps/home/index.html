@@ -142,7 +142,7 @@
             </div>
         </section>
     </div>
-    <div class="products">
+    <div class="products" id="products">
         <h1 style="width: 100%;" class="title">Nos produits</h1>
         <div>
             <button style="font-weight: bolder" class="white" onclick="lacrea_load('apps/profile/')" >Voir tout nos produits</button>
@@ -152,15 +152,16 @@
     <script>
         $.getJSON("/server/?articles-all",
             function (data, textStatus, jqXHR) {
-                data.forEach(article => {
+                console.log(data);
+                data.data.forEach(article => {
                     if (article.state) {
                         article.state="Disponible"
                     }else{
                         article.state="Indisponible"
                     }
-                    $('.products>div').append(`
+                    $('.products>div').prepend(`
                     <div class="product-horizontal">
-                        <img src="server/uploads/articles/${article.image}}}" alt="" srcset="">
+                        <img src="server/uploads/articles/${article.image}" alt="" srcset="">
                         <div>
                         <span>
                             ${article.title}

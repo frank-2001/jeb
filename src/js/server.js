@@ -14,7 +14,7 @@ if (db.get("user")) {
 $('.btn_connexion').click(function (e) { 
     e.preventDefault();
     if (db.get('user')) {
-        lacrea_load('apps/users/')
+        lacrea_load(".body",'apps/profile/')
     }else{
         $('.login').css('display','grid')
         $('.login>div').toggle()
