@@ -2,7 +2,7 @@
             class bdd{
                 var $host="localhost";
                 var $dbname="u698416815_jeb_db";
-                var $user="roou698416815_jeb_db";
+                var $user="u698416815_jeb_db";
                 var $pass="Code@2001";
 
                 
