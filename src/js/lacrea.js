@@ -1,7 +1,7 @@
-export function lacrea_load(destination=".body",file="applications/home/"){
-    console.log("lacrea_load");
-    $(destination).html("Chargment....");
-    $.get(file, data,
+function lacrea_load(destination=".body",file="apps/home/"){
+    console.log("load "+file);
+    $(destination).html("<div style='height:100vh; display:grid;align-items:center;justify-content:center'>Chargment....</div>");
+    $.get(file,
         function (data, textStatus, jqXHR) {
             $(destination).html(data);
         },

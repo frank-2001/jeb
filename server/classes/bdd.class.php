@@ -28,7 +28,9 @@
                 var $state=false;
                 var $data=[];
                 function return(String $sql,String $fun,Array $values=[]):array {
+                    // echo $sql;
                     $req= $this->connect()->prepare($sql);
+
                     return ["message"=>$fun." ".$this->table,"state"=>$req->execute($values),"data"=>$req->fetchAll()];
                 }
                 function all():array{
@@ -81,6 +83,18 @@
                     }
                     $demand=substr($demand,0,-2);
                     $sql="SELECT * FROM ".$this->table." where ".$demand;
+                    return $this->return($sql,__FUNCTION__);
+                }
+
+                // Search by any thing
+                function by($data,$param1="*",$param2=""){
+                    // print_r($data);
+                    $demand="";
+                    foreach ($data as $key => $value1) {
+                        $demand.=" ".$key." = '".$value1."' AND";
+                    }
+                    $demand=substr($demand,0,-3);
+                    $sql="SELECT ".$param1." FROM ".$this->table." ".$param2." where ".$demand;
                     return $this->return($sql,__FUNCTION__);
                 }
             }

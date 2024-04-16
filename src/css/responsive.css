@@ -10,18 +10,21 @@ header>div>svg{
     display: none;
 }
 @media (max-width: 600px){    
-    header>div>button{
+    /* header>div>button{
         display: block;
-    }    
+    }     */
     header>svg{
         display: none;
     }
     header>div{
         display: grid;
-        grid-template-columns: 10% 70% auto;
+        grid-template-columns: 10% 60% auto;
     }
     header>div>button{
         display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
     }
     header>div>svg{
         display: block;

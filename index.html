@@ -86,7 +86,6 @@
                 <button onclick="$('.login').hide()" class="danger">&cross;</button>
             </div>
             <form id="login">
-                @csrf
                 <input placeholder="Numero de telephone (ex:+2439494593595)"  type="tel" name="telephone" required>
                 <input placeholder="Mot de pass"  type="password" name="mot_de_passe" required>
                 <button>Valider</button>
@@ -103,7 +102,6 @@
                 <button onclick="$('.login').hide()" class="danger">&cross;</button>
             </div>
             <form id="new">
-                @csrf
                 <input placeholder="Nom" name="nom"  type="text" required>
                 <input placeholder="Postnom" name="postnom"  type="text" required>
                 <input placeholder="Prenom" name="prenom"  type="text" required>
@@ -164,29 +162,9 @@
                 <span onclick="window.open('','_self')">Accueil</span>
                 <span onclick="window.open('','_self')">Nos services</span>
                 <span onclick="window.open('','_self')">Nos produits</span>
-                <!-- @if($user!="") -->
-                    <button onclick="window.open('/users/','_self')" style="display:flex;align-items: center;justify-content: space-between;gap: 2px">
-                        <svg style="width: 20px"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                        </svg>
-                        <span>
-                            <!-- {{$user["nom"]}} {{$user["postnom"]}} -->
-                        </span>
-                    </button>
-                <!-- @endif -->
-                <button>Connexion</button>
+                <button class="btn_connexion"></button>
             </div>
-            <!-- @if($user!="") -->
-                    <button onclick="window.open('/users/','_self')" style="">
-                        <svg style="width: 20px"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                        </svg>
-                        <span>
-                            <!-- {{$user["nom"]}} -->
-                        </span>
-                    </button>
-            <!-- @endif -->
-            <button>Connexion</button>
+            <button class="btn_connexion"></button>
         </div>
 
     </header>
@@ -225,7 +203,12 @@
         <span style="text-align: right">by &hearts; Frank M.
         </span>
     </div>
+    <script src="src/js/fx.js"></script>
+    <script src="src/js/localStorage.js"></script>
+    <script src="src/js/lacrea.js"></script>
+    <script src="src/js/server.js"></script>
     <script>
+        lacrea_load()
         // $(".services>section>div").scrollTop(100px);
         function formToDic(form) {
             let dict={}
@@ -238,10 +221,12 @@
             e.preventDefault()
             let data=new FormData(this)
             console.log(data)
-            $.post('/users/connect',formToDic(data),function (d) {
-                if (d==1){
-                    alert("Connexion effectuée avec succes")
-                    window.open("users/",'_self')
+            $.post('/server/?clients-connect',formToDic(data),function (d) {
+                
+                if (d.data.length==1){
+                    db.set("user",d.data[0])
+                    location.reload()
+                    // window.open("users/",'_self')
                 }else{
                     alert("Mot de passe ou numero de telephone incorrect!")
                 }
@@ -266,7 +251,6 @@
                 alert("Mot de passe incorrect!!")
             }
         })
-
         function show(img) {
             $('.show').css('display',"grid")
             $('.show').html(`
