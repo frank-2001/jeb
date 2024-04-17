@@ -220,6 +220,7 @@
         }
         $('#login').submit(function (e){
             e.preventDefault()
+            $(".login").text("Connexion a cours...");
             let data=new FormData(this)
             console.log(data)
             $.post('/server/?clients-connect',formToDic(data),function (d) {
@@ -229,6 +230,7 @@
                     navbar()
                     profile()
                     $('.login').hide();
+                    location.reload()
                     // location.reload()
                     // window.open("users/",'_self')
                 }else{
@@ -240,6 +242,7 @@
 
         $('#new').submit(function (e){
             e.preventDefault()
+            $(".login").text("Connexion a cours....");
             let data=new FormData(this)
             if (data.get('mot_de_passe')==data.get('mot_de_passe2')){
                 data.delete('mot_de_passe2')
@@ -249,16 +252,18 @@
                             db.set("user",d.data[0])
                             navbar()
                             profile()
-                            $('.login').hide();
+                            location.reload()
                             // location.reload()
                             // window.open("users/",'_self')
                         }else{
                             alert("Mot de passe ou numero de telephone incorrect!")
+                            location.reload()
                         }
 
                     })
                 }).fail(e=>{
                     alert("Ce numero de telephone pourait déjà utilisé par un autre utilisateur")
+                    location.reload()
                     console.log(e);
                 })
             }else{
