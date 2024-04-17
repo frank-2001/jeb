@@ -15,6 +15,9 @@
 </head>
 
 <body>
+    <div id="loading">
+        <span>Chargment....</span>
+    </div>
     <div class="menu-bar-mobile-show">  
         <div>
             <div style="color:black;align-items:center" class="flex between">
@@ -220,41 +223,39 @@
         }
         $('#login').submit(function (e){
             e.preventDefault()
-            $(".login").text("Connexion a cours...");
             let data=new FormData(this)
-            console.log(data)
+            $("#loading").show();
             $.post('/server/?clients-connect',formToDic(data),function (d) {
-                
                 if (d.data.length==1){
                     db.set("user",d.data[0])
                     navbar()
                     profile()
                     $('.login').hide();
-                    location.reload()
-                    // location.reload()
-                    // window.open("users/",'_self')
                 }else{
                     alert("Mot de passe ou numero de telephone incorrect!")
                 }
 
+            }).fail(e=>{
+                alert("Erreur du serveur")
+            }).always(e=>{
+                $("#loading").hide();
             })
         })
 
         $('#new').submit(function (e){
             e.preventDefault()
-            $(".login").text("Connexion a cours....");
             let data=new FormData(this)
             if (data.get('mot_de_passe')==data.get('mot_de_passe2')){
+                $("#loading").show();
                 data.delete('mot_de_passe2')
                 $.post('/server/?clients-new',formToDic(data),function (d) {
+                    // $("#loading").show();
                     $.post('/server/?clients-connect',{"telephone":formToDic(data).telephone,"mot_de_passe":formToDic(data).mot_de_passe},function (d) {
                         if (d.data.length==1){
                             db.set("user",d.data[0])
+                            $(".login").hide();
                             navbar()
                             profile()
-                            location.reload()
-                            // location.reload()
-                            // window.open("users/",'_self')
                         }else{
                             alert("Mot de passe ou numero de telephone incorrect!")
                             location.reload()
@@ -263,8 +264,9 @@
                     })
                 }).fail(e=>{
                     alert("Ce numero de telephone pourait déjà utilisé par un autre utilisateur")
-                    location.reload()
-                    console.log(e);
+                    $("#loading").hide();
+                }).always(e=>{
+                    $("#loading").hide();
                 })
             }else{
                 alert("Mot de passe incorrect!!")
