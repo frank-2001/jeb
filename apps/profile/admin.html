@@ -467,8 +467,6 @@
                 }).fail(e=>{
                     console.log(e.responseText)
                     alert("Erreur lors de la creation, essai de mettre un autre numero de telephone")
-
-                    
                 })
             }else{
                 alert("Mot de passe incorrect!!")
@@ -479,6 +477,7 @@
             e.preventDefault()
             console.log(this);
             let data=new FormData(this)
+            $("#loading").show();
             $.ajax({
                 type: "POST",
                 url: "server/?articles-new",
@@ -489,6 +488,7 @@
                     console.log(response);
                     app("articles")
                     get_articles()
+                    $("#loading").hide();
                     // alert(response)
                     // alert("Article posté avec succes!")
 
@@ -506,6 +506,7 @@
                 error : function (error) { 
                     alert("Echec !!")
                     console.error(error.responseJSON);
+                    $("#loading").hide();
                 }
             });
             // $.post('/investissements/new',data,function (d) {

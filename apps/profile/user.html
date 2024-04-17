@@ -58,19 +58,19 @@
                 <div>
                     <div>
                             
-                        {{$validate}} Investissements en cours
+                        0 Investissements en cours
                     </div>
                     <div style="background: var(--secondary)">
-                        {{$wait}} demandes
+                        0 demandes
                     </div>
                     <div>
-                        {{$finish}} Investissements terminé
+                        0 Investissements terminé
                     </div>
                     <div>
-                        Total Investis {{ $investi }} $
+                        Total Investis 0 $
                     </div>
                     <div>
-                        Compte crée {{$user['created_at']}}
+                        Compte crée -
                     </div>
                 </div>
             </div>
@@ -156,11 +156,13 @@
             $('.app>div').hide()
             $('#'+ap).show()
         }
-        app('dashboard')
+        setTimeout(() => {
+            app('dashboard')            
+        }, 100);
 
-        $.get('../investissements/user/{{$user["id"]}}',function (e) {
+        $.get('server/?investissements-by='+db.get('user')["id"],function (e) {
 
-            e.forEach(el => {
+            e.data.forEach(el => {
                 dat=new Date()
                 now=new Date()
                 
