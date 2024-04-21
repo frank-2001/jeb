@@ -1,4 +1,4 @@
-    <link rel="stylesheet" href="src/css/home.css?version=1">
+    <link rel="stylesheet" href="src/css/home.css?version=2">
     <div class="home" id="home">
         <div>
             <img src="src/images/assets/jeb22.webp">
@@ -145,7 +145,7 @@
     <div class="products" id="products">
         <h1 style="width: 100%;" class="title">Nos produits</h1>
         <div>
-            <button style="font-weight: bolder" class="white" onclick="lacrea_load('apps/articles/')" >Voir tout nos produits</button>
+            <!-- <button style="font-weight: bolder" class="white" onclick="lacrea_load('apps/articles/')" >Voir tout nos produits</button> -->
         </div>
     </div>
 
@@ -165,10 +165,10 @@
                     <div class="product-horizontal">
                         <img src="server/uploads/articles/${article.image}" alt="" srcset="">
                         <div>
-                        <span>
-                            ${article.title}
-                        </span>
-                            <div class="state">
+                            <span >
+                                ${article.title}
+                            </span>
+                            <div class="state flex between center">
                                 <span>
                                     ${article.state}
                                 </span>
