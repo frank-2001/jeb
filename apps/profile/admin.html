@@ -1,6 +1,6 @@
 
-<link rel="stylesheet" href="src/css/user.css">
-<link rel="stylesheet" href="src/css/admin.css">
+<link rel="stylesheet" href="src/css/user.css?version=1">
+<link rel="stylesheet" href="src/css/admin.css?version=1">
     <div class="user">
         <div class="infos">
             <div class="head">
@@ -250,14 +250,20 @@
                 }
             );
         }
-        function inv_state(id,val) {
-            $.getJSON("/investissements/state/"+id+"/"+val,
+        function inv_state(id,val,column) {
+            d=new Date()
+            d=`${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
+            if (column=="validate") {
+                send={"state":val,"validate":d}
+            } else {
+                send={"state":val,"terminate":d}
+            }
+            
+            
+            $.post("server/?investissements-update="+id,send,
                 function (data, textStatus, jqXHR) {
-                    if (data==1) {
-                        alert("Investissment mis a jour avec succes! recharger la page pour verifier")                        
-                    }else{
-                        alert("Erreur : Action non effectuée!")
-                    }
+                    alert("Investissment mis a jour avec succes! recharger la page pour verifier") 
+                    get_investissement()
                 }
             ).fail(e=>{
                 alert("Erreur : Action non effectuée!")
@@ -400,23 +406,28 @@
         }
         get_clients()
         
-        $.get('/server/?investissements-all',function (e) {
+        function get_investissement() {
+
+            $.get('/server/?investissements-all',function (e) {
+            $('#investissements>.list').html("")
             $('#nb_investissement').text(`${e.data.length} Investissements`);
             console.log(e);
             e.data.forEach(el => {
                 dat=new Date()
                 now=new Date()
-                
                 validate=""
                 terminate=""
                 if (el.state=="1") {
                     el.state="Términé depuis "+el.terminate
                     cls="danger"
+                    validate="hidden"
+                    terminate="hidden"
                     now=new Date(el.terminate+" 12:00:00")
                 }else if(el.state=="0"){
                     el.state="Validé depuis "+el.validate
                     cls="white border"
                     dat=new Date(el.validate+" 12:00:00")
+                    validate="hidden"
                 }else{
                     el.state="Non validé"
                     cls="secondary border"
@@ -430,8 +441,9 @@
                         <div class="grid">
                             <div class="flex between">
                                 <span> Etat : ${el.state}</span>
-                                <span class="">le ${el.creation}</span>
+                                
                             </div>
+                            <span class="">Creatin : le ${el.creation}</span>
                             <span> Client : ${el.nom} ${el.postnom} ${el.prenom}</span>
                             <span> Produit : ${el.title}</span>
                             <span> Prix : ${el.price}$ </span>
@@ -443,10 +455,9 @@
                             <span> Nombre des Jours ecoulé :  ${nb_day} Jours</span>
                             <span> Nombre des paiements reçu : ${nb_pay}</span>
                             <span> Total encaissé : ${total}$</span>
-                            ${validate} ${terminate}
                             <div class="flex between">
-                                <button onclick="inv_state(${el.id},0)">Valider</button>
-                                <button onclick="inv_state(${el.id},1)">Terminer</button>
+                                <button ${validate} onclick="inv_state(${el.id},0,'validate')">Valider</button>
+                                <button  ${terminate} onclick="inv_state(${el.id},1,'terminate')">Terminer</button>
                             </div>
                             
                         </div>
@@ -454,7 +465,10 @@
                 `);
             });
         })
-
+    
+        }
+        
+        get_investissement()
         $('#new_admin_form').submit(function (e){
             e.preventDefault()
             console.log(this);

@@ -1,6 +1,6 @@
     
-    <link rel="stylesheet" href="src/css/user.css">
-    <link rel="stylesheet" href="src/css/profil.css">
+    <link rel="stylesheet" href="src/css/user.css?version=1">
+    <link rel="stylesheet" href="src/css/admin.css?version=1">
 
     <div class="user">
         <div class="infos">
@@ -31,46 +31,20 @@
         </div>
         <div class="app">
             <div id="dashboard">
-                <!-- @php
-
-                    $validate=0;
-                    $wait=0;
-                    $finish=0;
-                    $investi=0;
-
-                    foreach ($investissements as $key) {
-                        if ($key["state"]=="0") {
-                            $validate++;
-                        }
-                        if ($key["state"]=="1") {
-                            $finish++;
-                        }
-                        if ($key["state"]=="-1") {
-                            $wait++;
-                        }
-                        $investi+=$key["pieces"]*$key["prix_investissement"];
-                    }
-                @endphp -->
                 <h2>
                     DASHBOARD
                 </h2>
 
                 <div>
-                    <div>
+                    <div id="nb_investissement">
                             
-                        0 Investissements en cours
+                        0 Investissements
                     </div>
-                    <div style="background: var(--secondary)">
-                        0 demandes
-                    </div>
-                    <div>
-                        0 Investissements terminé
-                    </div>
-                    <div>
+                    <div id="totaux">
                         Total Investis 0 $
                     </div>
-                    <div>
-                        Compte crée -
+                    <div id="create">
+                        Compte crée 
                     </div>
                 </div>
             </div>
@@ -80,7 +54,7 @@
             <div id="investissements">
                 <div class="flex between center tit">
                     <h2>INVESTISSEMENTS</h2>
-                    <button onclick="app('new_investissement')">Nouvel</button>
+                    <button onclick="app('new_investissement');get_articles()">Nouvel</button>
                 </div>
                 <div class="list">
 
@@ -98,24 +72,7 @@
                 </div>
                 <div class="products">
                     <div>
-                        <!-- @foreach($articles as $article) -->
-                            <div class="product-horizontal">
-                                <img src="{{URL::asset('uploads/articles')}}/{{$article->image}}"" alt="" srcset="">
-                                <div>
-
-                                    <div class="state flex center between">
-                                        <strong>
-                                            {{$article->title}}
-                                        </strong>
-                                        <span class="sacondary">Disponible</span>
-                                    </div>
-                                    <span class="">Prix : {{$article->prix_investissement}}$</span>
-                                    <span>Interet : {{$article->rate_return}}$</span>
-                                    <span>Periode : {{$article->nb_day_return}}$</span>
-                                    <button class="white" onclick="investir()">Investire</button>
-                                </div>
-                            </div>
-                        <!-- @endforeach -->
+                        
                     </div>
                 </div>
             </div>
@@ -129,16 +86,19 @@
     </div>
     <script src="src/js/profile.js"></script>
     <script>
-       
+        $("#create").append(db.get('user').created_at);
         function investir(id) {
             pieces=prompt("Quantite")
-
-            $.get("../investissements/new/?client_id=&pieces="+pieces+"&article_id="+id,
+            if (!pieces || pieces=="") {
+                alert("Action annulée")
+                return 
+            }
+            $.post("server/?investissements-new",{"article_id":id,"client_id":db.get('user')["id"],"pieces":pieces},
                 function (data, textStatus, jqXHR) {
                     alert("Investissement fait avec succes")
-                    location.reload()
+                    investissement()
                 },
-                ""
+                "json"
             ).fail(e=>{
                 alert("Erreur : Action non effectuée!")
                 alert("Echec")
@@ -146,7 +106,9 @@
             });
         }
 
-        function app(ap) {
+        function app(ap="dashboard") {
+            db.set('admin_app',ap)
+            console.log("ADMIN : "+ap);
             if ($("html").width()<=600) {
                 $('.menu-profil-mobile').hide();
             }
@@ -157,54 +119,112 @@
             $('#'+ap).show()
         }
         setTimeout(() => {
-            app('dashboard')            
+            if (db.get('admin_app')) {
+                app(db.get('admin_app'))   
+            }else{
+                app()
+            }         
         }, 100);
 
-        $.get('server/?investissements-by='+db.get('user')["id"],function (e) {
-
-            e.data.forEach(el => {
-                dat=new Date()
-                now=new Date()
-                
-                validate=""
-                terminate=""
-                if (el.state=="1") {
-                    el.state="Términé "+el.terminate
-                    cls="danger"
-                    now=new Date(el.terminate+" 12:00:00")
-                }else if(el.state=="0"){
-                    el.state="Validé depuis "+el.validate
-                    cls="white border"
-                    dat=new Date(el.validate+" 12:00:00")
-                }else{
-                    el.state="Non validé"
-                    cls="secondary border"
+        function get_articles() {
+            $.get('/server/?articles-all',function (e) {
+            $('#nb_article').text(`${e.data.length} Article.s`);
+            $('#new_investissement>.products>div').html("")
+            e.data.forEach(article => {
+                stat="danger"
+                if (article.state) {
+                    article.state="Disponible"
+                    stat="primary"
+                } else {
+                    article.state="Indisponible" 
                 }
-                nb_day=Math.round((now.getTime()-dat.getTime())/(1000*60*60*24))
-                nb_pay=Math.round(nb_day/el.nb_day_return)
-                total=el.rate_return*nb_pay
-                $('#investissements>.list').append(`
-                    <div class="${cls} p10 inverstissement">
-                        
-                        <div class="grid">
-                            <div class="flex between">
-                                <span> Etat : ${el.state}</span>
-                                <span class="">le ${el.creation}</span>
+                $('#new_investissement>.products>div').append(`
+                                <div class="product-horizontal">
+                                    <img src="server/uploads/articles/${article.image}" alt="" srcset="">
+                                    <div>
+
+                                        <div class="state flex center between">
+                                            <strong>
+                                                ${article.title}
+                                            </strong>
+                                            <span class="${stat}">${article.state}</span>
+
+                                        </div>
+                                        <span class="">Prix de vente : ${article.price}$</span>
+                                        <span class="">Prix d'investissement : ${article.prix_investissement}$</span>
+                                        <span>Interet : ${article.rate_return}$</span>
+                                        <span>Periode : ${article.nb_day_return} Jours</span>
+                                        <div class="">
+                                            <button onclick="investir(${article.id})">Investir</button>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                    `);
+                });
+            })
+        }
+        get_articles()
+                 
+        function investissement() {
+            $('#investissements>.list').html("")
+            $.post('server/?investissements-by',{"client_id":db.get('user').id},function (e) {
+                $('#nb_investissement').text(`${e.data.length} Investissements`);
+                console.log(e);
+                let  totaux=0
+                e.data.forEach(el => {
+                    if (el.state>=0) {
+                        totaux+=el.pieces*el.price 
+                    }
+                    dat=new Date()
+                    now=new Date()
+                    
+                    validate=""
+                    terminate=""
+                    if (el.state=="1") {
+                        el.state="Términé depuis "+el.terminate
+                        cls="danger"
+                        now=new Date(el.terminate+" 12:00:00")
+                    }else if(el.state=="0"){
+                        el.state="Validé depuis "+el.validate
+                        cls="white border"
+                        dat=new Date(el.validate+" 12:00:00")
+                    }else{
+                        el.state="Non validé"
+                        cls="secondary border"
+                    }
+
+                    nb_day=Math.round((now.getTime()-dat.getTime())/(1000*60*60*24))
+                    nb_pay=Math.round(nb_day/el.nb_day_return)
+                    total=el.rate_return*nb_pay
+                    $('#investissements>.list').append(`
+                        <div class="${cls} p10 inverstissement">
+                            
+                            <div class="grid">
+                                <div class="flex between">
+                                    <span> Etat : ${el.state}</span>
+                                    
+                                </div>
+                                <span class="">Creation le ${el.creation}</span>
+                                <span> Client : ${el.nom} ${el.postnom} ${el.prenom}</span>
+                                <span> Produit : ${el.title}</span>
+                                <span> Prix : ${el.price}$ </span>
+                            
+                                <span> Nombre Pieces : ${el.pieces}</span>
+                                <span> Total investis : ${el.pieces*el.price}$</span>
+                                <span> Interet par piece : ${el.rate_return}$</span>
+                                <span> Durée avant chaque paiement : ${el.nb_day_return} Jours </span>
+                                <span> Nombre des Jours ecoulé :  ${nb_day} Jours</span>
+                                <span> Nombre des paiements reçu : ${nb_pay}</span>
+                                <span> Total encaissé : ${total}$</span>
+                                ${validate} ${terminate}
+                                
                             </div>
-                            <span> Client : ${el.nom} ${el.postnom} ${el.prenom}</span>
-                            <span> Produit : ${el.title}</span>
-                            <span> Prix : ${el.price}$ </span>
-                           
-                            <span> Nombre Pieces : ${el.pieces}</span>
-                            <span> Total investis : ${el.pieces*el.price}$</span>
-                            <span> Interet par piece : ${el.rate_return}$</span>
-                            <span> Durée avant chaque paiement : ${el.nb_day_return} Jours </span>
-                            <span> Nombre des Jours ecoulé :  ${nb_day} Jours</span>
-                            <span> Nombre des paiements reçu : ${nb_pay}</span>
-                            <span> Total encaissé : ${total}$</span>
                         </div>
-                    </div>
-                `);
-            });
-        })
-    </script>
+                    `);
+                });
+                $("#totaux").text("Total Investis "+totaux+" $");
+            })        
+        }
+        investissement()
+</script>

@@ -8,11 +8,9 @@
     <meta name="description" content="Je suis eleveur des betails est une ONG dont l’objet général est l’amélioration des conditions de vie des éleveurs">
     <link rel="shortcut icon" href="src/images/assets/jeb22.webp" type="image/x-icon">
     <title>JEB | Home </title>
-    <link rel="stylesheet" href="src/css/style.css">
-
-    <link rel="stylesheet" href="src/css/responsive.css">
+    <link rel="stylesheet" href="src/css/style.css?version=1">
+    <link rel="stylesheet" href="src/css/responsive.css?version=1">
     <script src="src/js/jquery.min.js"></script>
-
 </head>
 
 <body>
@@ -155,7 +153,7 @@
             <svg onclick="$('.menu-bar-mobile-show').css('display','grid')" style="width: 90%" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
-            <h1>JEB</h1>
+            <h1 onclick="lacrea_load() ;window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">JEB</h1>
             
             <div class="menu-bar">
                 <span class="" onclick="lacrea_load('.body','apps/home');window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">Accueil</span>
@@ -202,11 +200,12 @@
         <span style="text-align: right">by &hearts; Frank M.
         </span>
     </div>
-    <script src="src/js/fx.js"></script>
-    <script src="src/js/localStorage.js"></script>
-    <script src="src/js/lacrea.js"></script>
-    <script src="src/js/server.js"></script>
+    <script src="src/js/fx.js?version=1"></script>
+    <script src="src/js/localStorage.js?version=1"></script>
+    <script src="src/js/lacrea.js?version=1"></script>
+    <script src="src/js/server.js?version=1"></script>
     <script>
+        db.set('version','version=1')
         if (db.get('app')) {
             lacrea_load(".body",db.get('app'))    
         }else{

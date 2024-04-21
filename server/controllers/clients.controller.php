@@ -1,7 +1,7 @@
 <?php
 
                 if (isset($_GET[$clients->table."-all"])) {
-                    $output=$clients->All();
+                    $output=$clients->All(" * ","ORDER BY ID DESC");
                 }
                 if (isset($_GET[$clients->table."-new"])) {
                     $_POST["mot_de_passe"]=md5($_POST["mot_de_passe"]);

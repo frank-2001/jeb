@@ -67,6 +67,7 @@
                     }
                     $struc=substr($struc,0,-1);
                     $sql="UPDATE ".$this->table." set ".$struc." where id=".$id;
+                    
                     return $this->return($sql,__FUNCTION__);      
                 }
                 function delete($id){
@@ -101,6 +102,7 @@
                     }
                     $demand=substr($demand,0,-3);
                     $sql="SELECT ".$param1." FROM ".$this->table." ".$param2." where ".$demand;
+                    // print_r($sql);
                     return $this->return($sql,__FUNCTION__);
                 }
             }
