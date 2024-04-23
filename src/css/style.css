@@ -84,13 +84,15 @@ button:hover,.btn:hover {
 }
 
 footer{
+    /* border-top: solid black 1px; */
     height: 50vh;
     display: flex;
     align-items: start;
     justify-content: space-around;
     padding: 4vh 0;
-    background: grey;
+    background: rgb(230, 230, 230);
     margin: 0;
+    color: black;
 }
 footer>div{
     display: grid;
@@ -292,8 +294,8 @@ form>div{
 .product-horizontal{
     background: var(--secondary);
     display: grid;
-    grid-template-rows: 60% auto;
-
+    grid-template-rows: 50% auto ;
+    font-size: small;
     border: solid 1px var(--white);
     border-radius: 10px;
     color:var(--secondary);
@@ -421,4 +423,26 @@ a{
     backdrop-filter: blur(4px);
     font-size: 120%;
     font-weight: bold;
+}
+.social{
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 50% 50%;
+}
+.social>div{
+    display: flex;
+    align-items: center;
+    color: var(--primary);
+    font-size: small;
+    gap: 10px;
+    cursor: pointer;
+    padding: 4px;
+
+}
+.social>div:hover{
+    background: gray;
+    border-radius: 5px;
+}
+.social>div>svg{
+    width:20%;
 }

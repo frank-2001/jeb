@@ -1,20 +1,20 @@
 .products{
     padding-bottom: 10vh;
     text-align: center;
+     margin: auto 5% 10vh 5%;
 }
 .products>div{
     display: grid;
-    grid-template-columns: 20% 20% 20%;
+    grid-template-columns: 25% 25% 25%;
     gap: 2%;
     justify-content: center;
     align-items: stretch;
 }
 @media (max-width: 600px){
     .products{
-        /* background: var(--white); */
         padding-bottom: 10vh;
         text-align: center;
-        /* color: var(--secondary); */
+         margin: auto;
     }
     .products>div{
         display: grid;

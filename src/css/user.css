@@ -148,9 +148,9 @@ color: var(--secondary);
         height: auto;
     }
     .user>.app{
-        overflow-y: auto;
+        overflow: auto;
         width: auto;
-        height: auto;
+        height: 100%;
         min-height: 80vh;
         margin-bottom: 20px;
         /*border-left: solid var(--primary) 1px;*/

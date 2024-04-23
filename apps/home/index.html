@@ -1,4 +1,4 @@
-    <link rel="stylesheet" href="src/css/home.css?version=2">
+    <link rel="stylesheet" href="src/css/home.css?version=3">
     <div class="home" id="home">
         <div>
             <img src="src/images/assets/jeb22.webp">
@@ -145,7 +145,7 @@
     <div class="products" id="products">
         <h1 style="width: 100%;" class="title">Nos produits</h1>
         <div>
-            <!-- <button style="font-weight: bolder" class="white" onclick="lacrea_load('apps/articles/')" >Voir tout nos produits</button> -->
+            <button style="font-weight: bolder" class="white" onclick="lacrea_load('.body','apps/produits/')" >Voir tout nos produits</button>
         </div>
     </div>
 
@@ -155,7 +155,10 @@
         $.getJSON("/server/?articles-all",
             function (data, textStatus, jqXHR) {
                 console.log(data);
-                data.data.forEach(article => {
+                data.data.forEach((article,i) => {
+                    if (i>=6) {
+                        return
+                    }
                     if (article.state) {
                         article.state="Disponible"
                     }else{
@@ -165,20 +168,20 @@
                     <div class="product-horizontal">
                         <img src="server/uploads/articles/${article.image}" alt="" srcset="">
                         <div>
-                            <span >
+                            <h2 >
                                 ${article.title}
-                            </span>
+                            </h2>
                             <div class="state flex between center">
                                 <span>
                                     ${article.state}
                                 </span>
                                 <span class="price secondary p5">
                                     Prix : 
-                                    ${article.price}
-                                $</span>
+                                    ${article.price}$ /Kg
+                                </span>
 
                             </div>
-                            <button onclick="window.open('https:\/\/wa.me/+243994557806?text=Message venant de https:\/\/jeb-elevage.org, salut je suis interessé par *${article.title}* de {{$article->price}}$')">Commander</button>
+                            <button onclick="command('${article.title}',${article.price},'${article.state}')">Commander</button>
                         </div>
                     </div>
                     

@@ -1,0 +1,46 @@
+
+<link rel="stylesheet" href="src/css/articles.css?version=3">
+<div class="products">
+    <h1 style="width: 100%;" class="title">Nos produits </h1>
+    <div>
+
+
+    </div>
+</div>
+<script>
+    $.getJSON("/server/?articles-all",
+            function (data, textStatus, jqXHR) {
+                console.log(data);
+                data.data.forEach(article => {
+                    if (article.state) {
+                        article.state="Disponible"
+                    }else{
+                        article.state="Indisponible"
+                    }
+                    $('.products>div').prepend(`
+                    <div class="product-horizontal">
+                        <img src="server/uploads/articles/${article.image}" alt="" srcset="">
+                        <div>
+                            <span >
+                                ${article.title}
+                            </span>
+                            <div class="state flex between center">
+                                <span>
+                                    ${article.state}
+                                </span>
+                                <span class="price secondary p5">
+                                    Prix : 
+                                    ${article.price}$ /kg
+                                </span>
+
+                            </div>
+                            <button onclick="command('${article.title}',${article.price},'${article.state}')">Commander</button>
+                        </div>
+                    </div>
+                    
+                    `);
+                });
+            }
+    );
+</script>
+

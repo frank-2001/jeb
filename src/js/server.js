@@ -32,3 +32,17 @@ function profile() {
         $('.login>div').toggle()
     }
 }
+
+function command(title,price,state) {
+    if (state!="Disponible") {
+        alert("Desolé ce produit n'est pas disponible pour l'instant")
+        if (!confirm("Voulez-vous malgré tout commander le produit")) {
+            return
+        }
+    }
+    quatity=prompt(`Quel quantité de ${title} voulez-vous commander svp? `)
+    if (quatity) {
+        alert(`ça va vous couter ${price*quatity}$, nous allons maintenant vous rediriger vers notre service client pour finaliser la commande!!`)    
+        window.open(`https://wa.me/+243994557806?text=Message venant de https://jeb-elevage.org, salut je commande *${quatity}*kg de *${title}*, PU : ${price}$, PT : ${price*quatity}$ `)
+    }   
+}

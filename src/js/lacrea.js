@@ -17,3 +17,7 @@ function lacrea_load(destination=".body",file="apps/home/"){
         $("#loading").hide();
     })
 }
+let url=location.href
+if(url.split('/').indexOf("produits")>=0){
+    lacrea_load('.body','apps/produits/')
+}

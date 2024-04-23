@@ -147,7 +147,7 @@
 .products>div{
     width: 65vw;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 30% 30% 30%;
     justify-content: stretch;
     align-items: stretch;
     /*grid-template-rows: 100%;*/

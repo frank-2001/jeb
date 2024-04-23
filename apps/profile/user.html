@@ -1,6 +1,6 @@
     
-    <link rel="stylesheet" href="src/css/user.css?version=1">
-    <link rel="stylesheet" href="src/css/admin.css?version=1">
+    <link rel="stylesheet" href="src/css/user.css?version=3">
+    <link rel="stylesheet" href="src/css/admin.css?version=3">
 
     <div class="user">
         <div class="infos">
@@ -87,23 +87,31 @@
     <script src="src/js/profile.js"></script>
     <script>
         $("#create").append(db.get('user').created_at);
+
         function investir(id) {
-            pieces=prompt("Quantite")
-            if (!pieces || pieces=="") {
-                alert("Action annulée")
-                return 
+            if (id!=null) {
+                db.set('investir',id)
+                service("contrat")
             }
-            $.post("server/?investissements-new",{"article_id":id,"client_id":db.get('user')["id"],"pieces":pieces},
-                function (data, textStatus, jqXHR) {
-                    alert("Investissement fait avec succes")
-                    investissement()
-                },
-                "json"
-            ).fail(e=>{
-                alert("Erreur : Action non effectuée!")
-                alert("Echec")
-                console.log(e);
-            });
+            else{    
+                id=db.get('investir')
+                pieces=prompt("Quantite")
+                if (!pieces || pieces=="") {
+                    alert("Action annulée")
+                    return 
+                }
+                $.post("server/?investissements-new",{"article_id":id,"client_id":db.get('user')["id"],"pieces":pieces},
+                    function (data, textStatus, jqXHR) {
+                        alert("Investissement fait avec succes")
+                        investissement()
+                    },
+                    "json"
+                ).fail(e=>{
+                    alert("Erreur : Action non effectuée!")
+                    alert("Echec")
+                    console.log(e);
+                });
+            }
         }
 
         function app(ap="dashboard") {
@@ -131,6 +139,9 @@
             $('#nb_article').text(`${e.data.length} Article.s`);
             $('#new_investissement>.products>div').html("")
             e.data.forEach(article => {
+                if (article.prix_investissement==0) {
+                    return
+                }
                 stat="danger"
                 if (article.state) {
                     article.state="Disponible"
@@ -138,6 +149,7 @@
                 } else {
                     article.state="Indisponible" 
                 }
+                
                 $('#new_investissement>.products>div').append(`
                                 <div class="product-horizontal">
                                     <img src="server/uploads/articles/${article.image}" alt="" srcset="">
@@ -150,14 +162,11 @@
                                             <span class="${stat}">${article.state}</span>
 
                                         </div>
-                                        <span class="">Prix de vente : ${article.price}$</span>
+                                        <span class="">Prix de vente : ${article.price}$/piece</span>
                                         <span class="">Prix d'investissement : ${article.prix_investissement}$</span>
-                                        <span>Interet : ${article.rate_return}$</span>
+                                        <span>Interet : ${article.rate_return}$/piece</span>
                                         <span>Periode : ${article.nb_day_return} Jours</span>
-                                        <div class="">
-                                            <button onclick="investir(${article.id})">Investir</button>
-                                        </div>
-                                        
+                                        <button onclick="investir(${article.id})">Investir</button>
                                     </div>
                                 </div>
                     `);
@@ -208,10 +217,10 @@
                                 <span class="">Creation le ${el.creation}</span>
                                 <span> Client : ${el.nom} ${el.postnom} ${el.prenom}</span>
                                 <span> Produit : ${el.title}</span>
-                                <span> Prix : ${el.price}$ </span>
+                                <span> Prix : ${el.prix_investissement}$/pieces</span>
                             
                                 <span> Nombre Pieces : ${el.pieces}</span>
-                                <span> Total investis : ${el.pieces*el.price}$</span>
+                                <span> Total investis : ${el.pieces*el.prix_investissement}$</span>
                                 <span> Interet par piece : ${el.rate_return}$</span>
                                 <span> Durée avant chaque paiement : ${el.nb_day_return} Jours </span>
                                 <span> Nombre des Jours ecoulé :  ${nb_day} Jours</span>

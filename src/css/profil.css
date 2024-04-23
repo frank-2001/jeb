@@ -32,9 +32,9 @@
     padding:1% 0;
     }
     .products>div{
-    display:grid;
-    grid-template-columns: auto auto;
-    gap: 5%;
+        display:none;
+        grid-template-columns: 50% 50%;
+        gap: 5%;
     }
 
 @media (max-width: 600px){    
@@ -66,8 +66,8 @@
     }
     .products>div{
         display:grid;
-        grid-template-columns: 100%;
-        gap: 5%;
+        grid-template-columns: auto;
+        gap: 10px;
     }
     #new_investissement>div>svg,#new_admin>div>svg{
         width: 8%;

@@ -1,6 +1,6 @@
 
-<link rel="stylesheet" href="src/css/user.css?version=1">
-<link rel="stylesheet" href="src/css/admin.css?version=1">
+<link rel="stylesheet" href="src/css/user.css?version=3">
+<link rel="stylesheet" href="src/css/admin.css?version=3">
     <div class="user">
         <div class="infos">
             <div class="head">
@@ -458,6 +458,7 @@
                             <div class="flex between">
                                 <button ${validate} onclick="inv_state(${el.id},0,'validate')">Valider</button>
                                 <button  ${terminate} onclick="inv_state(${el.id},1,'terminate')">Terminer</button>
+                                <button class="danger" onclick="del(${el.id})">Supprimer</button>
                             </div>
                             
                         </div>
@@ -531,4 +532,16 @@
             // })
             }
         )
+            
+        function del(id) {
+            if (confirm("voulez-vous vraiment supprimer cet investissment?")) {
+                $.getJSON("/server/?investissements-delete="+id,
+                    function (data, textStatus, jqXHR) {
+                        alert(data.message)
+                        get_investissement()
+                        
+                    }
+                );        
+            }
+        }
     </script>
