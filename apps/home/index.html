@@ -1,4 +1,4 @@
-    <link rel="stylesheet" href="src/css/home.css?version=3">
+    <link rel="stylesheet" href="src/css/home.css?version=3a">
     <div class="home" id="home">
         <div>
             <img src="src/images/assets/jeb22.webp">
@@ -156,7 +156,7 @@
             function (data, textStatus, jqXHR) {
                 console.log(data);
                 data.data.forEach((article,i) => {
-                    if (i>=6) {
+                    if (i>=3) {
                         return
                     }
                     if (article.state) {
@@ -166,7 +166,8 @@
                     }
                     $('.products>div').prepend(`
                     <div class="product-horizontal">
-                        <img src="server/uploads/articles/${article.image}" alt="" srcset="">
+                        <div class="" style="background:url(server/uploads/articles/${article.image});background-position:center;background-size:cover;background-repeat:no-repeat">
+                        </div>
                         <div>
                             <h2 >
                                 ${article.title}

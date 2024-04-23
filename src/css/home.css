@@ -331,22 +331,19 @@
         margin: 0 3%;
         width: 94%;
         height: auto;
-        justify-content: flex-start;
-        align-items: start;
+        /* justify-content: flex-start; */
+        /* align-items: start; */
+        grid-template-columns: 100%;
     }
     .products>div{
         display: grid;
-        /* overflow-x: auto; */
-        grid-template-columns: auto;
+        grid-template-columns: 100%;
         align-items: stretch;
         justify-content: start;
-        width: 90%;
-
+        width: auto;
         margin: 0;
         padding: 5% 5%;
-        /*grid-template-rows: 100%;*/
         gap: 2%;
-        /*justify-content: stretch;*/
         align-items: stretch;
     }
     .products>div>*{

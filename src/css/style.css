@@ -285,7 +285,7 @@ form>div{
 }
 .product{
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: 60% 10%;
     border: solid 1px var(--white);
     border-radius: 10px;
     color:var(--secondary);
@@ -294,7 +294,7 @@ form>div{
 .product-horizontal{
     background: var(--secondary);
     display: grid;
-    grid-template-rows: 50% auto ;
+    grid-template-rows: 60% auto ;
     font-size: small;
     border: solid 1px var(--white);
     border-radius: 10px;
@@ -315,11 +315,11 @@ form>div{
     color: white;
     border: var(--primary) solid 1px;
 }
-.product>img{
+.product>.img{
     width: 100%;
     height: auto;
 }
-.product-horizontal>img{
+.product-horizontal>.img{
     width: 100%;
     height: 100%;
 }

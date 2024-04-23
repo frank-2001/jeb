@@ -1,6 +1,6 @@
 
-<link rel="stylesheet" href="src/css/user.css?version=3">
-<link rel="stylesheet" href="src/css/admin.css?version=3">
+<link rel="stylesheet" href="src/css/user.css?version=3a">
+<link rel="stylesheet" href="src/css/admin.css?version=3a">
     <div class="user">
         <div class="infos">
             <div class="head">
@@ -313,7 +313,7 @@
                 }
                 $('#articles>.products>div').append(`
                                 <div class="product-horizontal">
-                                    <img src="server/uploads/articles/${article.image}" alt="" srcset="">
+                                    <div style="background:url(server/uploads/articles/${article.image});background-position:center;background-size:cover;background-repeat:no-repeat"></div>
                                     <div>
 
                                         <div class="state flex center between">

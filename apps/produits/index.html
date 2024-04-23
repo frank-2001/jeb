@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="src/css/articles.css?version=3">
+<link rel="stylesheet" href="src/css/articles.css?version=3a">
 <div class="products">
     <h1 style="width: 100%;" class="title">Nos produits </h1>
     <div>
@@ -19,7 +19,8 @@
                     }
                     $('.products>div').prepend(`
                     <div class="product-horizontal">
-                        <img src="server/uploads/articles/${article.image}" alt="" srcset="">
+                        <div style="background:url(server/uploads/articles/${article.image});background-position:center;background-size:cover;background-repeat:no-repeat">
+                        </div>
                         <div>
                             <span >
                                 ${article.title}
