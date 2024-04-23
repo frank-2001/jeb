@@ -27,7 +27,7 @@ font-weight: normal;
 }
 #clients>.list>div,#administrateur>.list>div{
     display:grid;
-    grid-template-columns: 5% 25% 15% 10% 15% 10% 20%;
+    grid-template-columns: 5% 20% 15% 10% 15% 10% 20% 5%;
     border-bottom:solid 1px black;
     border-radius:0;
     
@@ -85,7 +85,7 @@ font-weight: normal;
         }
         #clients>.list>div,#administrateur>.list>div{
             display:grid;
-            grid-template-columns: 10% 45% 20% 25%;
+            grid-template-columns: 10% 30% 20% 30% 10%;
             border-bottom:solid 1px black;
             border-radius:0;
         }
