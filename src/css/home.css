@@ -349,4 +349,7 @@
     .products>div>*{
         min-width: 90%;
     }
+    .btn-home{
+        justify-content: center;
+    }
 }

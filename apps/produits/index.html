@@ -19,26 +19,32 @@
                     }
                     $('.products>div').prepend(`
                     <div class="product-horizontal">
-                        <div style="background:url(server/uploads/articles/${article.image});background-position:center;background-size:cover;background-repeat:no-repeat">
+                        <div class="" style="background:url(server/uploads/articles/${article.image});background-position:center;background-size:cover;background-repeat:no-repeat">
                         </div>
-                        <div>
-                            <span >
-                                ${article.title}
-                            </span>
+                        <div style="text-align:left">
                             <div class="state flex between center">
-                                <span>
+                                <span style="font-weight:bolder">
+                                    ${article.title}
+                                </span>
+                                <span class="primary">
                                     ${article.state}
                                 </span>
-                                <span class="price secondary p5">
-                                    Prix : 
-                                    ${article.price}$ /kg
+                            </div>
+                            
+                            <div class="state flex between center">
+                                
+                                <span class="">
+                                    Prix : ${article.price}$ /Kg-Pc
                                 </span>
-
+                                <span class="">Investissement : ${article.prix_investissement}$</span>
+                            </div>
+                            <div class="flex between">                                
+                                <span>Interet : ${article.rate_return}$</span>
+                                <span>Periode : ${article.nb_day_return} Jours</span>
                             </div>
                             <button onclick="command('${article.title}',${article.price},'${article.state}')">Commander</button>
                         </div>
                     </div>
-                    
                     `);
                 });
                 

@@ -6,8 +6,9 @@
         <section>
             <span class="title">JE SUIS ELEVEUR DES BETAILS</span>
             <div class="explication">une association sans but lucratif, régie par les lois de la République Démocratique du Congo, conformément à la loi N°004/2001 du 20/Juillet 2001 Portant dispositions générales applicables aux ASBL.</div>
-            <div>
+            <div class="flex btn-home" style="gap: 5px;">
                 <button class="" onclick="window.open('#us','_self')">QUI SOMMES-NOUS ?</button>
+                <button onclick="lacrea_load('.body','apps/produits')">Nos produits</button>
             </div>
         </section>
     </div>
@@ -168,19 +169,26 @@
                     <div class="product-horizontal">
                         <div class="" style="background:url(server/uploads/articles/${article.image});background-position:center;background-size:cover;background-repeat:no-repeat">
                         </div>
-                        <div>
-                            <h2 >
-                                ${article.title}
-                            </h2>
+                        <div style="text-align:left">
                             <div class="state flex between center">
-                                <span>
+                                <span style="font-weight:bolder">
+                                    ${article.title}
+                                </span>
+                                <span class="primary">
                                     ${article.state}
                                 </span>
-                                <span class="price secondary p5">
-                                    Prix : 
-                                    ${article.price}$ /Kg
+                            </div>
+                            
+                            <div class="state flex between center">
+                                
+                                <span class="">
+                                    Prix : ${article.price}$ /Kg-Pc
                                 </span>
-
+                                <span class="">Investissement : ${article.prix_investissement}$</span>
+                            </div>
+                            <div class="flex between">                                
+                                <span>Interet : ${article.rate_return}$</span>
+                                <span>Periode : ${article.nb_day_return} Jours</span>
                             </div>
                             <button onclick="command('${article.title}',${article.price},'${article.state}')">Commander</button>
                         </div>
