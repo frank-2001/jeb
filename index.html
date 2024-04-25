@@ -8,8 +8,8 @@
     <meta name="description" content="Je suis eleveur des betails est une ONG dont l’objet général est l’amélioration des conditions de vie des éleveurs">
     <link rel="shortcut icon" href="src/images/assets/jeb22.webp" type="image/x-icon">
     <title>JEB</title>
-    <link rel="stylesheet" href="src/css/style.css?version=3a">
-    <link rel="stylesheet" href="src/css/responsive.css?version=3a">
+    <link rel="stylesheet" href="src/css/style.css?version=3b">
+    <link rel="stylesheet" href="src/css/responsive.css?version=3b">
     <script src="src/js/jquery.min.js"></script>
 </head>
 
@@ -207,8 +207,15 @@
     <footer>
         <div>
             <h3>Nos contact</h3>
-            <span>Telephone : <a class="primary" href="tel:+243 994 557 806">+243 994 557 806</a> </span>
-            <span>Mail : <a class="primary" href="mailto:contact@jeb-elevage.org">contact@jeb-elevage.org</a></span>
+            <div>
+                <p class="flex" style="justify-content: space-between;">
+                    <span>Telephone : </span> <a class="primary" href="tel:+243 994 557 806">+243 994 557 806</a> 
+                </p>
+                <p class="flex" style="justify-content: space-between;">
+                    <span> Mail : </span> <a class="primary" href="mailto:contact@jeb-elevage.org">contact@jeb-elevage.org</a> 
+                </p>
+            </div>
+             
         </div>
         <div>
             <h3>Nos adresses</h3>
@@ -252,12 +259,12 @@
         <span style="text-align: right">by &hearts; Frank M.
         </span>
     </div>
-    <script src="src/js/fx.js?version=3a"></script>
-    <script src="src/js/localStorage.js?version=3a"></script>
-    <script src="src/js/lacrea.js?version=3a"></script>
-    <script src="src/js/server.js?version=3a"></script>
+    <script src="src/js/fx.js?version=3b"></script>
+    <script src="src/js/localStorage.js?version=3b"></script>
+    <script src="src/js/lacrea.js?version=3b"></script>
+    <script src="src/js/server.js?version=3b"></script>
     <script>
-        db.set('version','version=3aa')
+        db.set('version','version=3b')
         if (db.get('app')) {
             lacrea_load(".body",db.get('app'))    
         }else{

@@ -294,7 +294,7 @@ form>div{
 .product-horizontal{
     background: var(--secondary);
     display: grid;
-    grid-template-rows: 60% auto ;
+    grid-template-rows: auto 40% ;
     font-size: small;
     border: solid 1px var(--white);
     border-radius: 10px;
@@ -334,9 +334,9 @@ form>div{
     /*justify-content: center;*/
 }
 .product-horizontal>div{
-    padding: 20px ;
+    padding: 10px ;
     display: grid;
-    gap: 5px;
+    gap: 3px;
     color: var(--secondary);
     background: white;
     align-items: center;
