@@ -130,7 +130,10 @@
                 </div>
             </div>
             <div id="investissements">
-                <h2>INVESTISSEMENTS</h2>
+                <div class="flex between center">
+                    <h2>Investissements</h2>
+                    <button onclick="app('client_investissement')">Nouvel</button>
+                </div>
                 <div class="list">
 
                 </div>
@@ -231,6 +234,56 @@
                     </div>
                 </div>
             </div>
+
+            <div id="client_investissement">
+                <div class="flex between center">
+                    <svg onclick="app('investissements')" style="width: 20px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                      </svg>
+                    
+                    <h2>
+                        Nouvel Investissement
+                    </h2>
+                </div>
+                <div class="flex center p10" >
+                    <div class="card">
+                        <form id="new_inv_form" style="min-width: 50vw;">
+                            
+                            <div>
+                                <fieldset>
+                                    <span>Client</span>
+                                    <select name="client_id" id="">
+                                        <option value="">
+
+                                        </option>
+                                    </select>
+                                </fieldset>
+                                <fieldset>
+                                    <span>Article</span>
+                                    <select name="article_id">
+                                        
+                                    </select>
+                                </fieldset>
+                            </div>
+                            <div>
+                                <fieldset>
+                                    <span>Quantite</span>
+                                    <input type="number" name="pieces" id="" required>
+                                    </select>
+                                </fieldset>
+                                <fieldset>
+                                    <span>Date de creation</span>
+                                    <input type="date" name="creation" id="">
+                                </fieldset>
+                            </div>
+                            <input type="hidden" name="state" value="0">
+                            <div>
+                            </div>
+                            <button>Valider</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
         </div>
         </div>
@@ -238,6 +291,44 @@
     </div>
     <script src="src/js/profile.js"></script>
     <script>
+        function makeInv() {
+            $.getJSON("server/?clients-all",
+                function (data, textStatus, jqXHR) {
+                    cls=""
+                    data.data.forEach(c => {
+                        cls+=`<option value="${c.id}">${c.nom} ${c.postnom} ${c.prenom}</option>`
+                    });
+                    $("select[name='client_id']").html(cls);
+                }
+            );
+            $.getJSON("server/?articles-all",
+                function (data, textStatus, jqXHR) {
+                    cls=""
+                    data.data.forEach(c => {
+                        cls+=`<option value="${c.id}">${c.title} - ${c.prix_investissement} $</option>`
+                    });
+                    $("select[name='article_id']").html(cls);
+                }
+            );
+        }
+        makeInv()
+        $("#new_inv_form").submit(function (e) { 
+            e.preventDefault();
+            form=new FormData(this)
+            form.append("validate",form.get("creation"))
+        
+            $.post("server/?investissements-new",formToDic(form),
+                    function (data, textStatus, jqXHR) {
+                        alert("Investissement fait avec succes")
+                        get_investissement()
+                    },
+                    "json"
+                ).fail(e=>{
+                    alert("Erreur : Action non effectuée!")
+                    console.log(e);
+                });
+        });
+
         function state(id,stat) {
             if (stat=="Disponible") {
                 stat=0
@@ -420,7 +511,7 @@
             $('#investissements>.list').html("")
             $('#nb_investissement').text(`${e.data.length} Investissements`);
             console.log(e);
-            e.data.forEach(el => {
+            e.data.reverse().forEach(el => {
                 dat=new Date()
                 now=new Date()
                 validate=""
@@ -445,13 +536,11 @@
                 total=el.rate_return*nb_pay
                 $('#investissements>.list').append(`
                     <div class="${cls} p10 inverstissement">
-                        
                         <div class="grid">
                             <div class="flex between">
                                 <span> Etat : ${el.state}</span>
-                                
                             </div>
-                            <span class="">Creatin : le ${el.creation}</span>
+                            <span class="">Creation : le ${el.creation}</span>
                             <span> Client : ${el.nom} ${el.postnom} ${el.prenom}</span>
                             <span> Produit : ${el.title}</span>
                             <span> Prix : ${el.prix_investissement}$ </span>

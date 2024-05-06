@@ -102,7 +102,6 @@
                     }
                     $demand=substr($demand,0,-3);
                     $sql="SELECT ".$param1." FROM ".$this->table." ".$param2." where ".$demand;
-                    // print_r($sql);
                     return $this->return($sql,__FUNCTION__);
                 }
             }
