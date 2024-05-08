@@ -1,7 +1,7 @@
 <?php
 
                 if (isset($_GET[$articles->table."-all"])) {
-                    $output=$articles->All(" * "," ORDER BY ID DESC");
+                    $output=$articles->All(" * ","`");
                 }
                 if (isset($_GET[$articles->table."-new"])) {
                     $conv=webp($_FILES['image']['tmp_name'],40,$prefix="jeb".time(),$dir='uploads/articles/');
