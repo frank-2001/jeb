@@ -533,7 +533,7 @@
                 }
                 nb_day=Math.round((now.getTime()-dat.getTime())/(1000*60*60*24))
                 nb_pay=Math.round(nb_day/el.nb_day_return)
-                total=el.rate_return*nb_pay
+                total=el.rate_return*nb_pay*el.pieces
                 $('#investissements>.list').append(`
                     <div class="${cls} p10 inverstissement">
                         <div class="grid">
