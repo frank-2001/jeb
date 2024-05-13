@@ -31,8 +31,9 @@ header>div>svg{
         display: block;
     }
     .btn_connexion{
-        padding: 5px 10px;
+        padding: 10px;
     }
+    
     .menu-bar-mobile-show{
         display: none;
         justify-content: stretch;

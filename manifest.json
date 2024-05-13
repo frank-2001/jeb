@@ -1,0 +1,29 @@
+{
+  "name": "JEB-Elevage",
+  "short_name": "JEB",
+  "description": "Je suis eleveur des betails est une ONG dont l’objet général est l’amélioration des conditions de vie des éleveurs",
+  "start_url": "/",
+  "theme_color": "#003700",
+  "background_color": "#d5d5d5",
+  "icons": [
+    {
+      "src": "src/images/ic_launcher/res/mipmap-xxxhdpi/ic_launcher.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "src/images/ic_launcher/play_store_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "display": "standalone",
+  "scope": "/",
+  "prefer_related_applications": false,
+  "id": "app.jeb-elevage.org",
+  "categories": [
+    "elevage",
+    "ong",
+    "business"
+  ]
+}
