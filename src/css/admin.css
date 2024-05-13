@@ -41,7 +41,32 @@ font-weight: normal;
 .new_investissement>div>form{
     width: 60%;
 }
-@media (max-width: 600px){    
+#parametre>div{
+    display: grid;
+}
+#parametre>div>div>.tit{
+    font-size: medium;
+    background: var(--primary);
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+#parametre>div>div>.tit>svg{
+    width: 2.5%;
+}
+
+#parametre>div>div>.content{
+    display: none;
+    padding: 10px 5px;
+    background: rgb(196, 196, 196);
+}
+@media (max-width: 600px){   
+    #parametre>div>div>.tit>svg{
+        width: 7%;
+    } 
         svg{
             width: 20%;
         }        

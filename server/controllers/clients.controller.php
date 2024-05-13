@@ -11,6 +11,9 @@
                     $output=$clients->byId($_GET[$clients->table."-byId"]);
                 }
                 if (isset($_GET[$clients->table."-update"])) {
+                    if (isset($_POST["mot_de_passe"])) {
+                        $_POST["mot_de_passe"]=md5($_POST["mot_de_passe"]);
+                    }
                     $output=$clients->update($_GET[$clients->table."-update"],$_POST);
                 }
                 if (isset($_GET[$clients->table."-delete"])) {
@@ -20,7 +23,6 @@
                     $output=$clients->search($_POST);
                 }
                 if (isset($_GET[$clients->table."-connect"])) {
-                
                     $_POST["mot_de_passe"]=md5($_POST["mot_de_passe"]);
                     $output=$clients->by($_POST);
                 }

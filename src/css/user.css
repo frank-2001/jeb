@@ -118,12 +118,16 @@ color: var(--secondary);
         justify-content: space-between;
         grid-template-rows: auto;
         border-right: none;
-        padding: 15px;
+        /* padding: 15px; */
         height: auto;
         gap: 5px;
     }
     .menu-profil-mobile{
         display: grid;
+        background: rgb(174, 174, 174);
+        padding: 5px;
+        color: rgb(39, 39, 39);
+        text-align: center;
     }
     .user>.infos>.head>svg{
         display: flex;

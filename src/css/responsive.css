@@ -19,6 +19,7 @@ header>div>svg{
     header>div{
         display: grid;
         grid-template-columns: 10% 60% auto;
+        font-size: small;
     }
     header>div>button{
         display: flex;
@@ -28,6 +29,9 @@ header>div>svg{
     }
     header>div>svg{
         display: block;
+    }
+    .btn_connexion{
+        padding: 5px 10px;
     }
     .menu-bar-mobile-show{
         display: none;
@@ -77,19 +81,53 @@ header>div>svg{
         width: 100%;
         padding: 0;
     }
+
+    .formations{
+        display: grid;
+        grid-template-columns: auto;
+        background: var(--primary);
+        min-height: auto;
+        width: 100vw;
+        margin-bottom: 10vh;
+    }
+
+    .formations>div.data{
+        display: grid;
+        grid-template-columns: 100%;
+        /* grid-template-rows: 20%; */
+        align-items: start;
+        justify-content: space-between;
+        gap: 2%;
+
+        /* height: ; */
+    }
+
     footer{
         height: auto;
         display: grid;
         align-items: stretch;
         justify-content: space-around;
         padding: 4vh 0;
-        
         background: rgb(106, 106, 106);
+        font-size: small;
     }
     footer>div{
         display: grid;
+        gap: 5px;
+        width: 90vw;
+    }
+    footer>.contacts>div{
+        display: block;
+        justify-content: start;
+    }
+    footer>.contacts>div>p{
+        display: flex;
+        align-items: center;
+        justify-content: start;
         gap: 10px;
-        width: 80vw;
+    }
+    footer>.contacts>div>p>svg{
+        width: 7%;
     }
     footer>div>span{
         color:black;
@@ -114,6 +152,17 @@ header>div>svg{
         animation-duration: 1s;
         animation-iteration-count: infinite;
         animation-direction: alternate-reverse;
+    }
+    .social{
+        display: grid;
+        grid-template-columns: auto;
+        justify-content: space-between;
+    }
+    .social>div{
+        gap: 5px;
+    }
+    .social>div>svg{
+        width:10%;
     }
 
     .more{

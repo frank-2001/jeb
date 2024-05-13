@@ -1,3 +1,31 @@
+$("#update_pass").submit(function (e) { 
+    e.preventDefault();
+    alert("Traitement de la requete en cours...")
+    let form=new FormData(this)
+
+    if (form.get("new_1")==form.get("new_2")) {
+        $.post("server/?clients-connect",{"telephone":db.get('user')["telephone"],"mot_de_passe":form.get("old")},
+            function (data, textStatus, jqXHR) {
+                if(data.data.length==1){
+                    $.post("server/?clients-update="+db.get("user")["id"], {mot_de_passe:form.get("new_1")},
+                        function (data, textStatus, jqXHR) {
+                            alert("Mot de passe changé avec success! nous allons vous rediriger vers la page de connexion!!")
+                            deconnect() 
+                        },
+                        "json"
+                    );
+                }else{
+                    alert("Ancien mot de passe incorect!!")
+                }
+            },
+            "json"
+        );    
+    }else{
+        alert("Les nouveaux mots de passe ne sont pas indentique")
+    }
+});
+
+
 function deconnect() {
     db.remove('user')
     lacrea_load()

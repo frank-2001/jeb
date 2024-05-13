@@ -1,6 +1,6 @@
     
-    <link rel="stylesheet" href="src/css/user.css?version=3b">
-    <link rel="stylesheet" href="src/css/admin.css?version=3b">
+    <link rel="stylesheet" href="src/css/user.css?version=5">
+    <link rel="stylesheet" href="src/css/admin.css?version=5">
 
     <div class="user">
         <div class="infos">
@@ -16,9 +16,9 @@
             <div class="menu-profil grid menu-profil-mobile">
                 <h3 class="">Menu</h3>
                 <div class="grid">
-                    <span class=" primary p5 radius-5 dashboard" onclick="app('dashboard')">Dashboard</span>
+                    <span class="primary p5 radius-5 dashboard" onclick="app('dashboard')">Dashboard</span>
                     <span class="primary p5 radius-5 investissements" onclick="app('investissements')">Investissements</span>
-                    <span class="primary p5 radius-5 formations" onclick="app('formations')">Formations</span>
+                    <span class="primary p5 radius-5 formations-app" onclick="app('formations-app')">Formations</span>
                     <span class="primary p5 radius-5 parametre" onclick="app('parametre')">Parametre</span>
                 </div>
             </div>
@@ -48,8 +48,9 @@
                     </div>
                 </div>
             </div>
-            <div id="formations">
+            <div id="formations-app">
                 <h2>FORMATIONS</h2>
+                
             </div>
             <div id="investissements">
                 <div class="flex between center tit">
@@ -78,6 +79,33 @@
             </div>
             <div id="parametre">
                 <h2>PARAMETRES</h2>
+                <div>
+                    <div class="pass">
+                        <div class="tit" onclick="$('.pass>.content').toggle()">
+                            <span>Mettre a jour le mot de pass</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5" />
+                              </svg>
+                              
+                        </div>
+
+                        <form action="" class="content" id="update_pass">
+                            <fieldset>
+                                <span>Ancien mot de passe</span>
+                                <input type="password" name="old" required>
+                            </fieldset>
+                            <fieldset>
+                                <span>Nouveau mot de passe</span>
+                                <input type="password" name="new_1" required>
+                            </fieldset>
+                            <fieldset>
+                                <span>Repete le nouveau mot de passe</span>
+                                <input type="password" name="new_2" required>
+                            </fieldset>
+                            <button>Valider</button>
+                        </form>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -86,6 +114,8 @@
     </div>
     <script src="src/js/profile.js"></script>
     <script>
+        
+        
         $("#create").append(db.get('user').created_at);
 
         function investir(id) {
@@ -185,47 +215,69 @@
                     if (el.state>=0) {
                         totaux+=el.pieces*el.price 
                     }
-                    dat=new Date()
-                    now=new Date()
-                    
-                    validate=""
-                    terminate=""
-                    if (el.state=="1") {
-                        el.state="Términé depuis "+el.terminate
-                        cls="danger"
-                        now=new Date(el.terminate+" 12:00:00")
-                    }else if(el.state=="0"){
-                        el.state="Validé depuis "+el.validate
-                        cls="white border"
-                        dat=new Date(el.validate+" 12:00:00")
-                    }else{
-                        el.state="Non validé"
-                        cls="secondary border"
-                    }
+                    dat=new Date(el.validate+" 12:00:00")
+                now=new Date()
 
-                    nb_day=Math.round((now.getTime()-dat.getTime())/(1000*60*60*24))
-                    nb_pay=Math.round(nb_day/el.nb_day_return)
-                    total=el.rate_return*nb_pay*el.pieces
-                    $('#investissements>.list').append(`
-                        <div class="${cls} p10 inverstissement">
-                            
-                            <div class="grid">
-                                <div class="flex between">
-                                    <span> Etat : ${el.state}</span>
-                                    
-                                </div>
-                                <span class="">Creation le ${el.creation}</span>
-                                <span> Client : ${el.nom} ${el.postnom} ${el.prenom}</span>
-                                <span> Produit : ${el.title}</span>
-                                <span> Prix : ${el.prix_investissement}$/pieces</span>
-                            
-                                <span> Nombre Pieces : ${el.pieces}</span>
-                                <span> Total investis : ${el.pieces*el.prix_investissement}$</span>
-                                <span> Interet par piece : ${el.rate_return}$</span>
-                                <span> Durée avant chaque paiement : ${el.nb_day_return} Jours </span>
-                                <span> Nombre des Jours ecoulé :  ${nb_day} Jours</span>
-                                <span> Nombre des paiements reçu : ${nb_pay}</span>
-                                <span> Total encaissé : ${total}$</span>
+                validate=""
+                terminate=""
+                stat=el.state
+                if (el.state=="1") {
+                    el.state="Términé depuis "+el.terminate+", Validé "+el.validate
+                    cls="danger"
+                    validate="hidden"
+                    terminate="hidden"
+                    now=new Date(el.terminate+" 12:00:00")
+                }else if(el.state=="0"){
+                    el.state="Validé depuis "+el.validate
+                    cls="white border"
+                    validate="hidden"
+                }else{
+                    dat=new Date()
+                    el.state="Non validé"
+                    cls="secondary border"
+                }
+
+                
+
+                nb_day=Math.round((now.getTime()-dat.getTime())/(1000*60*60*24))
+                payment=el.pieces*el.rate_return
+                paymentDay=payment/el.nb_day_return
+                nb_pay = Math.floor(nb_day/el.nb_day_return)
+                total=el.rate_return*nb_pay*el.pieces
+
+                evolution = Math.round(paymentDay*nb_day)-total
+                if (stat==1) {
+                    evolutionHtml=``
+                    total+=evolution
+                }else if(stat==0){
+                    evolutionHtml=`
+                        <span>Evolution des interets : ${evolution}$</span>
+                    `
+                }else{
+                    evolutionHtml=`
+                        <span>Evolution des interets : ${evolution}$</span>
+                    `
+                }
+
+                $('#investissements>.list').append(`
+                    <div class="${cls} p10 inverstissement">
+                        <div class="grid">
+                            <div class="flex between">
+                                <span> Etat : ${el.state}</span>
+                            </div>
+                            <span class="">Creation : le ${el.creation}</span>
+                            <span> Client : ${el.nom} ${el.postnom} ${el.prenom}</span>
+                            <span> Produit : ${el.title}</span>
+                            <span> Prix : ${el.prix_investissement}$ </span> 
+                            <span> Nombre Pieces : ${el.pieces}</span>
+                            <span> Total investis : ${el.pieces*el.prix_investissement}$</span>
+                            <span> Interet par piece : ${el.rate_return}$</span>
+                            <span> Total Interet : ${Math.round(el.rate_return*el.pieces)}$</span>
+                            <span> Durée avant chaque paiement : ${el.nb_day_return} Jours </span>
+                            <span> Nombre des Jours ecoulé :  ${nb_day} Jours</span>
+                            <span> Nombre des paiements reçu : ${nb_pay}</span>
+                            ${evolutionHtml}
+                            <span> Total encaissé : ${total}$</span>
                                 ${validate} ${terminate}
                                 
                             </div>
