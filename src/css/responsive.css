@@ -27,8 +27,9 @@ header>div>section>span{
         display: none;
     }
     header>div{
-        display: grid;
-        grid-template-columns: 10% 20% 70%;
+        display: flex;
+        justify-content: space-between;
+        grid-template-columns: 10% 20% auto;
         font-size: small;
     }
     header>div>section{
@@ -58,6 +59,7 @@ header>div>section>span{
     }
     header>div>svg{
         display: block;
+        width: 10px;
     }
     .btn_connexion{
         padding: 10px;

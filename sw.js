@@ -1,5 +1,5 @@
 // Cache infos
-const VERSION_APP = "1"
+const VERSION_APP = "1.0"
 const VERSION_FILES="?version=5a"
 const NAME_APP="JEB"
 // if (location.host=="localhost") {
@@ -76,7 +76,7 @@ self.addEventListener("fetch", event => {
     event.respondWith(
         caches.match(event.request).then(response => { 
             // console.log(event.request.destination,event.request.url);
-            return  response || fetch(event.request)
+            return  fetch(event.request) || response 
         }).catch(e=>{
             // console.log(e);
         })
