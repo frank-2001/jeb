@@ -1,6 +1,6 @@
 let APP=""
 $("#loading").hide();
-function lacrea_load(destination=".body",file="apps/home/"){
+function lacrea_load(destination=".body",file="apps/home/index.html"){
     $("html").scrollTop(0);
     $("#loading").show();
     db.set('app',file)
@@ -19,5 +19,5 @@ function lacrea_load(destination=".body",file="apps/home/"){
 }
 let url=location.href
 if(url.split('/').indexOf("produits")>=0){
-    lacrea_load('.body','apps/produits/')
+    lacrea_load('.body','apps/produits/index.html')
 }

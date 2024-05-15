@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="src/images/assets/jeb22.webp" type="image/x-icon">
     <link rel="manifest" href="manifest.json">
     <title>JEB</title>
-    <link rel="stylesheet" href="src/css/style.css?version=5">
+    <link rel="stylesheet" href="src/css/style.css?version=5a">
     <link rel="stylesheet" href="src/css/responsive.css?version=5a">
     <script src="src/js/jquery.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -33,7 +33,7 @@
             
             <span onclick="lacrea_load() ;window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">Accueil</span>
             <span onclick="window.open('/#services','_self');$('.menu-bar-mobile-show').hide()">Nos services</span>
-            <span onclick="lacrea_load('.body','apps/produits/');$('.menu-bar-mobile-show').hide()">Nos produits</span>
+            <span onclick="lacrea_load('.body','apps/produits/index.html');$('.menu-bar-mobile-show').hide()">Nos produits</span>
             <span class="" onclick="window.open('/#formations','_self');$('.menu-bar-mobile-show').hide()">Nos formations</span>
         </div>
     </div> 
@@ -195,14 +195,22 @@
             <h1 onclick="lacrea_load() ;window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">JEB</h1>
             
             <div class="menu-bar">
-                <span class="" onclick="lacrea_load('.body','apps/home');window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">Accueil</span>
+                <span class="" onclick="lacrea_load('.body','apps/home/index.html');window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">Accueil</span>
                 <span class="" onclick="window.open('/#services','_self');$('.menu-bar-mobile-show').hide()">Nos services</span>
-                <span class="" onclick="lacrea_load('.body','apps/produits/');$('.menu-bar-mobile-show').hide()">Nos produits</span>
+                <span class="" onclick="lacrea_load('.body','apps/produits/index.html');$('.menu-bar-mobile-show').hide()">Nos produits</span>
                 <span class="" onclick="window.open('/#formations','_self');$('.menu-bar-mobile-show').hide()">Nos formations</span>
 
                 <button class="btn_connexion"></button>
             </div>
-            <button style="" class="btn_connexion"></button>
+            <section style="display: flex;">
+                <span id="install_button">
+                    <svg style="width: 20px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>                      
+                    Telecharger
+                </span>
+                <button style="" class="btn_connexion"></button>
+            </section>
         </div>
 
     </header>
@@ -278,10 +286,10 @@
         <span style="text-align: right" onclick="window.open('https://facebook.com/frankmakolongo')">by &hearts; Frank M.
         </span>
     </div>
-    <script src="src/js/fx.js?version=5"></script>
-    <script src="src/js/localStorage.js?version=5"></script>
-    <script src="src/js/lacrea.js?version=5"></script>
-    <script src="src/js/server.js?version=5"></script>
+    <script src="src/js/fx.js?version=5a"></script>
+    <script src="src/js/localStorage.js?version=5a"></script>
+    <script src="src/js/lacrea.js?version=5a"></script>
+    <script src="src/js/server.js?version=5a"></script>
      <!-- prettier-ignore -->
      <script>
      (g=>{
@@ -303,7 +311,7 @@
                     for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
         ({key: "", v: "beta"});</script>
     <script>
-        db.set('version','version=5')
+        db.set('version','version=5a')
         if (db.get('app')) {
             lacrea_load(".body",db.get('app'))    
         }else{
@@ -390,6 +398,42 @@
                 navigator.serviceWorker.register('./sw.js')
             }
         })
+
+        let deferredPrompt; // Allows to show the install prompt
+  const installButton = document.getElementById("install_button");
+// $("#install_button").hide();
+
+installButton.addEventListener("click", ()=>{
+    alert("Application installée !")
+});
+  window.addEventListener("beforeinstallprompt", e => {
+    // Prevent Chrome 76 and earlier from automatically showing a prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later.
+    deferredPrompt = e;
+    // Show the install button
+    // $("#install_button").show();
+
+    // installApp()
+    installButton.addEventListener("click", installApp);
+  });
+  function installApp() {
+    // Show the prompt
+    deferredPrompt.prompt();
+    installButton.disabled = true;
+
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then(choiceResult => {
+      if (choiceResult.outcome === "accepted") {
+        console.log("PWA setup accepted");
+        installButton.hidden = true;
+      } else {
+        console.log("PWA setup rejected");
+      }
+      installButton.disabled = false;
+      deferredPrompt = null;
+    });
+  }
     </script>
 </body>
 </html>

@@ -1,11 +1,38 @@
 // Cache infos
-const VERSION_APP = "LALOCA25"
-const NAME_APP="LALOCA"
-let dir=""
+const VERSION_APP = "1"
+const VERSION_FILES="?version=5a"
+const NAME_APP="JEB"
 // if (location.host=="localhost") {
 //     dir=dir+"laloca/"
 // }
-const STATIC_CACHE_URLS = [];
+const STATIC_CACHE_URLS = [
+    "/",
+    "index.html",
+    "/src/css/style.css",
+    "/src/css/responsive.css",
+    "/src/css/home.css",
+    "/src/css/articles.css",
+    "/src/css/admin.css",
+    "/src/css/profil.css",
+    "/src/css/user.css",
+    "/src/js/lacrea.js",
+    "/src/js/home.js",
+    "/src/js/fx.js",
+    "/src/js/server.js",
+    "/src/js/localStorage.js",
+    "/src/js/jquery.min.js",
+    "/apps/home/index.html",
+    "/apps/produits/index.html",
+    "/apps/profile/admin.html",
+    "/apps/profile/user.html"
+    
+];
+STATIC_CACHE_URLS.forEach((url,i) => {
+    if (url!="/" && url!="index.html" && url!="/src/js/jquery.min.js") {
+        STATIC_CACHE_URLS[i]=url+VERSION_FILES        
+    }
+});
+STATIC_CACHE_URLS.push("/src/images/assets/jeb17.webp","/src/images/assets/jeb22.webp","/src/images/assets/jeb32.webp")
 // PWA Installation
 self.addEventListener("install", event => {
     console.log("Service Worker installing version : " + VERSION_APP);
@@ -48,9 +75,10 @@ self.addEventListener("fetch", event => {
     // console.log();
     event.respondWith(
         caches.match(event.request).then(response => { 
-            return response || fetch(event.request)
+            // console.log(event.request.destination,event.request.url);
+            return  response || fetch(event.request)
         }).catch(e=>{
-            console.log(e);
+            // console.log(e);
         })
         // console.log("no cache"),
     );
