@@ -27,7 +27,7 @@ header>div{
     color: var(--secondary);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     z-index: 998;
 }
 header>div>div{
@@ -56,6 +56,9 @@ button:hover,.btn:hover {
     gap: 15px;
     align-items: center;
     cursor: pointer;
+    background: white;
+    border-radius: 10px;
+    padding-left:10px;
 }
 .menu-bar>*:hover{
     color: var(--primary);
@@ -90,6 +93,7 @@ button:hover,.btn:hover {
     padding: 0;
     background: var(--primary);
     min-height: 50vh;
+    height: auto;
     /* height: 100%; */
     width: 100vw;
 }

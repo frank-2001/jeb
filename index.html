@@ -189,11 +189,13 @@
     </div>
     <header>
         <div>
-            <svg onclick="$('.menu-bar-mobile-show').css('display','grid')" style="width: 10%" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            <h1 onclick="lacrea_load() ;window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">JEB</h1>
-            
+            <div style="display: flex;align-items: center;gap: 5px;">
+                <svg onclick="$('.menu-bar-mobile-show').css('display','grid')" style="width: 15%" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <h1 onclick="lacrea_load() ;window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">JEB</h1>    
+            </div>
+             
             <div class="menu-bar">
                 <span class="" onclick="lacrea_load('.body','apps/home/index.html');window.open('/#home','_self');$('.menu-bar-mobile-show').hide()">Accueil</span>
                 <span class="" onclick="window.open('/#services','_self');$('.menu-bar-mobile-show').hide()">Nos services</span>
@@ -202,14 +204,21 @@
 
                 <button class="btn_connexion"></button>
             </div>
-            <section style="display: flex;">
+            <section style="display: flex;align-items: stretch;">
+                <button class="btn_connexion"></button>
+                <div onclick="lacrea_load('.body','apps/notifications/');$('.menu-bar-mobile-show').hide()" style="display: flex;gap: 3px;align-items: center;padding: 0 10px;border-radius: 5px;">
+                    <svg style="width: 20px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5" />
+                    </svg>
+                    <span style="margin-left: -5px;color: red;margin-bottom: -10px">1</span>
+                </div>
                 <span id="install_button">
                     <svg style="width: 20px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                     </svg>                      
-                    Telecharger
+                    <span>Telecharger</span>
                 </span>
-                <button style="" class="btn_connexion"></button>
+                
             </section>
         </div>
 
@@ -403,9 +412,7 @@
   const installButton = document.getElementById("install_button");
 // $("#install_button").hide();
 
-installButton.addEventListener("click", ()=>{
-    alert("Application installée !")
-});
+
   window.addEventListener("beforeinstallprompt", e => {
     // Prevent Chrome 76 and earlier from automatically showing a prompt
     e.preventDefault();
@@ -417,6 +424,12 @@ installButton.addEventListener("click", ()=>{
     // installApp()
     installButton.addEventListener("click", installApp);
   });
+  window.addEventListener("afterinstallprompt",e=>{
+    installButton.addEventListener("click", ()=>{
+        alert("Application installée !")
+    });
+
+  })
   function installApp() {
     // Show the prompt
     deferredPrompt.prompt();
@@ -426,7 +439,7 @@ installButton.addEventListener("click", ()=>{
     deferredPrompt.userChoice.then(choiceResult => {
       if (choiceResult.outcome === "accepted") {
         console.log("PWA setup accepted");
-        installButton.hidden = true;
+        // installButton.hidden = true;
       } else {
         console.log("PWA setup rejected");
       }

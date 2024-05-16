@@ -1,38 +1,9 @@
 // Cache infos
-const VERSION_APP = "1.0"
-const VERSION_FILES="?version=5a"
+const VERSION_APP = "1.1"
 const NAME_APP="JEB"
-// if (location.host=="localhost") {
-//     dir=dir+"laloca/"
-// }
 const STATIC_CACHE_URLS = [
-    "/",
-    "index.html",
-    "/src/css/style.css",
-    "/src/css/responsive.css",
-    "/src/css/home.css",
-    "/src/css/articles.css",
-    "/src/css/admin.css",
-    "/src/css/profil.css",
-    "/src/css/user.css",
-    "/src/js/lacrea.js",
-    "/src/js/home.js",
-    "/src/js/fx.js",
-    "/src/js/server.js",
-    "/src/js/localStorage.js",
-    "/src/js/jquery.min.js",
-    "/apps/home/index.html",
-    "/apps/produits/index.html",
-    "/apps/profile/admin.html",
-    "/apps/profile/user.html"
-    
+    "404.html"
 ];
-STATIC_CACHE_URLS.forEach((url,i) => {
-    if (url!="/" && url!="index.html" && url!="/src/js/jquery.min.js") {
-        STATIC_CACHE_URLS[i]=url+VERSION_FILES        
-    }
-});
-STATIC_CACHE_URLS.push("/src/images/assets/jeb17.webp","/src/images/assets/jeb22.webp","/src/images/assets/jeb32.webp")
 // PWA Installation
 self.addEventListener("install", event => {
     console.log("Service Worker installing version : " + VERSION_APP);
@@ -60,27 +31,23 @@ self.addEventListener("activate", event => {
                 )
             )
     );
-
 })
 
 self.addEventListener("fetch", event => {
-    // console.log(event.request.url);
-    // caches.match(event.request).then(response => {  
-    //     // return response
-    //     console.log(response);
-    // }).catch(e=>{
-    //     console.log("No req in the cache");
-    // })
-    // return fetch(event.request)
-    // console.log();
-    event.respondWith(
-        caches.match(event.request).then(response => { 
-            // console.log(event.request.destination,event.request.url);
-            return  fetch(event.request) || response 
-        }).catch(e=>{
-            // console.log(e);
+    event.respondWith( 
+        fetch(event.request).then(res=>{
+            if (res.status==404) {
+                return caches.match('404.html')
+            }
+            return res
+        }).catch(err=>{
+            return caches.match("404.html")
+            return caches.match(event.request).then(res=>{
+                return res
+            }).catch(err=>{
+                return caches.match("404.html")
+            })
         })
-        // console.log("no cache"),
     );
     // event.respondWith()
 
