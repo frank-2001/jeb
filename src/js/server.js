@@ -28,13 +28,13 @@ function profile() {
             lacrea_load(".body",'apps/profile/admin.html')
         }
     }else{
-        $('.login').css('display','grid')
-        $('.login>div').toggle()
+        $('.login').removeClass('hidden');
+        $('.login>div').toggleClass('hidden');
     }
 }
 
 function command(title,price,state) {
-    if (state!="Disponible") {
+    if (state!="1") {
         alert("Desolé ce produit n'est pas disponible pour l'instant")
         if (!confirm("Voulez-vous malgré tout commander le produit")) {
             return

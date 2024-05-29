@@ -33,6 +33,12 @@ header>div>section{
     /* header>div>button{
         display: block;
     }     */
+
+    .formations_model{
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 10px;
+    }
     header>svg{
         display: none;
     }
@@ -130,7 +136,6 @@ header>div>section{
     .formations{
         display: grid;
         grid-template-columns: auto;
-        background: var(--primary);
         height:auto;
         overflow-y: auto;
         min-height: auto;

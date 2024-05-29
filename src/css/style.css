@@ -91,7 +91,7 @@ button:hover,.btn:hover {
     display: grid;
     grid-template-columns: 50% 50%;
     padding: 0;
-    background: var(--primary);
+    background: white;
     min-height: 50vh;
     height: auto;
     /* height: 100%; */
@@ -106,8 +106,9 @@ button:hover,.btn:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
+    background:rgb(148, 148, 148);
     justify-items: center;
+    color: white;
 }
 .formations>div.title>div{
     display: grid;
@@ -535,4 +536,33 @@ a{
 }
 .social>div>svg{
     width:10%;
+}
+.formations_model{
+    display: grid;
+    grid-template-columns: 45% 45%;
+    gap: 10px;
+    height: 100%;
+    overflow: auto;
+}
+.formations_model>div{
+    overflow: auto;
+    display: grid;
+    grid-template-rows: 50% auto;
+    /* justify-content: stretch; */
+    /* align-items: center; */
+    /* gap: 10px; */
+    background: var(--secondary);
+    color: white;
+    /* min-height: 40vh;
+    height: auto; */
+    height: 50vh;
+    padding: 10px;
+    /* border-radius: 10px; */
+    font-size: small;
+}
+.formations_model>div>div{
+    display: grid;
+    gap: 0%;
+    align-items: start;
+    justify-content: stretch;
 }

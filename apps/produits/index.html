@@ -1,54 +1,12 @@
 
-<link rel="stylesheet" href="src/css/articles.css?version=6">
-<div class="products">
-    <h1 style="width: 100%;font-size: 150%;" class="title">Nos produits </h1>
-    <div>
+<div class="grid sm:pt-24 pt-16">
 
-
+    <h1 class="title text-center sm:text-3xl text-xl uppercase pt-4">Nos produits </h1>
+    <div class="articles_model h-auto grid sm:grid-cols-3 sm:mx-32 mt-4 sm:p-8 py-8 pb-32 sm:rounded  p-5 gap-4 bg-gray-800" order="DESC">
     </div>
 </div>
+
 <script>
-    $.getJSON("/server/?articles-all",
-            function (data, textStatus, jqXHR) {
-                console.log(data);
-                data.data.forEach(article => {
-                    if (article.state) {
-                        article.state="Disponible"
-                    }else{
-                        article.state="Indisponible"
-                    }
-                    $('.products>div').prepend(`
-                    <div class="product-horizontal">
-                        <div class="" style="background:url(server/uploads/articles/${article.image});background-position:center;background-size:cover;background-repeat:no-repeat">
-                        </div>
-                        <div style="text-align:left">
-                            <div class="state flex between center">
-                                <span style="font-weight:bolder">
-                                    ${article.title}
-                                </span>
-                                <span class="primary">
-                                    ${article.state}
-                                </span>
-                            </div>
-                            
-                            <div class="state flex between center">
-                                
-                                <span class="">
-                                    Prix : ${article.price}$ /Kg-Pc
-                                </span>
-                                <span class="">Investissement : ${article.prix_investissement}$</span>
-                            </div>
-                            <div class="flex between">                                
-                                <span>Interet : ${article.rate_return}$</span>
-                                <span>Periode : ${article.nb_day_return} Jours</span>
-                            </div>
-                            <button onclick="command('${article.title}',${article.price},'${article.state}')">Commander</button>
-                        </div>
-                    </div>
-                    `);
-                });
-                
-            }
-    );
+    lacrea_data()
 </script>
 

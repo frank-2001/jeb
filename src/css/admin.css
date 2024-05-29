@@ -63,6 +63,64 @@ font-weight: normal;
     padding: 10px 5px;
     background: rgb(196, 196, 196);
 }
+.images_investissements{
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: grey;
+    padding: 20px;
+    overflow: auto;
+}
+.images_investissements>div{
+    background: gray;
+    display: grid;
+    justify-content: start;
+    align-items: start;
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+}
+.images_investissements>div>.tit{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 100%; */
+    background: white;
+    color: var(--primary);
+    border-radius: 10px;
+    gap: 10px;
+    /* width: 100vh; */
+    padding-left: 10px;
+}
+.images_investissements>div>.images{
+    display: grid;
+    gap: 10px;
+}
+.images_investissements>div>.images>.head{ 
+    background: white;
+    padding: 10px;
+    color: var(--primary);
+    border-radius: 10px;
+}
+.images_investissements>div>.images>.body{ 
+
+    display: flex;
+    grid-template-columns: 100%;
+    gap: 10px;
+    padding: 10px;
+    width: 80vw;
+    height: 20vh;
+    overflow: auto;
+}
+.images_investissements>div>.images>.body>div{
+    width: 100%;
+    height: 50%;
+    border-radius: 10px;
+} 
+
 @media (max-width: 600px){   
     #parametre>div>div>.tit>svg{
         width: 7%;

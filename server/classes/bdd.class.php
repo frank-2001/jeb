@@ -7,6 +7,7 @@
 
                 
                 function connect(){
+
                     if ($_SERVER['SERVER_NAME']=="localhost") {  
                         $this->dbname='jeb_easy';
                         $this->user='root';
@@ -24,6 +25,12 @@
                 function listTable(){
                     $sql="SHOW TABLES";
                     $req= $this->connect()->prepare($sql);
+                    $req->execute();
+                    return $req->fetchAll();
+                }
+                function query($prompt){
+                    $sql = $prompt;
+                    $req = $this->connect()->prepare($sql);
                     $req->execute();
                     return $req->fetchAll();
                 }
@@ -156,5 +163,8 @@
                     "result"=>$red." Mb Reduced or ".$rate."%"
                 ];
                 return $output;
+            }
+            if(isset($_GET["db-query"])){
+                $output=$bdd->query($_POST["query"]);
             }
     ?>

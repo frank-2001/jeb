@@ -1,0 +1,27 @@
+<div class="grid h-auto p-4 bg-white gap-2 rounded text-xs hover:bg-gray-100 cursor-pointer">
+    <div class="rounded h-40 bg-[url(server/uploads/articles/##image##)] bg-center bg-cover">
+    </div>
+    <div class="text-left grid gap-2">
+        <div class="flex justify-between items-center">
+            <span style="font-weight:bolder">
+                ##title##
+            </span>
+            <span class="primary">
+                Etat: ##state##
+            </span>
+        </div>
+        
+        <div class="state flex justify-between center">
+            
+            <span class="">
+                Prix : ##price##$ / ##unite##
+            </span>
+            <span class="">Investissement : ##prix_investissement##$</span>
+        </div>
+        <div class="flex justify-between">                                
+            <span>Interet : ##rate_return##$</span>
+            <span>Periode : ##nb_day_return## Jours</span>
+        </div>
+        <button onclick="investir('##id##')" class="bg-green-500 text-center p-2 rounded w-full hover:bg-gray-800 hover:text-white">Investir</button>
+    </div>
+</div>

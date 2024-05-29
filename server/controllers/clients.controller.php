@@ -26,5 +26,7 @@
                     $_POST["mot_de_passe"]=md5($_POST["mot_de_passe"]);
                     $output=$clients->by($_POST);
                 }
-
+                if (isset($_GET[$clients->table."-by"])) {
+                    $output=$clients->by($_POST);
+                }
             
