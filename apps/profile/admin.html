@@ -97,60 +97,62 @@
                 
             </div>
         </div>
-        <div id="new_formation">
-            <div class="flex between center">
-                <button onclick="app('formations_')">Retour</button>
+        <div id="new_formation" class="grid">
+            <div class="flex between center justify-between bg-green-500 p-4 text-gray-800 rounded">
+                <svg onclick="app('formations_')"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                    </svg>
 
                 <h2>
                     Nouvel formations
                 </h2>
             </div>
-            <div class="flex center p10">
-                <form class=" p10" action="" id="new_formation_form" enctype="multipart/form-data">
-                    <div>
-                        <fieldset>
-                            <span>Titre</span>
-                            <input type="text" name="titre" required>
-                        </fieldset>
-                        <fieldset>
-                            <span>Lieu</span>
-                            <input type="text" name="lieu" required>
-                        </fieldset>
+            <div class="bg-gray-400 px-3 my-4 rounded">
+                <form class="grid gap-2 py-4 text-center" action="" id="new_formation_form" enctype="multipart/form-data">
+                    <div class="grid gap-2 text-gray-800">
+                        <!-- <fieldset class="grid p-2 rounded"> -->
+                            <!-- <span>Titre</span> -->
+                            <input type="text" class="p-2 rounded border" placeholder="titre" name="titre" required>
+                        <!-- </fieldset> -->
+                        <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+                            <span>Lieu</span> -->
+                            <input type="text" class="p-2 rounded border" placeholder="Lieu" name="lieu" required>
+                        <!-- </fieldset> -->
                     </div>
                     
-                    <div class="between" style="display: grid;grid-auto-columns: 50% 50%">
-                        <fieldset>
-                            <span>Prix Presentiel</span>
-                            <input type="number" name="prix_presence" step="0.01" required>
-                        </fieldset>
+                    <div class="grid gap-2">
+                        <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+                            <span>Prix Presentiel</span> -->
+                            <input type="number" class="p-2 rounded border" placeholder="Prix Presentiel" name="prix_presence" step="0.01" required>
+                        <!-- </fieldset> -->
                         
-                        <fieldset>
-                            <span>Prix en ligne</span>
-                            <input type="text" name="prix_enligne" step="0.01">
-                        </fieldset>   
+                        <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+                            <span>Prix en ligne</span> -->
+                            <input type="text" placeholder="Prix en ligne" class="p-2 rounded border" name="prix_enligne" step="0.01">
+                        <!-- </fieldset>    -->
                     </div>
-                    <div class="between" style="display: grid;grid-auto-columns: 50% 50%">
-                        <fieldset>
-                            <span>Date debut</span>
-                            <input type="date" name="debut" step="0.01" required>
-                        </fieldset>
+                    <div class="grid gap-2">
+                        <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+                            <span>Date debut</span> -->
+                            <input type="date" class="p-2 rounded border" name="debut" step="0.01" required>
+                        <!-- </fieldset> -->
                         
-                        <fieldset>
-                            <span>Date fin</span>
-                            <input type="date" name="fin" step="0.01">
-                        </fieldset>   
+                        <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+                            <span>Date fin</span> -->
+                            <input type="date" placeholder="Date fin" class="p-2 rounded border" name="fin" step="0.01">
+                        <!-- </fieldset>    -->
                     </div>
-                    <fieldset>
-                        <span>Description</span>
-                        <textarea name="description" id="" cols="30" rows="10"></textarea>
-                    </fieldset>  
+                    <!-- <fieldset class="grid">
+                        <span>Description</span> -->
+                        <textarea name="description" placeholder="Description" class="p-2 rounded border" id=""></textarea>
+                    <!-- </fieldset>   -->
                     
-                    <fieldset>
+                    <fieldset class="grid text-left bg-white text-gray-800 p-2 rounded">
                         <span >Image</span>
-                        <input type="file" accept="image/*" name="image" required>
+                        <input type="file" class="p-2 rounded border" accept="image/*" name="image" required>
                         <span id="progress"></span>
                     </fieldset>
-                    <button>valider</button>
+                    <button class="py-2 bg-green-500 rounded">valider</button>
                 </form>
             </div>
         </div>
@@ -385,7 +387,7 @@
                             </fieldset>
                             <fieldset class="grid gap-1">
                                 <span  class="text-gray-600">Date de naissance</span>
-                                <input class="p-2 rounded border "  type="date" name="date_de_naissance" id="">
+                                <input class="p-2 rounded border w-full" placeholder="Date de naissance"  type="date" name="date_de_naissance" id="">
                             </fieldset>
                         </div>
                         <div class="grid gap-2">

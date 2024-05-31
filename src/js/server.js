@@ -48,6 +48,5 @@ function command(title,price,state) {
 }
 
 function formation(titre,id) {
-    db.set("formation_payment",{"id":id,title:titre})
-    lacrea_load(".body","apps/payment/")
+    window.open(`https://wa.me/+243994557806?text=Message venant de https://jeb-elevage.org, salut je suis interessé par la formation  *${titre}*`) 
 }
