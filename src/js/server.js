@@ -46,3 +46,8 @@ function command(title,price,state) {
         window.open(`https://wa.me/+243994557806?text=Message venant de https://jeb-elevage.org, salut je commande *${quatity}*kg de *${title}*, PU : ${price}$, PT : ${price*quatity}$ `)
     }   
 }
+
+function formation(titre,id) {
+    db.set("formation_payment",{"id":id,title:titre})
+    lacrea_load(".body","apps/payment/")
+}
