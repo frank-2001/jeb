@@ -20,4 +20,8 @@
                 if (isset($_GET[$formations->table."-search"])) {
                     $output=$formations->search($_POST);
                 }
+                if (isset($_GET[$formations->table."-by"])) {
+                    $output=$formations->by($_POST);
+                }
+                
             

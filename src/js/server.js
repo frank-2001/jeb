@@ -15,6 +15,7 @@ function navbar() {
     }
 }
 navbar()
+
 $('.btn_connexion').click(function (e) { 
     e.preventDefault();
     profile()

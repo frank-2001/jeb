@@ -25,18 +25,20 @@ $("#update_pass").submit(function (e) {
     }
 });
 
-
 function deconnect() {
     db.remove('user')
     lacrea_load()
     navbar()
 }
+
 $('.infos>.head>div>.info').html(`
     <strong>${db.get('user').nom} ${db.get('user').postnom}</strong>
     <span>${db.get('user').telephone}</span>
     <i>${db.get('user').type}</i>
 `);
+
 $("title").text('JEB | Profil');
+
 function get_articles() {
     $.get('/server/?articles-all',function (e) {
     $('#nb_article').text(`${e.data.length} Article.s`);

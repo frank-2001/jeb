@@ -15,6 +15,6 @@
             <span>Prix : ##prix_presence##$</span> -
             <span>Enligne : ##prix_enligne##$</span>
         </div>
-        <button class="bg-green-400 p-2 rounded" onclick="formation('##titre##','##id##')">Parciciper</button>
+        <button class="bg-green-400 p-2 rounded" onclick="db.set('formation','##id##');lacrea_load('.body','apps/formation')">Parciciper</button>
     </div>
 </div>

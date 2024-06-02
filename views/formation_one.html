@@ -1,0 +1,41 @@
+<div class="grid sm:grid-cols-2 sm:gap-4 gap-2 bg-white rounded p-3 text-xs hover:bg-gray-100">
+    <div>
+        <div class="bg-[url(server/uploads/formations/##image##)] bg-center bg-cover h-64">
+        </div>
+        <div class="grid gap-1">
+            <h3 class="font-bold text-sm">##titre##</h3>
+            <div>
+                Du ##debut## au ##Fin##
+            </div>
+    
+            <div class="flex justify-between">
+                <span>Inscrits : -</span>
+                <span>Lieu : ##lieu##</span> 
+            </div>
+            <div class="flex justify-between">
+                <span>Prix presentiel : ##prix_presence##$</span> 
+                <span>Prix enligne : ##prix_enligne##$</span>
+            </div>
+            <div class="py-4">
+                <span class="font-bold">Description:</span> 
+                ##Description##
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-gray-400 grid  p-2 gap-2">
+        <h2 class="bg-white p-2 font-bold text-center" >Moyens de paiements, pour valider votre inscription</h2>
+        <div class="grid px-2">
+            <h3 class="bg-blue-200 p-2">Paiement mobile money</h3>
+            <ul class="mx-2  font-bold uppercase">
+                <li class="bg-red-400 p-2" onclick="window.open('tel:*501#','_self')">Airtel Money : +243 994 557 806</li>
+                <li class="bg-orange-400 p-2" onclick="window.open('tel:*144#','_self')">Orange Money : -</li>
+                <li class="bg-blue-400 p-2" onclick="window.open('tel:*1122#','_self')">M-pesa : -</li>
+            </ul>
+        </div>
+        <div class="grid px-2">
+            <h3 class="bg-blue-200 p-2">Paiement en espece</h3>
+            <span class="mx-2  font-bold uppercase bg-gray-700 text-gray-100 p-2">Adresse : ville de Beni, Quartier Residentiel, Face à face du bureau administratif de l'UOS (Univesité Officielle de Semuliki)</span>
+        </div>
+    </div>
+</div>
