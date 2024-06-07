@@ -4,7 +4,13 @@
                     $output=$inscription_formation->All("inscription_formation.id,id_user,id_formation,nom,postnom,prenom,inscription_formation.creation,inscription_formation.state,formations.titre,formations.titre,formations.debut,formations.fin","inner join clients inner join formations on id_user=clients.id");
                 }
                 if (isset($_GET[$inscription_formation->table."-new"])) {
-                    $output=$inscription_formation->new($_POST);
+                    $output=$inscription_formation->new($_POST);   
+                    $admins=[];
+                    foreach ($clients->by(["type"=>"administrateur"])["data"] as $va) {
+                        array_push($admins,$va["id"]);
+                    }
+                    notification("Nouvel Inscription a la une formation","Un utilisaateur a envoyé une damande de participation à une formation.","/?apps/profile/admin.html","",$admins,$notifications,$notifications_store);
+                    
                 }
                 if (isset($_GET[$inscription_formation->table."-byId"])) {
                     $output=$inscription_formation->byId($_GET[$inscription_formation->table."-byId"]);

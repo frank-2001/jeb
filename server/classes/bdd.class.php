@@ -111,6 +111,17 @@
                     $sql="SELECT ".$param1." FROM ".$this->table." ".$param2." where ".$demand;
                     return $this->return($sql,__FUNCTION__);
                 }
+                 // Search by any thing
+                function byMulti($data,$param1="*",$param2=""){
+                    // print_r($data);
+                    $demand="";
+                    foreach ($data["data"] as $value1) {
+                        $demand.=" ".$data["column"]." = '".$value1."' OR";
+                    }
+                    $demand=substr($demand,0,-2);
+                    $sql="SELECT ".$param1." FROM ".$this->table." ".$param2." where ".$demand;
+                    return $this->return($sql,__FUNCTION__);
+                }
             }
 
             function webp($image,$level,$prefix="",$dir='webp_compressed/'){

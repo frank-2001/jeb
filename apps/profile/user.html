@@ -1,245 +1,493 @@
+<div
+  class="hidden fixed z-40 grid p-3 gap-2 bg-white h-screen overflow-y-auto w-screen"
+  id="images"
+></div>
+<div
+  class="images_investissements hidden fixed z-30 h-screen w-full bg-black/50 text-white backdrop-blur-sm p-3 text-sm"
+>
+  <div class="grid">
+    <div
+      class="tit flex justify-between items-center bg-white text-black p-2 rounded"
+    >
+      <svg
+        onclick="$('.images_investissements').toggle()"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-5"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+        />
+      </svg>
 
-<div class="hidden fixed z-40 grid p-3 gap-2 bg-white h-screen overflow-y-auto w-screen" id="images">
-
+      <span class="uppercase">Images</span>
+      <button onclick="$('#new_inv').toggle();">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div id="new_inv" class="hidden bg-white p-3 my-1">
+      <form
+        action=""
+        class="grid gap-2 p-3 rounded bg-gray-700 text-white"
+        method="post"
+        id="new_imgs"
+        enctype="multipart/form-data"
+      >
+        <fieldset class="grid">
+          <span>Nouvelles images</span>
+          <input type="file" name="images[]" multiple />
+        </fieldset>
+        <button class="p-2 rounded bg-green-500">valider</button>
+      </form>
+    </div>
+    <div class="images_investissement_model"></div>
+  </div>
 </div>
-<div class="images_investissements hidden fixed z-30 h-screen w-full bg-black/50 text-white backdrop-blur-sm p-3 text-sm">
-    <div class="grid">
-        <div class="tit flex justify-between items-center bg-white text-black p-2 rounded">
-            <svg onclick="$('.images_investissements').toggle()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-              </svg>
-              
-            <span class="uppercase">Images</span>
-            <button onclick="$('#new_inv').toggle();">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-            </button>
-        </div>
-        <div id="new_inv" class="hidden bg-white p-3 my-1">
-            <form action="" class="grid gap-2 p-3 rounded bg-gray-700 text-white" method="post" id="new_imgs"  enctype="multipart/form-data">
-                <fieldset  class="grid">
-                    <span>Nouvelles images</span>
-                    <input type="file" name="images[]" multiple>
-                </fieldset>
-                <button class="p-2 rounded bg-green-500">valider</button>
-            </form>
-        </div>
-        <div class="images_investissement_model">
-            
-        </div>
-    </div> 
-</div>
 
-<div class="user pt-16 px-4 sm:hidden sm:content-['Taille de l appereil non supporté pour le moment']">
-    <div class="infos">
-        <div class="w-full head flex justify-between items-center bg-white rounded py-3 px-2 text-gray-600 " >
-            <div class="flex gap-2 items-center">
-                <img src="src/images/assets/jeb24.webp" class="w-16" alt="" srcset="">
-                <div class="info grid text-xs gap-0">
-                </div>
-            </div>
-            <svg onclick="$('.menu-profil-mobile').toggle()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+<div
+  class="user pt-16 px-4 sm:hidden sm:content-['Taille de l appereil non supporté pour le moment']"
+>
+  <div class="infos">
+    <div
+      class="w-full head flex justify-between items-center bg-white rounded py-3 px-2 text-gray-600"
+    >
+      <div class="flex gap-2 items-center">
+        <img src="src/images/assets/jeb24.webp" class="w-16" alt="" srcset="" />
+        <div class="info grid text-xs gap-0"></div>
+      </div>
+      <svg
+        onclick="$('.menu-profil-mobile').toggle()"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        />
+      </svg>
+    </div>
+    <div
+      class="menu-profil grid menu-profil-mobile bg-gray-800 text-gray-300 items-center text-center"
+    >
+      <h3 class="bg-green-500 py-2">Menu</h3>
+      <div class="grid gap-1 px-3 py-2">
+        <span
+          class="primary p5 bg-gray-500 dashboard py-1"
+          onclick="app('dashboard')"
+          >Dashboard</span
+        >
+        <span
+          class="primary p5 radius-5 investissements bg-gray-500 py-1"
+          onclick="app('investissements')"
+          >Investissements</span
+        >
+        <span
+          class="primary p5 radius-5 bg-gray-500 py-1 articles"
+          onclick="app('articles')"
+          >Produits</span
+        >
+        <span
+          class="primary p5 radius-5 formations_ bg-gray-500 py-1"
+          onclick="app('formations_')"
+          >Formations</span
+        >
+        <span
+          class="primary p5 radius-5 parametre bg-gray-500 py-1"
+          onclick="app('parametre')"
+          >Parametres</span
+        >
+        <!-- <span class="primary p5 radius-5 administrateur" onclick="app('annonces')">Annonces</span> -->
+      </div>
+    </div>
+    <div class="grid menu-profil-mobile">
+      <button class="danger bg-red-500 py-2" onclick="deconnect()">
+        Deconnexion
+      </button>
+    </div>
+  </div>
+  <div class="app my-2 pb-16">
+    <div id="dashboard" class="grid">
+      <h2 class="bg-green-500 text-center bg-green-500 p-2 text-gray-700">
+        DASHBOARD
+      </h2>
+
+      <div
+        class="grid grid-cols-2 gap-2 my-4 text-center text-sm font-bold text-gray-300"
+      >
+        <div id="totaux" class="bg-gray-800 p-4 rounded">Total investis</div>
+
+        <div id="nb_investissement" class="bg-gray-800 p-4 rounded">
+          demandes d'investissements
+        </div>
+      </div>
+    </div>
+    <div id="formations_">
+      <div
+        class="flex font-bold uppercase items-center justify-between bg-green-500 p-2 text-gray-700"
+      >
+        <h2>FORMATIONS</h2>
+        <div class="flex gap-2">
+          <button onclick="app('new_formation')">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
             </svg>
+          </button>
+          <button onclick="app('list_inscris_formation')">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z"
+              />
+            </svg>
+          </button>
         </div>
-        <div class="menu-profil grid menu-profil-mobile bg-gray-800 text-gray-300 items-center text-center">
-            <h3 class="bg-green-500 py-2">Menu</h3>
-            <div class="grid gap-1 px-3 py-2">
-                <span class="primary p5 bg-gray-500 dashboard py-1" onclick="app('dashboard')">Dashboard</span>
-                <span class="primary p5 radius-5 investissements bg-gray-500 py-1" onclick="app('investissements')">Investissements</span>
-                <span class="primary p5 radius-5 bg-gray-500 py-1 articles" onclick="app('articles')">Produits</span>
-                <span class="primary p5 radius-5 formations_ bg-gray-500 py-1" onclick="app('formations_')">Formations</span>
-                <span class="primary p5 radius-5 parametre bg-gray-500 py-1" onclick="app('parametre')">Parametres</span>
-                <!-- <span class="primary p5 radius-5 administrateur" onclick="app('annonces')">Annonces</span> -->
-            </div>
+      </div>
+      <div class="formations_model grid gap-3 py-3" order="DESC"></div>
+    </div>
+    <div id="list_inscris_formation">
+      <div
+        class="flex between center justify-between bg-green-500 p-2 text-gray-800"
+      >
+        <svg
+          onclick="app('formations_')"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+          />
+        </svg>
+        <h2>Inscris Formations</h2>
+      </div>
+      <div
+        class="flex justify-between gap-2 bg-white/50 text-xs m-2 p-1 rounded"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-4 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z"
+          />
+        </svg>
+        <div class="flex gap-1">
+          <div class="flex gap-1 items-center border rounded p-1">
+            <span class="p-2 bg-blue-500"></span>
+            <span>Validée</span>
+          </div>
+          <div class="flex gap-1 items-center border rounded p-1">
+            <span class="p-2 bg-blue-200"></span>
+            <span>Non Valiée</span>
+          </div>
         </div>
-        <div class="grid menu-profil-mobile">
-            <button class="danger bg-red-500 py-2" onclick="deconnect()">
-                Deconnexion
+      </div>
+      <div
+        class="inscription_formation_model grid gap-2 py-2 px-2"
+        order="DESC"
+        view="inscription_formation.user.html"
+      ></div>
+    </div>
+    <div id="articles" class="grid">
+      <div
+        class="flex font-bold uppercase items-center justify-center text-center bg-green-500 p-2 text-gray-800"
+      >
+        <h2>ARTICLES</h2>
+      </div>
+      <div
+        class="articles_model grid gap-4 py-4"
+        order="DESC"
+        view="articles.user.html"
+      ></div>
+    </div>
+    <div id="investissements" class="grid gap-3">
+      <div
+        class="flex uppercase between center justify-between bg-green-500 font-bold p-2 text-gray-700"
+      >
+        <h2>Investissements</h2>
+        <button onclick="app('articles')">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="grid gap-3">
+        <div class="grid grid-cols-6 bg-white rounded text-sm">
+          <input
+            type="text"
+            class="col-span-5 p-2 rounded"
+            placeholder="Recherche rapide"
+            id="search"
+            name="search"
+          />
+          <button
+            onclick="get_investissement();$('#search').val('');"
+            class="rounded flex justify-center items-center text-black bg-gray-100"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-5 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="grid grid-cols-6 bg-white gap-1 pl-2 items-center rounded text-sm"
+        >
+          <div
+            class="col-span-5 w-full items-center overflow-y-auto flex gap-2 rounded pr-12"
+          >
+            <button
+              onclick="state_filter('entente')"
+              class="flex whitespace-nowrap items-center gap-1 back bg-gray-900 py-1 px-2 text-gray-100 rounded"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+                />
+              </svg>
+
+              <span class="no-wrap">En attente</span>
             </button>
-        </div>                     
+            <button
+              onclick="state_filter('valide')"
+              class="flex items-center gap-1 back bg-green-500 py-1 px-2 text-gray-100 rounded"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m4.5 12.75 6 6 9-13.5"
+                />
+              </svg>
+
+              <span>validé</span>
+            </button>
+            <button
+              onclick="state_filter('termine')"
+              class="flex items-center gap-1 back bg-red-500 py-1 px-2 text-gray-100 rounded"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636"
+                />
+              </svg>
+
+              <span>Terminé</span>
+            </button>
+          </div>
+          <div class="span-col-1 bg-gray-100 p-2 rounded">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="list grid gap-3"></div>
     </div>
-    <div class="app my-2 pb-16">
-        <div id="dashboard" class="grid">
-            <h2 class="bg-green-500 text-center bg-green-500 p-2 text-gray-700">
-                DASHBOARD
-            </h2>
+    <div id="parametre">
+      <h2 class="bg-green-500 text-center bg-green-500 p-2 text-gray-700">
+        PARAMETRES
+      </h2>
 
-            <div class="grid grid-cols-2 gap-2 my-4 text-center text-sm font-bold text-gray-300">
-                <div id="totaux" class="bg-gray-800 p-4 rounded">
-                        Total investis
-                </div>
-
-                <div id="nb_investissement" class="bg-gray-800 p-4 rounded">
-                        demandes d'investissements
-                </div>
-            </div>
+      <div class="grid gap-2 bg-white my-2 rounded">
+        <div class="pass">
+          <div
+            class="tit rounded-t bg-gray-500 text-gray-300 py-2 px-4 text-sm flex justify-between items-center"
+            onclick="$('.pass>.content').toggle(300);"
+          >
+            <span>Mettre a jour le mot de pass</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-4 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5"
+              />
+            </svg>
+          </div>
+          <div class="content hidden">
+            <form
+              action=""
+              class="grid gap-3 p-2 px-4 text-sm"
+              id="update_pass"
+            >
+              <fieldset class="grid gap-1 bg-gray-300 text-black pt-2 rounded">
+                <span class="pl-2">Ancien mot de passe</span>
+                <input
+                  class="bg-gray-500 p-2 rounded"
+                  placeholder="****"
+                  type="password"
+                  name="old"
+                  required
+                />
+              </fieldset>
+              <fieldset class="grid gap-1 bg-gray-300 text-black pt-2 rounded">
+                <span class="pl-2">Nouveau mot de passe</span>
+                <input
+                  class="bg-gray-500 p-2 rounded"
+                  placeholder="****"
+                  type="password"
+                  name="new_1"
+                  required
+                />
+              </fieldset>
+              <fieldset class="grid gap-1 bg-gray-300 text-black pt-2 rounded">
+                <span class="pl-2">Repete le nouveau mot de passe</span>
+                <input
+                  class="bg-gray-500 p-2 rounded"
+                  placeholder="****"
+                  type="password"
+                  name="new_2"
+                  required
+                />
+              </fieldset>
+              <button class="bg-green-500 p-2 rounded text-white">
+                Valider
+              </button>
+            </form>
+          </div>
         </div>
-        <div id="formations_">
-            <div class="flex font-bold uppercase items-center justify-between bg-green-500 p-2 text-gray-700">
-                <h2>FORMATIONS</h2>
-                <div class="flex gap-2">
-                    <button onclick="app('new_formation')">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>                      
-                    </button>
-                    <button onclick="app('list_inscris_formation')">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z" />
-                          </svg>                                                
-                    </button>
-                </div>
-            </div>
-            <div class="formations_model grid gap-3 py-3" order="DESC">
-                
-            </div>
-        </div>
-        <div id="list_inscris_formation" >
-            <div class="flex between center justify-between bg-green-500 p-2 text-gray-800">
-                <svg  onclick="app('formations_')"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                </svg>
-                <h2>
-                    Inscris Formations
-                </h2>
-            </div>   
-            <div class="flex justify-between gap-2 bg-white/50 text-xs m-2 p-1 rounded ">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
-                </svg>   
-                <div class="flex gap-1">
-                    <div class="flex gap-1 items-center border rounded p-1">
-                        <span class="p-2 bg-blue-500"></span>
-                        <span>Validée</span>
-                    </div>
-                    <div class="flex gap-1 items-center border rounded p-1">
-                        <span class="p-2 bg-blue-200"></span>
-                        <span>Non Valiée</span>
-                    </div>
-                </div>               
-            </div>
-            <div class="inscription_formation_model grid gap-2 py-2 px-2" order="DESC" view="inscription_formation.user.html">
-
-            </div>
-        </div>
-        <div id="articles" class="grid">
-            <div class="flex font-bold uppercase items-center justify-center text-center bg-green-500 p-2 text-gray-800">
-                <h2>ARTICLES</h2>
-            </div>
-            <div class="articles_model grid gap-4 py-4" order="DESC" view="articles.user.html">
-                
-
-            </div>
-        </div>
-        <div id="investissements" class="grid gap-3">
-            <div class="flex uppercase between center justify-between bg-green-500 font-bold p-2 text-gray-700">
-                <h2>Investissements</h2>
-                <button onclick="app('articles')">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
-                </button>
-            </div>
-            <div class="grid gap-3">
-                <div class="grid grid-cols-6 bg-white rounded text-sm">
-                    <input type="text"  class="col-span-5 p-2 rounded" placeholder="Recherche rapide"  id="search" name="search">
-                    <button onclick="get_investissement();$('#search').val('');" class="rounded flex justify-center items-center text-black bg-gray-100">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
-                          </svg>
-                           
-                    </button>
-                </div>
-                <div class="grid grid-cols-6 bg-white gap-1 pl-2  items-center rounded text-sm">
-                    
-                    <div class="col-span-5 w-full items-center overflow-y-auto flex gap-2 rounded  pr-12">
-                        <button onclick="state_filter('entente')" class="flex whitespace-nowrap items-center gap-1 back bg-gray-900 py-1 px-2 text-gray-100 rounded">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-                              </svg>
-                              
-                            <span class="no-wrap">En attente</span>
-                        </button>
-                        <button onclick="state_filter('valide')" class="flex items-center gap-1 back bg-green-500 py-1 px-2 text-gray-100 rounded">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                              </svg>
-                              
-                            <span>validé</span>
-                        </button>
-                        <button onclick="state_filter('termine')" class="flex items-center gap-1 back bg-red-500 py-1 px-2 text-gray-100 rounded">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
-                              </svg>
-                              
-                            <span>Terminé</span>
-                        </button>
-                    </div>
-                    <div class="span-col-1 bg-gray-100 p-2 rounded">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
-                        </svg>                          
-                    </div>
-                </div>
-            </div>
-            <div class="list grid gap-3">
-
-            </div>
-        </div>
-        <div id="parametre">
-            <h2 class="bg-green-500 text-center bg-green-500 p-2 text-gray-700">
-                PARAMETRES
-            </h2>
-
-            <div class="grid gap-2 bg-white my-2 rounded">
-                <div class="pass">
-                    <div class="tit rounded-t bg-gray-500 text-gray-300 py-2 px-4 text-sm flex justify-between items-center" onclick="$('.pass>.content').toggle(300);">
-                        <span>Mettre a jour le mot de pass</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5" />
-                            </svg>
-                            
-                    </div>
-                    <div class="content hidden">
-                        <form action="" class="grid gap-3 p-2 px-4 text-sm" id="update_pass">
-                            <fieldset class="grid gap-1 bg-gray-300 text-black pt-2 rounded">
-                                <span class="pl-2">Ancien mot de passe</span>
-                                <input class="bg-gray-500 p-2 rounded" placeholder="****" type="password" name="old" required>
-                            </fieldset>
-                            <fieldset class="grid gap-1 bg-gray-300 text-black pt-2 rounded">
-                                <span class="pl-2">Nouveau mot de passe</span>
-                                <input class="bg-gray-500 p-2 rounded" placeholder="****" type="password" name="new_1" required>
-                            </fieldset>
-                            <fieldset class="grid gap-1 bg-gray-300 text-black pt-2 rounded">
-                                <span class="pl-2">Repete le nouveau mot de passe</span>
-                                <input class="bg-gray-500 p-2 rounded" placeholder="****" type="password"  name="new_2" required>
-                            </fieldset>
-                            <button class="bg-green-500 p-2 rounded text-white">Valider</button>
-                        </form>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
 <script src="src/js/profile.js"></script>
 <script>
-    function invImg(id) {
-        db.set("investissement",id)
-        $(".images_investissement_model").html("")
-        $(".images_investissement_model").attr("where",`{"id_investissement":"${id}"}`);
-        lacrea_data()
-        $(".images_investissements").show();
-    }
-    function imagesInv() {
-        console.log("imagesInv");
-        imgs=db.get("investissement_images").split(",")
-        console.log(imgs);
-        $("#images").show()
-        $("#images").html(`
+  if (db.get("user")["type"] != "utilisateur") {
+    lacrea_load();
+  }
+  function invImg(id) {
+    db.set("investissement", id);
+    $(".images_investissement_model").html("");
+    $(".images_investissement_model").attr(
+      "where",
+      `{"id_investissement":"${id}"}`
+    );
+    lacrea_data();
+    $(".images_investissements").show();
+  }
+  function imagesInv() {
+    console.log("imagesInv");
+    imgs = db.get("investissement_images").split(",");
+    console.log(imgs);
+    $("#images").show();
+    $("#images").html(`
             <div class="w-screen flex text-center justify-center fixed">
                 <div class="rounded-full  bg-red-700 text-white w-fulll items-center p-2">    
                     <svg onclick="$('#images').hide()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -248,113 +496,121 @@
                 </div>
             </div>
         `);
-        imgs.forEach(img => {
-            if (img!="") {
-                $("#images").append(`
+    imgs.forEach((img) => {
+      if (img != "") {
+        $("#images").append(`
                     <img src="server/uploads/investissements/${img}" class="w-full my-3 rounded">
-                `);   
-            }
-        });
-    }
-
-    function state_filter(param) {
-        let msg=param
-        if (param=="valide") {
-            param=0
-        }else if(param=="entente"){
-            param=-1
-        }else if (param=="termine") {
-            param=1
-        }
-        let invs=db.get("investissement")
-        let searched=[]
-        invs.forEach(inv => {
-
-            if (inv.state==param) {
-                searched.push(inv)
-            }
-        });
-        write_inv(searched,"Investissements "+msg)   
-    }
-
-    function app(ap="dashboard") {
-        db.set('admin_app',ap)
-        console.log("ADMIN : "+ap);
-        if ($("html").width()<=600) {
-            $('.menu-profil-mobile').hide();
-        }
-        
-        $('.menu-profil>div>span').removeClass('current_app')
-        $('.'+ap).addClass('current_app')
-        $('.app>div').hide()
-        $('#'+ap).show()
-    }
-    setTimeout(() => {
-        if (db.get('admin_app')) {
-            app(db.get('admin_app'))   
-        }else{
-            app()
-        }         
-    }, 100);
-    $("#search").keyup(function (e) { 
-
-        $('#investissements>.list').html(`
-            <div class="flex justify-center items-center py-16">
-                <svg class="w-12 animate-spin" viewBox="-4 -4 24.00 24.00" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#6dd765" stroke-width="1.2"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.8320000000000001"> <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd"> <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"></path> <path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"></path> </g> </g><g id="SVGRepo_iconCarrier"> <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd"> <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"></path> <path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"></path> </g> </g></svg>
-            </div>
-        `)
-        // let form=new FormData(this)
-        let invs=db.get("investissement")
-        let searched=[]
-        invs.forEach(inv => {
-            s=search=$(this).val();
-            names=`${inv.nom} ${inv.postnom} ${inv.prenom}`
-            names=names.toLowerCase()
-            search=s.toLowerCase()
-
-            if (!inv.terminate) {
-                inv.terminate=""
-            }
-            if (!inv.validate) {
-                inv.validate=""
-            }
-            if (names.search(search)>=0 || inv.title.search(search)>=0 || inv.creation.search(search)>=0 || inv.terminate.search(search)>=0 || inv.validate.search(search)>=0) {
-                searched.push(inv)
-            }
-        });
-        write_inv(searched,`Resultat pour <i class="text-green-500">'${s}'</i>`)
+                `);
+      }
     });
+  }
 
-    function get_investissement() {
-        $('#investissements>.list').html(`
+  function state_filter(param) {
+    let msg = param;
+    if (param == "valide") {
+      param = 0;
+    } else if (param == "entente") {
+      param = -1;
+    } else if (param == "termine") {
+      param = 1;
+    }
+    let invs = db.get("investissement");
+    let searched = [];
+    invs.forEach((inv) => {
+      if (inv.state == param) {
+        searched.push(inv);
+      }
+    });
+    write_inv(searched, "Investissements " + msg);
+  }
+
+  function app(ap = "dashboard") {
+    db.set("admin_app", ap);
+    console.log("ADMIN : " + ap);
+    if ($("html").width() <= 600) {
+      $(".menu-profil-mobile").hide();
+    }
+
+    $(".menu-profil>div>span").removeClass("current_app");
+    $("." + ap).addClass("current_app");
+    $(".app>div").hide();
+    $("#" + ap).show();
+  }
+  setTimeout(() => {
+    if (db.get("admin_app")) {
+      app(db.get("admin_app"));
+    } else {
+      app();
+    }
+  }, 100);
+  $("#search").keyup(function (e) {
+    $("#investissements>.list").html(`
             <div class="flex justify-center items-center py-16">
                 <svg class="w-12 animate-spin" viewBox="-4 -4 24.00 24.00" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#6dd765" stroke-width="1.2"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.8320000000000001"> <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd"> <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"></path> <path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"></path> </g> </g><g id="SVGRepo_iconCarrier"> <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd"> <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"></path> <path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"></path> </g> </g></svg>
             </div>
-        `)
-        $.post('/server/?investissements-by',{"client_id":db.get('user').id},function (e) {
-            $('#nb_investissement').text(`${e.data.length} Investissements`);
-            console.log(e);
-            db.set("investissement",e.data)
-            write_inv(e.data)
-        })
-    }
-    get_investissement()
-    function write_inv(data,message=null) {
-        if (message) {
-            $('#investissements>.list').html(`
+        `);
+    // let form=new FormData(this)
+    let invs = db.get("investissement");
+    let searched = [];
+    invs.forEach((inv) => {
+      s = search = $(this).val();
+      names = `${inv.nom} ${inv.postnom} ${inv.prenom}`;
+      names = names.toLowerCase();
+      search = s.toLowerCase();
+
+      if (!inv.terminate) {
+        inv.terminate = "";
+      }
+      if (!inv.validate) {
+        inv.validate = "";
+      }
+      if (
+        names.search(search) >= 0 ||
+        inv.title.search(search) >= 0 ||
+        inv.creation.search(search) >= 0 ||
+        inv.terminate.search(search) >= 0 ||
+        inv.validate.search(search) >= 0
+      ) {
+        searched.push(inv);
+      }
+    });
+    write_inv(searched, `Resultat pour <i class="text-green-500">'${s}'</i>`);
+  });
+
+  function get_investissement() {
+    $("#investissements>.list").html(`
+            <div class="flex justify-center items-center py-16">
+                <svg class="w-12 animate-spin" viewBox="-4 -4 24.00 24.00" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#6dd765" stroke-width="1.2"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.8320000000000001"> <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd"> <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"></path> <path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"></path> </g> </g><g id="SVGRepo_iconCarrier"> <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd"> <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"></path> <path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"></path> </g> </g></svg>
+            </div>
+        `);
+    $.post(
+      "/server/?investissements-by",
+      { client_id: db.get("user").id },
+      function (e) {
+        $("#nb_investissement").text(`${e.data.length} Investissements`);
+        console.log(e);
+        db.set("investissement", e.data);
+        write_inv(e.data);
+      }
+    );
+  }
+  get_investissement();
+  function write_inv(data, message = null) {
+    if (message) {
+      $("#investissements>.list").html(`
                 <div class="flex gap-2 items-center text-center bg-gray-200 rounded p-3 text-gray-500 text-xs">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
                     </svg>
                     <span>${message}</span>
                 </div>
-            `)
-        }else{
-            $('#investissements>.list').html("")
-        }
-    
-        if (data.length<=0) {
-            $('#investissements>.list').html(`
+            `);
+    } else {
+      $("#investissements>.list").html("");
+    }
+
+    if (data.length <= 0) {
+      $("#investissements>.list").html(`
                 <div class="grid justify-center items-center py-12 text-center bg-white my-12 rounded">
                     <span>Aucun investissement correspondant trouvé !</span>
                     <div class="flex justify-center items-center">
@@ -363,53 +619,55 @@
                         </svg>
                     </div>
                 </div>
-            `)
-            return;
-        }
-        let totaux=0
-        data.reverse().forEach(el => {
-            dat=new Date(el.validate+" 12:00:00")
-            now=new Date()
+            `);
+      return;
+    }
+    let totaux = 0;
+    data.reverse().forEach((el) => {
+      dat = new Date(el.validate + " 12:00:00");
+      now = new Date();
 
-            validate=""
-            terminate=""
-            stat=el.state
-            if (el.state=="1") {
-                el.state="Términé depuis "+el.terminate+", Validé "+el.validate
-                cls="bg-red-500 text-white"
-                validate="hidden"
-                terminate="hidden"
-                now=new Date(el.terminate+" 12:00:00")
-            }else if(el.state=="0"){
-                el.state="Validé depuis "+el.validate
-                cls="bg-green-500 text-white "
-                validate="hidden"
-            }else{
-                dat=new Date()
-                el.state="Non validé"
-                cls="bg-gray-800 text-white "
-            }
+      validate = "";
+      terminate = "";
+      stat = el.state;
+      if (el.state == "1") {
+        el.state = "Términé depuis " + el.terminate + ", Validé " + el.validate;
+        cls = "bg-red-500 text-white";
+        validate = "hidden";
+        terminate = "hidden";
+        now = new Date(el.terminate + " 12:00:00");
+      } else if (el.state == "0") {
+        el.state = "Validé depuis " + el.validate;
+        cls = "bg-green-500 text-white ";
+        validate = "hidden";
+      } else {
+        dat = new Date();
+        el.state = "Non validé";
+        cls = "bg-gray-800 text-white ";
+      }
 
-            nb_day=Math.round((now.getTime()-dat.getTime())/(1000*60*60*24))
-            payment=el.pieces*el.rate_return
-            paymentDay=payment/el.nb_day_return
-            nb_pay = Math.floor(nb_day/el.nb_day_return)
-            total=el.rate_return*nb_pay*el.pieces
+      nb_day = Math.round(
+        (now.getTime() - dat.getTime()) / (1000 * 60 * 60 * 24)
+      );
+      payment = el.pieces * el.rate_return;
+      paymentDay = payment / el.nb_day_return;
+      nb_pay = Math.floor(nb_day / el.nb_day_return);
+      total = el.rate_return * nb_pay * el.pieces;
 
-            evolution = Math.round(paymentDay*nb_day)-total
-            if (stat==1) {
-                evolutionHtml=``
-                total+=evolution
-            }else if(stat==0){
-                evolutionHtml=`
+      evolution = Math.round(paymentDay * nb_day) - total;
+      if (stat == 1) {
+        evolutionHtml = ``;
+        total += evolution;
+      } else if (stat == 0) {
+        evolutionHtml = `
                     <span>Evolution des interets : ${evolution}$</span>
-                `
-            }else{
-                evolutionHtml=`
+                `;
+      } else {
+        evolutionHtml = `
                     <span>Evolution des interets : ${evolution}$</span>
-                `
-            }
-            $('#investissements>.list').append(`
+                `;
+      }
+      $("#investissements>.list").append(`
                 <div class="bg-white border rounded text-sm">
                     <div class="grid gap-1">
                         <div class=" ${cls} grid grid-cols-5 gap-2 py-2 px-4 items-start">
@@ -422,21 +680,31 @@
                         </div>
                         <div class="p-4 grid">
                             <span class="">Creation : le ${el.creation}</span>
-                            <span> Client : ${el.nom} ${el.postnom} ${el.prenom}</span>
+                            <span> Client : ${el.nom} ${el.postnom} ${
+        el.prenom
+      }</span>
                             <span> Produit : ${el.title}</span>
                             <span> Prix : ${el.prix_investissement}$ </span> 
                             <span> Nombre Pieces : ${el.pieces}</span>
-                            <span> Total investis : ${el.pieces*el.prix_investissement}$</span>
+                            <span> Total investis : ${
+                              el.pieces * el.prix_investissement
+                            }$</span>
                             <span> Interet par piece : ${el.rate_return}$</span>
-                            <span> Total Interet : ${Math.round(el.rate_return*el.pieces)}$</span>
-                            <span> Durée avant chaque paiement : ${el.nb_day_return} Jours </span>
+                            <span> Total Interet : ${Math.round(
+                              el.rate_return * el.pieces
+                            )}$</span>
+                            <span> Durée avant chaque paiement : ${
+                              el.nb_day_return
+                            } Jours </span>
                             <span> Nombre des Jours ecoulé :  ${nb_day} Jours</span>
                             <span> Nombre des paiements reçu : ${nb_pay}</span>
                             ${evolutionHtml}
                             <span> Total encaissé : ${total}$</span>
                         </div>
                         <div class="flex gap-3 bg-gray-700 py-2 px-4 text-white">
-                            <button class="bg-blue-500 p-2 py-1 rounded" onclick="invImg(${el.id})">
+                            <button class="bg-blue-500 p-2 py-1 rounded" onclick="invImg(${
+                              el.id
+                            })">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                                 </svg>
@@ -445,35 +713,45 @@
                     </div>
                 </div>
             `);
-            totaux+=el.pieces*el.prix_investissement
+      totaux += el.pieces * el.prix_investissement;
+    });
+    $("#totaux").text("Total Investis " + totaux + " $");
+  }
+  function investir(id) {
+    if (id != null) {
+      db.set("investir", id);
+      service("contrat");
+    } else {
+      service("contrat", false);
+      $("#loading").show();
+      id = db.get("investir");
+      pieces = prompt("Quantite");
+      if (!pieces || pieces == "") {
+        swal("Action annulée");
+        return;
+      }
+      $.post(
+        "server/?investissements-new",
+        { article_id: id, client_id: db.get("user")["id"], pieces: pieces },
+        function (data, textStatus, jqXHR) {
+          swal("Investissement fait avec succes");
+          investissement();
+        },
+        "json"
+      )
+        .fail((e) => {
+          swal("Erreur : Action non effectuée!");
+          swal("Echec");
+          console.log(e);
+        })
+        .always((e) => {
+          $("#loading").hide();
         });
-        $("#totaux").text("Total Investis "+totaux+" $");
     }
-    function investir(id) {
-        if (id!=null) {
-            db.set('investir',id)
-            service("contrat")
-        }
-        else{    
-            id=db.get('investir')
-            pieces=prompt("Quantite")
-            if (!pieces || pieces=="") {
-                alert("Action annulée")
-                return 
-            }
-            $.post("server/?investissements-new",{"article_id":id,"client_id":db.get('user')["id"],"pieces":pieces},
-                function (data, textStatus, jqXHR) {
-                    alert("Investissement fait avec succes")
-                    investissement()
-                },
-                "json"
-            ).fail(e=>{
-                alert("Erreur : Action non effectuée!")
-                alert("Echec")
-                console.log(e);
-            });
-        }
-    }
-$(".inscription_formation_model").attr("where", `{"id_user":${db.get("user").id}}`);
-lacrea_data()
+  }
+  $(".inscription_formation_model").attr(
+    "where",
+    `{"id_user":${db.get("user").id}}`
+  );
+  lacrea_data();
 </script>

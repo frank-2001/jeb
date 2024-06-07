@@ -5,6 +5,14 @@
                 }
                 if (isset($_GET[$investissements->table."-new"])) {
                     $output=$investissements->new($_POST);
+                    sleep(1);
+                    $id=$clients->by(["id"=>$_POST["client_id"]])["data"][0]; 
+                    $admins=[];
+                    foreach ($clients->by(["type"=>"administrateur"])["data"] as $va) {
+                        array_push($admins,$va["id"]);
+                    }
+                    notification("Nouvelle demande d'investissement","Investisseur : ".$id["nom"]." ".$id["postnom"]." ".$id["prenom"],"/?apps/profile/admin.html","",$admins,$notifications,$notifications_store);
+                    
                 }
                 if (isset($_GET[$investissements->table."-byId"])) {
                     $output=$investissements->byId($_GET[$investissements->table."-byId"]);

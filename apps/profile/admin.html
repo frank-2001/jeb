@@ -1,771 +1,1306 @@
+<div
+  class="hidden fixed z-40 grid p-3 gap-2 bg-white h-screen overflow-y-auto w-screen"
+  id="images"
+></div>
+<div
+  class="images_investissements hidden fixed z-30 h-screen w-full bg-black/50 text-white backdrop-blur-sm p-3 text-sm"
+>
+  <div class="grid">
+    <div
+      class="tit flex justify-between items-center bg-white text-black p-2 rounded"
+    >
+      <svg
+        onclick="$('.images_investissements').toggle()"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-5"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+        />
+      </svg>
 
-<div class="hidden fixed z-40 grid p-3 gap-2 bg-white h-screen overflow-y-auto w-screen" id="images">
-
+      <span class="uppercase">Images</span>
+      <button onclick="$('#new_inv').toggle();">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div id="new_inv" class="hidden bg-white p-3 my-1">
+      <form
+        action=""
+        class="grid gap-2 p-3 rounded bg-gray-700 text-white"
+        method="post"
+        id="new_imgs"
+        enctype="multipart/form-data"
+      >
+        <fieldset class="grid">
+          <span>Nouvelles images</span>
+          <input type="file" name="images[]" multiple />
+        </fieldset>
+        <button class="p-2 rounded bg-green-500">valider</button>
+      </form>
+    </div>
+    <div class="images_investissement_model"></div>
+  </div>
 </div>
-<div class="images_investissements hidden fixed z-30 h-screen w-full bg-black/50 text-white backdrop-blur-sm p-3 text-sm">
-    <div class="grid">
-        <div class="tit flex justify-between items-center bg-white text-black p-2 rounded">
-            <svg onclick="$('.images_investissements').toggle()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-              </svg>
-              
-            <span class="uppercase">Images</span>
-            <button onclick="$('#new_inv').toggle();">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-            </button>
-        </div>
-        <div id="new_inv" class="hidden bg-white p-3 my-1">
-            <form action="" class="grid gap-2 p-3 rounded bg-gray-700 text-white" method="post" id="new_imgs"  enctype="multipart/form-data">
-                <fieldset  class="grid">
-                    <span>Nouvelles images</span>
-                    <input type="file" name="images[]" multiple>
-                </fieldset>
-                <button class="p-2 rounded bg-green-500">valider</button>
-            </form>
-        </div>
-        <div class="images_investissement_model">
-            
-        </div>
-    </div> 
-</div>
 
-<div class="user pt-16 px-4 sm:hidden sm:content-['Taille de l appereil non supporté pour le moment']">
-    <div class="infos">
-        <div class="w-full head flex justify-between items-center bg-white rounded py-3 px-2 text-gray-600 " >
-            <div class="flex gap-2 items-center">
-                <img src="src/images/assets/jeb24.webp" class="w-16" alt="" srcset="">
-                <div class="info grid text-xs gap-0">
-                </div>
-            </div>
-            <svg onclick="$('.menu-profil-mobile').toggle()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+<div
+  class="user pt-16 px-4 sm:hidden sm:content-['Taille de l appereil non supporté pour le moment']"
+>
+  <div class="infos">
+    <div
+      class="w-full head flex justify-between items-center bg-white rounded py-3 px-2 text-gray-600"
+    >
+      <div class="flex gap-2 items-center">
+        <img src="src/images/assets/jeb24.webp" class="w-16" alt="" srcset="" />
+        <div class="info grid text-xs gap-0"></div>
+      </div>
+      <svg
+        onclick="$('.menu-profil-mobile').toggle()"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        />
+      </svg>
+    </div>
+    <div
+      class="menu-profil grid menu-profil-mobile bg-gray-800 text-gray-300 items-center text-center"
+    >
+      <h3 class="bg-green-500 py-2">Menu</h3>
+      <div class="grid gap-1 px-3 py-2 text-xs">
+        <span
+          class="primary p5 bg-gray-500 dashboard py-1"
+          onclick="app('dashboard')"
+          >Dashboard</span
+        >
+        <span
+          class="primary p5 radius-5 bg-gray-500 py-1 articles"
+          onclick="app('articles')"
+          >Articles</span
+        >
+        <span
+          class="primary p5 radius-5 investissements bg-gray-500 py-1"
+          onclick="app('investissements')"
+          >Investissements</span
+        >
+        <span
+          class="primary p5 radius-5 formations_ bg-gray-500 py-1"
+          onclick="app('formations_')"
+          >Formations</span
+        >
+        <span
+          class="primary p5 radius-5 clients bg-gray-500 py-1"
+          onclick="app('clients')"
+          >Clients</span
+        >
+        <span
+          class="primary p5 radius-5 administrateur bg-gray-500 py-1"
+          onclick="app('administrateur')"
+          >Administrateur</span
+        >
+        <span
+          class="primary p5 radius-5 administrateur bg-gray-500 py-1"
+          onclick="app('notifications')"
+          >Notifications</span
+        >
+        <span
+          class="primary p5 radius-5 parametre bg-gray-500 py-1"
+          onclick="app('parametre')"
+          >Parametres</span
+        >
+        <!-- <span class="primary p5 radius-5 administrateur" onclick="app('annonces')">Annonces</span> -->
+      </div>
+    </div>
+    <div class="grid menu-profil-mobile">
+      <button class="danger bg-red-500 py-2" onclick="deconnect()">
+        Deconnexion
+      </button>
+    </div>
+  </div>
+  <div class="app my-2 pb-16">
+    <div id="dashboard" class="grid">
+      <h2 class="bg-green-500 text-center p-2 text-gray-700">DASHBOARD</h2>
+
+      <div
+        class="grid grid-cols-2 gap-2 my-4 text-center text-sm font-bold text-gray-300"
+      >
+        <div class="bg-gray-800 p-4 rounded" id="nb_articles"></div>
+
+        <div id="nb_clients" class="bg-gray-800 p-4 rounded">Clients</div>
+
+        <div id="nb_investissement" class="bg-gray-800 p-4 rounded">
+          demandes d'investissements
+        </div>
+      </div>
+    </div>
+    <div id="formations_">
+      <div
+        class="flex font-bold uppercase items-center justify-between bg-green-500 p-2 text-gray-700"
+      >
+        <h2>FORMATIONS</h2>
+        <div class="flex gap-2">
+          <button onclick="app('new_formation')">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
             </svg>
+          </button>
+          <button onclick="app('list_inscris_formation')">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z"
+              />
+            </svg>
+          </button>
         </div>
-        <div class="menu-profil grid menu-profil-mobile bg-gray-800 text-gray-300 items-center text-center">
-            <h3 class="bg-green-500 py-2">Menu</h3>
-            <div class="grid gap-1 px-3 py-2">
-                <span class="primary p5 bg-gray-500 dashboard py-1" onclick="app('dashboard')">Dashboard</span>
-                <span class="primary p5 radius-5 bg-gray-500 py-1 articles" onclick="app('articles')">Articles</span>
-                <span class="primary p5 radius-5 investissements bg-gray-500 py-1" onclick="app('investissements')">Investissements</span>
-                <span class="primary p5 radius-5 formations_ bg-gray-500 py-1" onclick="app('formations_')">Formations</span>
-                <span class="primary p5 radius-5 clients bg-gray-500 py-1" onclick="app('clients')">Clients</span>                    
-                <span class="primary p5 radius-5 administrateur bg-gray-500 py-1" onclick="app('administrateur')">Administrateur</span>
-                <span class="primary p5 radius-5 parametre bg-gray-500 py-1" onclick="app('parametre')">Parametres</span>
-                <!-- <span class="primary p5 radius-5 administrateur" onclick="app('annonces')">Annonces</span> -->
-            </div>
-        </div>
-        <div class="grid menu-profil-mobile">
-            <button class="danger bg-red-500 py-2" onclick="deconnect()">
-                Deconnexion
-            </button>
-        </div>                     
+      </div>
+      <div
+        class="formations_model grid gap-3 py-3"
+        view="formations_admin.html"
+        order="DESC"
+      ></div>
     </div>
-    <div class="app my-2 pb-16">
-        <div id="dashboard" class="grid">
-            <h2 class="bg-green-500 text-center bg-green-500 p-2 text-gray-700">
-                DASHBOARD
-            </h2>
-
-            <div class="grid grid-cols-2 gap-2 my-4 text-center text-sm font-bold text-gray-300">
-                <div id="nb_article" class="bg-gray-800 p-4 rounded">
-                        Articles
-                </div>
-                
-                <div id="nb_client" class="bg-gray-800 p-4 rounded">
-                        Clients
-                </div>
-
-                <div id="nb_investissement" class="bg-gray-800 p-4 rounded">
-                        demandes d'investissements
-                </div>
-
-
-            </div>
+    <div id="list_inscris_formation">
+      <div
+        class="flex between center justify-between bg-green-500 p-2 text-gray-800"
+      >
+        <svg
+          onclick="app('formations_')"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+          />
+        </svg>
+        <h2>Inscris Formations</h2>
+      </div>
+      <div
+        class="flex justify-between gap-2 bg-white/50 text-xs m-2 p-1 rounded"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-4 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z"
+          />
+        </svg>
+        <div class="flex gap-1">
+          <div class="flex gap-1 items-center border rounded p-1">
+            <span class="p-2 bg-blue-500"></span>
+            <span>Validée</span>
+          </div>
+          <div class="flex gap-1 items-center border rounded p-1">
+            <span class="p-2 bg-blue-200"></span>
+            <span>Non Valiée</span>
+          </div>
         </div>
-        <div id="formations_">
-            <div class="flex font-bold uppercase items-center justify-between bg-green-500 p-2 text-gray-700">
-                <h2>FORMATIONS</h2>
-                <div class="flex gap-2">
-                    <button onclick="app('new_formation')">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>                      
-                    </button>
-                    <button onclick="app('list_inscris_formation')">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z" />
-                          </svg>                                                
-                    </button>
-                </div>
-            </div>
-            <div class="formations_model grid gap-3 py-3" view="formations_admin.html" order="DESC">
-                
-            </div>
-        </div>
-        <div id="list_inscris_formation" >
-            <div class="flex between center justify-between bg-green-500 p-2 text-gray-800">
-                <svg  onclick="app('formations_')"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                </svg>
-                <h2>
-                    Inscris Formations
-                </h2>
-            </div>   
-            <div class="flex justify-between gap-2 bg-white/50 text-xs m-2 p-1 rounded ">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
-                </svg>   
-                <div class="flex gap-1">
-                    <div class="flex gap-1 items-center border rounded p-1">
-                        <span class="p-2 bg-blue-500"></span>
-                        <span>Validée</span>
-                    </div>
-                    <div class="flex gap-1 items-center border rounded p-1">
-                        <span class="p-2 bg-blue-200"></span>
-                        <span>Non Valiée</span>
-                    </div>
-                </div>               
-            </div>
-            <div class="inscription_formation_model grid gap-2 py-2 px-2" order="DESC">
-
-            </div>
-        </div>
-        <div id="new_formation" class="grid">
-            <div class="flex between center justify-between bg-green-500 p-2 text-gray-800">
-                <svg  onclick="app('formations_')"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                </svg>
-                <h2>
-                    Nouvelle formation
-                </h2>
-            </div> 
-            <div class="bg-gray-400 px-3 my-4 rounded">
-                <form class="grid gap-2 py-4 text-center text-sm" action="" id="new_formation_form" enctype="multipart/form-data">
-                    <div class="grid gap-2 text-gray-800">
-                        <!-- <fieldset class="grid p-2 rounded"> -->
-                            <!-- <span>Titre</span> -->
-                            <input type="text" class="p-1 rounded border" placeholder="titre" name="titre" required>
-                        <!-- </fieldset> -->
-                        <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+      </div>
+      <div
+        class="inscription_formation_model grid gap-2 py-2 px-2"
+        order="DESC"
+      ></div>
+    </div>
+    <div id="new_formation" class="grid">
+      <div
+        class="flex between center justify-between bg-green-500 p-2 text-gray-800"
+      >
+        <svg
+          onclick="app('formations_')"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+          />
+        </svg>
+        <h2>Nouvelle formation</h2>
+      </div>
+      <div class="bg-gray-400 px-3 my-4 rounded">
+        <form
+          class="grid gap-2 py-4 text-center text-sm"
+          action=""
+          id="new_formation_form"
+          enctype="multipart/form-data"
+        >
+          <div class="grid gap-2 text-gray-800">
+            <!-- <fieldset class="grid p-2 rounded"> -->
+            <!-- <span>Titre</span> -->
+            <input
+              type="text"
+              class="p-1 rounded border"
+              placeholder="titre"
+              name="titre"
+              required
+            />
+            <!-- </fieldset> -->
+            <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
                             <span>Lieu</span> -->
-                            <input type="text" class="p-1 rounded border" placeholder="Lieu" name="lieu" required>
-                        <!-- </fieldset> -->
-                    </div>
-                    
-                    <div class="grid gap-2">
-                        <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+            <input
+              type="text"
+              class="p-1 rounded border"
+              placeholder="Lieu"
+              name="lieu"
+              required
+            />
+            <!-- </fieldset> -->
+          </div>
+
+          <div class="grid gap-2">
+            <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
                             <span>Prix Presentiel</span> -->
-                            <input type="number" class="p-1 rounded border" placeholder="Prix Presentiel" name="prix_presence" step="0.01" required>
-                        <!-- </fieldset> -->
-                        
-                        <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+            <input
+              type="number"
+              class="p-1 rounded border"
+              placeholder="Prix Presentiel"
+              name="prix_presence"
+              step="0.01"
+              required
+            />
+            <!-- </fieldset> -->
+
+            <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
                             <span>Prix en ligne</span> -->
-                            <input type="text" placeholder="Prix en ligne" class="p-1 rounded border" name="prix_enligne" step="0.01">
-                        <!-- </fieldset>    -->
-                    </div>
-                    <div class="grid gap-2">
-                        <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+            <input
+              type="text"
+              placeholder="Prix en ligne"
+              class="p-1 rounded border"
+              name="prix_enligne"
+              step="0.01"
+            />
+            <!-- </fieldset>    -->
+          </div>
+          <div class="grid gap-2">
+            <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
                             <span>Date debut</span> -->
-                        <!-- </fieldset> -->
-                        <fieldset class="border rounded p-1 grid text-left">
-                            <span>Date du debut</span>
-                            <input type="date" class="p-1 rounded border" name="debut" step="0.01" required>
-                        </fieldset>
-                        <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+            <!-- </fieldset> -->
+            <fieldset class="border rounded p-1 grid text-left">
+              <span>Date du debut</span>
+              <input
+                type="date"
+                class="p-1 rounded border"
+                name="debut"
+                step="0.01"
+                required
+              />
+            </fieldset>
+            <!-- <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
                             <span>Date fin</span> -->
-                            <fieldset class="border rounded p-1 grid text-left">
-                                <span>Date du Fin</span>
-                                <input type="date" placeholder="Date fin" class="p-1 rounded border" name="fin" step="0.01">
-                            </fieldset>
-                        <!-- </fieldset>    -->
-                    </div>
-                    <!-- <fieldset class="grid">
+            <fieldset class="border rounded p-1 grid text-left">
+              <span>Date du Fin</span>
+              <input
+                type="date"
+                placeholder="Date fin"
+                class="p-1 rounded border"
+                name="fin"
+                step="0.01"
+              />
+            </fieldset>
+            <!-- </fieldset>    -->
+          </div>
+          <!-- <fieldset class="grid">
                         <span>Description</span> -->
-                        <textarea name="description" placeholder="Description" class="p-2 rounded border" id=""></textarea>
-                    <!-- </fieldset>   -->
-                    
-                    <fieldset class="grid text-left bg-white text-gray-800 p-2 rounded">
-                        <span >Image</span>
-                        <input type="file" class="p-2 rounded border" accept="image/*" name="image" required>
-                        <span id="progress"></span>
-                    </fieldset>
-                    <button class="py-2 bg-green-500 rounded">valider</button>
-                </form>
-            </div>
-        </div>
-        <div id="articles" class="grid">
-            <div class="flex font-bold uppercase items-center justify-between bg-green-500 p-2 text-gray-800">
-                <h2>ARTICLES</h2>
-                <button onclick="app('new_investissement')">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>                      
-                </button>
-            </div>
-            <div class="articles_model grid gap-4 py-4" order="DESC" view="articles_admin.html">
-                
+          <textarea
+            name="description"
+            placeholder="Description"
+            class="p-2 rounded border"
+            id=""
+          ></textarea>
+          <!-- </fieldset>   -->
 
-            </div>
-        </div>
-        <div id="new_investissement" class="grid">
-            <div class="flex between center justify-between bg-green-500 p-4 text-gray-800 rounded">
-                <svg onclick="app('articles')"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
-                    </svg>
-
-                <h2>
-                    Nouvel Article
-                </h2>
-            </div>
-            <div class="bg-gray-400 px-3 my-4 rounded">
-                <form class="grid gap-2 py-4 text-center" action="" id="new_article_form" enctype="multipart/form-data">
-                    <div class="grid gap-2">
-                        <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
-                            <span>Nom de l'article</span>
-                            <input type="text" class="p-2 rounded text-gray-800" name="title" required>
-                        </fieldset>
-                        <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
-                            <span>Unite de mesure</span>
-                            <select class="p-2 rounded text-gray-800" name="unite">
-                                <option value="kg">par Kilogramme</option>
-                                <option value="piece">Par piece</option>
-                                <option value="litre">Par Litre</option>
-                            </select>
-                        </fieldset>
-                    </div>
-                    
-                    <div class="grid gap-2">
-                        <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
-                            <span>Prix de vente</span>
-                            <input class="p-2 rounded text-gray-800" type="number" name="price" step="0.01" required>
-                        </fieldset>
-                        
-                        <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
-                            <span>Prix d'investissement</span>
-                            <input class="p-2 rounded text-gray-800" type="text" name="prix_investissement" step="0.01">
-                        </fieldset>
-                        
-                    </div>
-                    <div class="grid gap-2">
-                        <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
-                            <span>Montant d'interet sur investissement ($)</span>
-                            <input class="p-2 rounded text-gray-800" type="number" name="rate_return" step="0.01">
-                        </fieldset>
-                        <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
-                            <span>Delai de rembourssement des interet (Jours)</span>
-                            <input class="p-2 rounded text-gray-800" type="number" name="nb_day_return">
-                        </fieldset>
-                    </div>
-                    <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
-                        <span >Image</span>
-                        <input class="p-2 rounded text-gray-800" type="file" accept="image/*" name="image" required>
-                        <span id="progress"></span>
-                    </fieldset>
-                    <button class="py-2 bg-green-500 rounded">valider</button>
-                </form>
-            </div>
-        </div>
-        <div id="annonces" class="news">
-            <div class="flex between center">
-
-                <h2>
-                    ANNONCES
-                </h2>
-                <form class="flex between" action="/annonces/new">
-                    <fieldset>
-                        <span>Nouvelles</span>
-                    <input type="file" name="image" id="">
-                    </fieldset>
-                    <button>Ok</button>
-                </form>
-            </div>
-        </div>
-        <div id="investissements" class="grid gap-3">
-            <div class="flex uppercase between center justify-between bg-green-500 font-bold p-2 text-gray-700">
-                <h2>Investissements</h2>
-                <button onclick="app('client_investissement')">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
-                </button>
-            </div>
-            <div class="grid gap-3">
-                <div class="grid grid-cols-6 bg-white rounded text-sm">
-                    <input type="text"  class="col-span-5 p-2 rounded" placeholder="Recherche rapide"  id="search" name="search">
-                    <button onclick="get_investissement();$('#search').val('');" class="rounded flex justify-center items-center text-black bg-gray-100">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
-                          </svg>
-                           
-                    </button>
-                </div>
-                <div class="grid grid-cols-6 bg-white gap-1 pl-2  items-center rounded text-sm">
-                    
-                    <div class="col-span-5 w-full items-center overflow-y-auto flex gap-2 rounded  pr-12">
-                        <button onclick="state_filter('entente')" class="flex whitespace-nowrap items-center gap-1 back bg-gray-900 py-1 px-2 text-gray-100 rounded">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-                              </svg>
-                              
-                            <span class="no-wrap">En attente</span>
-                        </button>
-                        <button onclick="state_filter('valide')" class="flex items-center gap-1 back bg-green-500 py-1 px-2 text-gray-100 rounded">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                              </svg>
-                              
-                            <span>validé</span>
-                        </button>
-                        <button onclick="state_filter('termine')" class="flex items-center gap-1 back bg-red-500 py-1 px-2 text-gray-100 rounded">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
-                              </svg>
-                              
-                            <span>Terminé</span>
-                        </button>
-                    </div>
-                    <div class="span-col-1 bg-gray-100 p-2 rounded">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
-                        </svg>                          
-                    </div>
-                </div>
-            </div>
-            <div class="list grid gap-3">
-
-            </div>
-        </div>
-
-        <div id="clients" class="grid gap-3">
-            <h2 class="bg-green-500 text-center bg-green-500 p-2 text-gray-700">
-                CLIENTS
-            </h2>
-            <table class="border-collapse border border-slate-500 table-fixed text-xs text-left">
-                <thead>
-                    <tr>
-                        <th class="border border-slate-600 px-3">No</th>
-                        <th class="border border-slate-600 px-3">Noms</th>
-                        <th class="border border-slate-600 px-3">Ville</th>
-                        <th class="hidden border border-slate-600 px-3">Genre</th>
-                        <th class="border border-slate-600 px-3">Telephone</th>
-                        <th class="hidden border border-slate-600 px-3">Naissance</th>
-                        <th class="hidden border border-slate-600 px-3">Cration</th>
-                        <th class="border border-slate-600 px-3"></th>
-                    </tr>
-                </thead>
-                <tbody class="clients_model" where='{"type":"utilisateur"}' order="DESC">
-                </tbody>
-            </table>
-        </div>
-        
-        <div id="administrateur" class="grid gap-3">
-            <div class="flex font-bold uppercase items-center justify-between bg-green-500 p-2 text-gray-800">
-                <h2>Administrateurs</h2>
-                <button onclick="app('new_admin')">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>                      
-                </button>
-            </div>
-            <table class="border-collapse border border-slate-500 table-fixed text-xs text-left">
-                <thead>
-                    <tr>
-                        <th class="border border-slate-600 px-3">No</th>
-                        <th class="border border-slate-600 px-3">Noms</th>
-                        <th class="border border-slate-600 px-3">Ville</th>
-                        <th class="hidden border border-slate-600 px-3">Genre</th>
-                        <th class="border border-slate-600 px-3">Telephone</th>
-                        <th class="hidden border border-slate-600 px-3">Naissance</th>
-                        <th class="hidden border border-slate-600 px-3">Cration</th>
-                    </tr>
-                </thead>
-                
-                <tbody class="clients_model" where='{"type":"administrateur"}' order="DESC">
-                </tbody>
-            </table>
-        </div>
-
-        <div id="new_admin" class="grid gap-2 text-sm">
-            <div class="flex between center justify-between bg-green-500 p-4 text-gray-800 rounded">
-                <svg onclick="app('administrateur')"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
-                    </svg>
-
-                <h2>
-                    Nouvel Admin
-                </h2>
-            </div>
-            <div class="">
-                <div class="card py-2 px-4 bg-white my-2 text-sm ">
-                    <form id="new_admin_form" class="grid gap-2">
-                        <input class="p-2 rounded border " placeholder="Nom" name="nom"  type="text" required>
-                        <input class="p-2 rounded border " placeholder="Postnom" name="postnom"  type="text" required>
-                        <input class="p-2 rounded border " placeholder="Prenom" name="prenom"  type="text" required>
-                        <input class="p-2 rounded border " type="hidden" value="administrateur" name="type">
-                        <div class="grid gap-2">
-                            <input class="p-2 rounded border "  placeholder="Numero Telephone" name="telephone"  type="tel" required>
-                            <fieldset class="grid gap-1">
-                                <span class="text-gray-600">Sexe</span>
-                                <select class="p-2 rounded border "  name="genre">
-                                    <option>Feminin</option>
-                                    <option>Masculin</option>
-                                </select>
-                            </fieldset>
-                           
-                        </div>
-                        <div class="grid gap-2">
-                            <fieldset class="grid gap-1">
-                                <span  class="text-gray-600">Localisation</span>
-                                <select class="p-2 rounded border"  name="localisation">
-                                    <option>Beni</option>
-                                    <option>Butembo</option>
-                                    <option>Goma</option>
-                                </select>
-                            </fieldset>
-                            <fieldset class="grid gap-1">
-                                <span  class="text-gray-600">Date de naissance</span>
-                                <input class="p-2 rounded border w-full" placeholder="Date de naissance"  type="date" name="date_de_naissance" id="">
-                            </fieldset>
-                        </div>
-                        <div class="grid gap-2">
-                            <input class="p-2 rounded border "  placeholder="Mot de passe" name="mot_de_passe"   type="password" required>
-                            <input class="p-2 rounded border "  placeholder="Repete le mot de passe" name="mot_de_passe2"  type="password" required>
-                        </div>
-                        <button class="bg-green-500 text-black p-1 rounded">Valider</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div id="client_investissement" class="grid gap-2">
-            
-            <div class="flex items-center justify-between bg-green-500 p-2 text-gray-800">
-                <svg onclick="app('investissements')"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
-                    </svg>
-
-                <h2>
-                    Nouvel Investissement
-                </h2>
-            </div>
-            <div class="" >
-                <div class="grid">
-                    <form id="new_inv_form" class="grid gap-2 bg-gray-500 p-3 rounded text-sm">
-                        
-                        <div class="grid gap-2">
-                            <fieldset class="grid bg-gray-800 text-white p-1 rounded">
-                                <span>Client</span>
-                                <select name="client_id" id="" class="p-1 rounded text-gray-800">
-                                    <option value="">
-
-                                    </option>
-                                </select>
-                            </fieldset>
-                            <fieldset class="grid bg-gray-800 text-white p-2 rounded">
-                                <span>Article</span>
-                                <select name="article_id" class="p-1 rounded text-gray-800">
-                                    
-                                </select>
-                            </fieldset>
-                        </div>
-                        <div class="grid gap-2">
-                            <fieldset class="grid bg-gray-800 text-white p-1 rounded">
-                                <span>Quantite</span>
-                                <input type="number" class="p-1 rounded text-gray-800" name="pieces" id="" required>
-                                </select>
-                            </fieldset>
-                            <fieldset class="grid bg-gray-800 text-white p-1 rounded">
-                                <span>Date de creation</span>
-                                <input class="p-2 rounded text-gray-800" type="date" name="creation" id="" max="now">
-                            </fieldset>
-                        </div>
-                        <input type="hidden" name="state" value="0">
-                        <div>
-                        </div>
-                        <button class="p-1 rounded bg-green-500 ">Valider</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div id="parametre">
-            <h2 class="bg-green-500 text-center bg-green-500 p-2 text-gray-700">
-                PARAMETRES
-            </h2>
-
-            <div class="grid gap-2 bg-white my-2 rounded">
-                <div class="pass">
-                    <div class="tit rounded-t bg-gray-500 text-gray-300 py-2 px-4 text-sm flex justify-between items-center" onclick="$('.pass>.content').toggle(300);">
-                        <span>Mettre a jour le mot de pass</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5" />
-                            </svg>
-                            
-                    </div>
-                    <div class="content hidden">
-                        <form action="" class="grid gap-3 p-2 px-4 text-sm" id="update_pass">
-                            <fieldset class="grid gap-1 bg-gray-300 text-black pt-2 rounded">
-                                <span class="pl-2">Ancien mot de passe</span>
-                                <input class="bg-gray-500 p-2 rounded" placeholder="****" type="password" name="old" required>
-                            </fieldset>
-                            <fieldset class="grid gap-1 bg-gray-300 text-black pt-2 rounded">
-                                <span class="pl-2">Nouveau mot de passe</span>
-                                <input class="bg-gray-500 p-2 rounded" placeholder="****" type="password" name="new_1" required>
-                            </fieldset>
-                            <fieldset class="grid gap-1 bg-gray-300 text-black pt-2 rounded">
-                                <span class="pl-2">Repete le nouveau mot de passe</span>
-                                <input class="bg-gray-500 p-2 rounded" placeholder="****" type="password"  name="new_2" required>
-                            </fieldset>
-                            <button class="bg-green-500 p-2 rounded text-white">Valider</button>
-                        </form>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
+          <fieldset class="grid text-left bg-white text-gray-800 p-2 rounded">
+            <span>Image</span>
+            <input
+              type="file"
+              class="p-2 rounded border"
+              accept="image/*"
+              name="image"
+              required
+            />
+            <span id="progress"></span>
+          </fieldset>
+          <button class="py-2 bg-green-500 rounded">valider</button>
+        </form>
+      </div>
     </div>
+    <div id="articles" class="grid">
+      <div
+        class="flex font-bold uppercase items-center justify-between bg-green-500 p-2 text-gray-800"
+      >
+        <h2>ARTICLES</h2>
+        <button onclick="app('new_investissement')">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="articles_model grid gap-4 py-4"
+        order="DESC"
+        view="articles_admin.html"
+      ></div>
+    </div>
+    <div id="new_investissement" class="grid">
+      <div
+        class="flex between center justify-between bg-green-500 p-4 text-gray-800 rounded"
+      >
+        <svg
+          onclick="app('articles')"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+          />
+        </svg>
+
+        <h2>Nouvel Article</h2>
+      </div>
+      <div class="bg-gray-400 px-3 my-4 rounded">
+        <form
+          class="grid gap-2 py-4 text-center"
+          action=""
+          id="new_article_form"
+          enctype="multipart/form-data"
+        >
+          <div class="grid gap-2">
+            <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+              <span>Nom de l'article</span>
+              <input
+                type="text"
+                class="p-2 rounded text-gray-800"
+                name="title"
+                required
+              />
+            </fieldset>
+            <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+              <span>Unite de mesure</span>
+              <select class="p-2 rounded text-gray-800" name="unite">
+                <option value="kg">par Kilogramme</option>
+                <option value="piece">Par piece</option>
+                <option value="litre">Par Litre</option>
+              </select>
+            </fieldset>
+          </div>
+
+          <div class="grid gap-2">
+            <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+              <span>Prix de vente</span>
+              <input
+                class="p-2 rounded text-gray-800"
+                type="number"
+                name="price"
+                step="0.01"
+                required
+              />
+            </fieldset>
+
+            <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+              <span>Prix d'investissement</span>
+              <input
+                class="p-2 rounded text-gray-800"
+                type="text"
+                name="prix_investissement"
+                step="0.01"
+              />
+            </fieldset>
+          </div>
+          <div class="grid gap-2">
+            <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+              <span>Montant d'interet sur investissement ($)</span>
+              <input
+                class="p-2 rounded text-gray-800"
+                type="number"
+                name="rate_return"
+                step="0.01"
+              />
+            </fieldset>
+            <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+              <span>Delai de rembourssement des interet (Jours)</span>
+              <input
+                class="p-2 rounded text-gray-800"
+                type="number"
+                name="nb_day_return"
+              />
+            </fieldset>
+          </div>
+          <fieldset class="grid bg-gray-800 text-gray-300 p-2 rounded">
+            <span>Image</span>
+            <input
+              class="p-2 rounded text-gray-800"
+              type="file"
+              accept="image/*"
+              name="image"
+              required
+            />
+            <span id="progress"></span>
+          </fieldset>
+          <button class="py-2 bg-green-500 rounded">valider</button>
+        </form>
+      </div>
+    </div>
+    <div id="annonces" class="news">
+      <div class="flex between center">
+        <h2>ANNONCES</h2>
+        <form class="flex between" action="/annonces/new">
+          <fieldset>
+            <span>Nouvelles</span>
+            <input type="file" name="image" id="" />
+          </fieldset>
+          <button>Ok</button>
+        </form>
+      </div>
+    </div>
+    <div id="investissements" class="grid gap-3">
+      <div
+        class="flex uppercase between center justify-between bg-green-500 font-bold p-2 text-gray-700"
+      >
+        <h2>Investissements</h2>
+        <button onclick="app('client_investissement')">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="grid gap-3">
+        <div class="grid grid-cols-6 bg-white rounded text-sm">
+          <input
+            type="text"
+            class="col-span-5 p-2 rounded"
+            placeholder="Recherche rapide"
+            id="search"
+            name="search"
+          />
+          <button
+            onclick="get_investissement();$('#search').val('');"
+            class="rounded flex justify-center items-center text-black bg-gray-100"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-5 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="grid grid-cols-6 bg-white gap-1 pl-2 items-center rounded text-sm"
+        >
+          <div
+            class="col-span-5 w-full items-center overflow-y-auto flex gap-2 rounded pr-12"
+          >
+            <button
+              onclick="state_filter('entente')"
+              class="flex whitespace-nowrap items-center gap-1 back bg-gray-900 py-1 px-2 text-gray-100 rounded"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+                />
+              </svg>
+
+              <span class="no-wrap">En attente</span>
+            </button>
+            <button
+              onclick="state_filter('valide')"
+              class="flex items-center gap-1 back bg-green-500 py-1 px-2 text-gray-100 rounded"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m4.5 12.75 6 6 9-13.5"
+                />
+              </svg>
+
+              <span>validé</span>
+            </button>
+            <button
+              onclick="state_filter('termine')"
+              class="flex items-center gap-1 back bg-red-500 py-1 px-2 text-gray-100 rounded"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636"
+                />
+              </svg>
+
+              <span>Terminé</span>
+            </button>
+          </div>
+          <div class="span-col-1 bg-gray-100 p-2 rounded">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="list grid gap-3"></div>
+    </div>
+
+    <div id="clients" class="grid gap-3">
+      <h2 class="bg-green-500 text-center bg-green-500 p-2 text-gray-700">
+        CLIENTS
+      </h2>
+      <table
+        class="border-collapse border border-slate-500 table-fixed text-xs text-left"
+      >
+        <thead>
+          <tr>
+            <th class="border border-slate-600 px-3">No</th>
+            <th class="border border-slate-600 px-3">Noms</th>
+            <th class="border border-slate-600 px-3">Ville</th>
+            <th class="hidden border border-slate-600 px-3">Genre</th>
+            <th class="border border-slate-600 px-3">Telephone</th>
+            <th class="hidden border border-slate-600 px-3">Naissance</th>
+            <th class="hidden border border-slate-600 px-3">Cration</th>
+            <th class="border border-slate-600 px-3"></th>
+          </tr>
+        </thead>
+        <tbody
+          class="clients_model"
+          where='{"type":"utilisateur"}'
+          order="DESC"
+        ></tbody>
+      </table>
+    </div>
+
+    <div id="administrateur" class="grid gap-3">
+      <div
+        class="flex font-bold uppercase items-center justify-between bg-green-500 p-2 text-gray-800"
+      >
+        <h2>Administrateurs</h2>
+        <button onclick="app('new_admin')">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <table
+        class="border-collapse border border-slate-500 table-fixed text-xs text-left"
+      >
+        <thead>
+          <tr>
+            <th class="border border-slate-600 px-3">No</th>
+            <th class="border border-slate-600 px-3">Noms</th>
+            <th class="border border-slate-600 px-3">Ville</th>
+            <th class="hidden border border-slate-600 px-3">Genre</th>
+            <th class="border border-slate-600 px-3">Telephone</th>
+            <th class="hidden border border-slate-600 px-3">Naissance</th>
+            <th class="hidden border border-slate-600 px-3">Cration</th>
+          </tr>
+        </thead>
+
+        <tbody
+          class="clients_model"
+          where='{"type":"administrateur"}'
+          order="DESC"
+        ></tbody>
+      </table>
+    </div>
+
+    <div id="new_admin" class="grid gap-2 text-sm">
+      <div
+        class="flex between center justify-between bg-green-500 p-4 text-gray-800 rounded"
+      >
+        <svg
+          onclick="app('administrateur')"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+          />
+        </svg>
+
+        <h2>Nouvel Admin</h2>
+      </div>
+      <div class="">
+        <div class="card py-2 px-4 bg-white my-2 text-sm">
+          <form id="new_admin_form" class="grid gap-2">
+            <input
+              class="p-2 rounded border"
+              placeholder="Nom"
+              name="nom"
+              type="text"
+              required
+            />
+            <input
+              class="p-2 rounded border"
+              placeholder="Postnom"
+              name="postnom"
+              type="text"
+              required
+            />
+            <input
+              class="p-2 rounded border"
+              placeholder="Prenom"
+              name="prenom"
+              type="text"
+              required
+            />
+            <input
+              class="p-2 rounded border"
+              type="hidden"
+              value="administrateur"
+              name="type"
+            />
+            <div class="grid gap-2">
+              <input
+                class="p-2 rounded border"
+                placeholder="Numero Telephone"
+                name="telephone"
+                type="tel"
+                required
+              />
+              <fieldset class="grid gap-1">
+                <span class="text-gray-600">Sexe</span>
+                <select class="p-2 rounded border" name="genre">
+                  <option>Feminin</option>
+                  <option>Masculin</option>
+                </select>
+              </fieldset>
+            </div>
+            <div class="grid gap-2">
+              <fieldset class="grid gap-1">
+                <span class="text-gray-600">Localisation</span>
+                <select class="p-2 rounded border" name="localisation">
+                  <option>Beni</option>
+                  <option>Butembo</option>
+                  <option>Goma</option>
+                </select>
+              </fieldset>
+              <fieldset class="grid gap-1">
+                <span class="text-gray-600">Date de naissance</span>
+                <input
+                  class="p-2 rounded border w-full"
+                  placeholder="Date de naissance"
+                  type="date"
+                  name="date_de_naissance"
+                  id=""
+                />
+              </fieldset>
+            </div>
+            <div class="grid gap-2">
+              <input
+                class="p-2 rounded border"
+                placeholder="Mot de passe"
+                name="mot_de_passe"
+                type="password"
+                required
+              />
+              <input
+                class="p-2 rounded border"
+                placeholder="Repete le mot de passe"
+                name="mot_de_passe2"
+                type="password"
+                required
+              />
+            </div>
+            <button class="bg-green-500 text-black p-1 rounded">Valider</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="client_investissement" class="grid gap-2">
+      <div
+        class="flex items-center justify-between bg-green-500 p-2 text-gray-800"
+      >
+        <svg
+          onclick="app('investissements')"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+          />
+        </svg>
+
+        <h2>Nouvel Investissement</h2>
+      </div>
+      <div class="">
+        <div class="grid">
+          <form
+            id="new_inv_form"
+            class="grid gap-2 bg-gray-500 p-3 rounded text-sm"
+          >
+            <div class="grid gap-2">
+              <fieldset class="grid bg-gray-800 text-white p-1 rounded">
+                <span>Client</span>
+                <select
+                  name="client_id"
+                  id=""
+                  class="p-1 rounded text-gray-800"
+                >
+                  <option value=""></option>
+                </select>
+              </fieldset>
+              <fieldset class="grid bg-gray-800 text-white p-2 rounded">
+                <span>Article</span>
+                <select
+                  name="article_id"
+                  class="p-1 rounded text-gray-800"
+                ></select>
+              </fieldset>
+            </div>
+            <div class="grid gap-2">
+              <fieldset class="grid bg-gray-800 text-white p-1 rounded">
+                <span>Quantite</span>
+                <input
+                  type="number"
+                  class="p-1 rounded text-gray-800"
+                  name="pieces"
+                  id=""
+                  required
+                />
+              </fieldset>
+              <fieldset class="grid bg-gray-800 text-white p-1 rounded">
+                <span>Date de creation</span>
+                <input
+                  class="p-2 rounded text-gray-800"
+                  type="date"
+                  name="creation"
+                  id=""
+                  max="now"
+                />
+              </fieldset>
+            </div>
+            <input type="hidden" name="state" value="0" />
+            <div></div>
+            <button class="p-1 rounded bg-green-500">Valider</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="notifications" class="grid gap-2 text-xs">
+      <h2 class="bg-green-500 text-center p-2 text-gray-700">NOTIFICATIONS</h2>
+      <div class="grid gap-2">
+        <form id="new_notification" class="grid gap-1 bg-gray-400 p-4 rounded">
+          <span class="font-bold text-white uppercase pb-2 text-center"
+            >Envoyer une notification</span
+          >
+          <input
+            type="text"
+            class="border rounded w-full p-2"
+            placeholder="Titre "
+            name="title"
+            required
+          />
+          <textarea
+            name="body"
+            class="border rounded h-36 w-full p-2"
+            placeholder="Message"
+            required
+          ></textarea>
+          <input
+            type="url"
+            name="url"
+            class="border rounded w-full p-2"
+            placeholder="lien de redirection apres clic sur la notification"
+          />
+          <button class="bg-green-700 text-white py-2 rounded">Envoyer</button>
+        </form>
+      </div>
+    </div>
+    <div id="parametre">
+      <h2 class="bg-green-500 text-center p-2 text-gray-700">PARAMETRES</h2>
+
+      <div class="grid gap-2 bg-white my-2 rounded">
+        <div class="pass">
+          <div
+            class="tit rounded-t bg-gray-500 text-gray-300 py-2 px-4 text-sm flex justify-between items-center"
+            onclick="$('.pass>.content').toggle(300);"
+          >
+            <span>Mettre a jour le mot de pass</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-4 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5"
+              />
+            </svg>
+          </div>
+          <div class="content hidden">
+            <form
+              action=""
+              class="grid gap-3 p-2 px-4 text-sm"
+              id="update_pass"
+            >
+              <fieldset class="grid gap-1 bg-gray-300 text-black pt-2 rounded">
+                <span class="pl-2">Ancien mot de passe</span>
+                <input
+                  class="bg-gray-500 p-2 rounded"
+                  placeholder="****"
+                  type="password"
+                  name="old"
+                  required
+                />
+              </fieldset>
+              <fieldset class="grid gap-1 bg-gray-300 text-black pt-2 rounded">
+                <span class="pl-2">Nouveau mot de passe</span>
+                <input
+                  class="bg-gray-500 p-2 rounded"
+                  placeholder="****"
+                  type="password"
+                  name="new_1"
+                  required
+                />
+              </fieldset>
+              <fieldset class="grid gap-1 bg-gray-300 text-black pt-2 rounded">
+                <span class="pl-2">Repete le nouveau mot de passe</span>
+                <input
+                  class="bg-gray-500 p-2 rounded"
+                  placeholder="****"
+                  type="password"
+                  name="new_2"
+                  required
+                />
+              </fieldset>
+              <button class="bg-green-500 p-2 rounded text-white">
+                Valider
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <script src="src/js/profile.js"></script>
 <script>
-    function invImg(id) {
-        db.set("investissement",id)
-        $(".images_investissement_model").html("")
-        $(".images_investissement_model").attr("where",`{"id_investissement":"${id}"}`);
-        lacrea_data()
-        $(".images_investissements").show();
-    }
-    function imagesInv() {
-        console.log("imagesInv");
-        imgs=db.get("investissement_images").split(",")
-        console.log(imgs);
-        $("#images").show()
-        $("#images").html(`
+  $("#new_notification").submit(function (e) {
+    e.preventDefault();
+    form = new FormData(this);
+    formToDic(form);
+    lacrea_save(formToDic(form), "notifications_store-new", {
+      success: "Notification envoyée avec succes",
+      fail: "Erreur lors de l'envoi de la notification.",
+    });
+  });
+  if (db.get("user")["type"] != "administrateur") {
+    lacrea_load();
+  }
+  $.getJSON("/server/?articles-all", function (data, textStatus, jqXHR) {
+    $("#nb_articles").text(`${data.data.length} Articles`);
+  });
+  $.getJSON("/server/?clients-all", function (data, textStatus, jqXHR) {
+    $("#nb_clients").text(`${data.data.length} Clients`);
+  });
+  function invImg(id) {
+    db.set("investissement", id);
+    $(".images_investissement_model").html("");
+    $(".images_investissement_model").attr(
+      "where",
+      `{"id_investissement":"${id}"}`
+    );
+    lacrea_data();
+    $(".images_investissements").show();
+  }
+  function imagesInv() {
+    console.log("imagesInv");
+    imgs = db.get("investissement_images").split(",");
+    console.log(imgs);
+    $("#images").show();
+    $("#images").html(`
             <div class="w-screen flex text-center justify-center fixed">
-                <div class="rounded-full  bg-red-700 text-white w-fulll items-center p-2">    
+                <div class="rounded-full  bg-red-700 text-white w-fulll items-center p-2">
                     <svg onclick="$('#images').hide()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
                 </div>
             </div>
         `);
-        imgs.forEach(img => {
-            if (img!="") {
-                $("#images").append(`
+    imgs.forEach((img) => {
+      if (img != "") {
+        $("#images").append(`
                     <img src="server/uploads/investissements/${img}" class="w-full my-3 rounded">
-                `);   
-            }
-        });
-    }
-
-    function state_filter(param) {
-        let msg=param
-        if (param=="valide") {
-            param=0
-        }else if(param=="entente"){
-            param=-1
-        }else if (param=="termine") {
-            param=1
-        }
-        let invs=db.get("investissement")
-        let searched=[]
-        invs.forEach(inv => {
-
-            if (inv.state==param) {
-                searched.push(inv)
-            }
-        });
-        write_inv(searched,"Investissements "+msg)
-        
-    }
-    function makeInv() {
-        $.getJSON("server/?clients-all",
-            function (data, textStatus, jqXHR) {
-                cls=""
-                data.data.forEach(c => {
-                    cls+=`<option value="${c.id}">${c.nom} ${c.prenom}</option>`
-                });
-                $("select[name='client_id']").html(cls);
-            }
-        );
-        $.getJSON("server/?articles-all",
-            function (data, textStatus, jqXHR) {
-                cls=""
-                data.data.forEach(c => {
-                    cls+=`<option value="${c.id}">${c.title} - ${c.prix_investissement} $</option>`
-                });
-                $("select[name='article_id']").html(cls);
-            }
-        );
-    }
-    makeInv()
-    $("#new_inv_form").submit(function (e) { 
-        e.preventDefault();
-        form=new FormData(this)
-        form.append("validate",form.get("creation"))
-    
-        $.post("server/?investissements-new",formToDic(form),
-                function (data, textStatus, jqXHR) {
-                    alert("Investissement fait avec succes")
-                    get_investissement()
-                },
-                "json"
-            ).fail(e=>{
-                alert("Erreur : Action non effectuée!")
-                console.log(e);
-            });
-    });
-
-    function state(id,stat) {
-        if (stat=="1") {
-            stat=0
-        }else{
-            stat=1
-        }
-        $.post("server/?articles-update="+id,{"state":stat},
-            function (data, textStatus, jqXHR) {
-                console.log(data);
-                lacrea_data()
-            }
-        );
-    }
-    function inv_state(id,val,column) {
-        d=new Date()
-        d=`${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
-        if (column=="validate") {
-            send={"state":val,"validate":d}
-        } else {
-            send={"state":val,"terminate":d}
-        }
-        
-        
-        $.post("server/?investissements-update="+id,send,
-            function (data, textStatus, jqXHR) {
-                alert("Investissment mis a jour avec succes! recharger la page pour verifier") 
-                get_investissement()
-            }
-        ).fail(e=>{
-            alert("Erreur : Action non effectuée!")
-            console.log(e);
-        });
-    }
-    function delet(id) {
-        if (confirm("Voulez-vous vraiment supprimer cet article?")) {
-            $.getJSON("/server/?articles-delete="+id,
-                function (data, textStatus, jqXHR) {
-                    lacrea_data()
-                }
-            );    
-        }
-        
-    }
-    function app(ap="dashboard") {
-        db.set('admin_app',ap)
-        console.log("ADMIN : "+ap);
-        if ($("html").width()<=600) {
-            $('.menu-profil-mobile').hide();
-        }
-        
-        $('.menu-profil>div>span').removeClass('current_app')
-        $('.'+ap).addClass('current_app')
-        $('.app>div').hide()
-        $('#'+ap).show()
-    }
-    setTimeout(() => {
-        if (db.get('admin_app')) {
-            app(db.get('admin_app'))   
-        }else{
-            app()
-        }         
-    }, 100);
-    function get_articles() {
-        $.get('/server/?articles-all',function (e) {
-        $('#nb_article').text(`${e.data.length} Article.s`);
-        $('#articles>.products>div').html("")
-        e.data.forEach(article => {
-            stat="danger"
-            if (article.state) {
-                article.state="Disponible"
-                stat="primary"
-            } else {
-                article.state="Indisponible" 
-            }
-            $('#articles>.products>div').append(`
-                            <div class="product-horizontal">
-                                <div style="background:url(server/uploads/articles/${article.image});background-position:center;background-size:cover;background-repeat:no-repeat"></div>
-                                <div>
-
-                                    <div class="state flex center between">
-                                        <strong>
-                                            ${article.title}
-                                        </strong>
-                                        <span class="${stat}">${article.state}</span>
-
-                                    </div>
-                                    <span class="">Prix de vente : ${article.price}$/${article.unite}</span>
-                                    <span class="">Prix d'investissement : ${article.prix_investissement}$</span>
-                                    <span>Interet : ${article.rate_return}$</span>
-                                    <span>Periode : ${article.nb_day_return} Jours</span>
-                                    <div class="flex between">
-                                        <button onclick="state(${article.id},'${article.state}')">Changer Etat</button>
-                                        <button onclick="delet(${article.id})" class="danger">Supprimer</button>
-                                    </div>
-                                </div>
-                            </div>
                 `);
-            });
-        })
-    }
-    // get_articles()
-    // $(selector).keydown(function (e) { 
-        
-    // });
-    $("#search").keyup(function (e) { 
-
-        $('#investissements>.list').html(`
-            <div class="flex justify-center items-center py-16">
-                <svg class="w-12 animate-spin" viewBox="-4 -4 24.00 24.00" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#6dd765" stroke-width="1.2"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.8320000000000001"> <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd"> <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"></path> <path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"></path> </g> </g><g id="SVGRepo_iconCarrier"> <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd"> <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"></path> <path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"></path> </g> </g></svg>
-            </div>
-        `)
-        // let form=new FormData(this)
-        let invs=db.get("investissement")
-        let searched=[]
-        invs.forEach(inv => {
-            s=search=$(this).val();
-            names=`${inv.nom} ${inv.postnom} ${inv.prenom}`
-            names=names.toLowerCase()
-            search=s.toLowerCase()
-
-            if (!inv.terminate) {
-                inv.terminate=""
-            }
-            if (!inv.validate) {
-                inv.validate=""
-            }
-            if (names.search(search)>=0 || inv.title.search(search)>=0 || inv.creation.search(search)>=0 || inv.terminate.search(search)>=0 || inv.validate.search(search)>=0) {
-                searched.push(inv)
-            }
-        });
-        write_inv(searched,`Resultat pour <i class="text-green-500">'${s}'</i>`)
+      }
     });
+  }
 
-    function get_investissement() {
-        $('#investissements>.list').html(`
+  function state_filter(param) {
+    let msg = param;
+    if (param == "valide") {
+      param = 0;
+    } else if (param == "entente") {
+      param = -1;
+    } else if (param == "termine") {
+      param = 1;
+    }
+    let invs = db.get("investissement");
+    let searched = [];
+    invs.forEach((inv) => {
+      if (inv.state == param) {
+        searched.push(inv);
+      }
+    });
+    write_inv(searched, "Investissements " + msg);
+  }
+  function makeInv() {
+    $.getJSON("server/?clients-all", function (data, textStatus, jqXHR) {
+      cls = "";
+      data.data.forEach((c) => {
+        cls += `<option value="${c.id}">${c.nom} ${c.prenom}</option>`;
+      });
+      $("select[name='client_id']").html(cls);
+    });
+    $.getJSON("server/?articles-all", function (data, textStatus, jqXHR) {
+      cls = "";
+      data.data.forEach((c) => {
+        cls += `<option value="${c.id}">${c.title} - ${c.prix_investissement} $</option>`;
+      });
+      $("select[name='article_id']").html(cls);
+    });
+  }
+  makeInv();
+  $("#new_inv_form").submit(function (e) {
+    e.preventDefault();
+    form = new FormData(this);
+    form.append("validate", form.get("creation"));
+
+    $.post(
+      "server/?investissements-new",
+      formToDic(form),
+      function (data, textStatus, jqXHR) {
+        swal("Investissement fait avec succes");
+        get_investissement();
+      },
+      "json"
+    ).fail((e) => {
+      swal("Erreur : Action non effectuée!");
+      console.log(e);
+    });
+  });
+
+  function state(id, stat) {
+    if (stat == "1") {
+      stat = 0;
+    } else {
+      stat = 1;
+    }
+    $.post(
+      "server/?articles-update=" + id,
+      { state: stat },
+      function (data, textStatus, jqXHR) {
+        console.log(data);
+        lacrea_data();
+      }
+    );
+  }
+  function inv_state(id, val, column) {
+    d = new Date();
+    d = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+    if (column == "validate") {
+      send = { state: val, validate: d };
+    } else {
+      send = { state: val, terminate: d };
+    }
+
+    $.post(
+      "server/?investissements-update=" + id,
+      send,
+      function (data, textStatus, jqXHR) {
+        swal(
+          "Investissment mis a jour avec succes! recharger la page pour verifier"
+        );
+        get_investissement();
+      }
+    ).fail((e) => {
+      swal("Erreur : Action non effectuée!");
+      console.log(e);
+    });
+  }
+  function delet(id) {
+    if (confirm("Voulez-vous vraiment supprimer cet article?")) {
+      $.getJSON(
+        "/server/?articles-delete=" + id,
+        function (data, textStatus, jqXHR) {
+          lacrea_data();
+        }
+      );
+    }
+  }
+  function app(ap = "dashboard") {
+    db.set("admin_app", ap);
+    console.log("ADMIN : " + ap);
+    if ($("html").width() <= 600) {
+      $(".menu-profil-mobile").hide();
+    }
+
+    $(".menu-profil>div>span").removeClass("current_app");
+    $("." + ap).addClass("current_app");
+    $(".app>div").hide();
+    $("#" + ap).show();
+  }
+  setTimeout(() => {
+    if (db.get("admin_app")) {
+      app(db.get("admin_app"));
+    } else {
+      app();
+    }
+  }, 100);
+  //   function get_articles() {
+  //     $.get("/server/?articles-all", function (e) {
+  //       //   $("#nb_article").text(`${e.data.length} Article.s`);
+  //       $("#articles>.products>div").html("");
+  //       e.data.forEach((article) => {
+  //         stat = "danger";
+  //         if (article.state) {
+  //           article.state = "Disponible";
+  //           stat = "primary";
+  //         } else {
+  //           article.state = "Indisponible";
+  //         }
+  //         $("#articles>.products>div").append(`
+  //                             <div class="product-horizontal">
+  //                                 <div style="background:url(server/uploads/articles/${article.image});background-position:center;background-size:cover;background-repeat:no-repeat"></div>
+  //                                 <div>
+
+  //                                     <div class="state flex center between">
+  //                                         <strong>
+  //                                             ${article.title}
+  //                                         </strong>
+  //                                         <span class="${stat}">${article.state}</span>
+
+  //                                     </div>
+  //                                     <span class="">Prix de vente : ${article.price}$/${article.unite}</span>
+  //                                     <span class="">Prix d'investissement : ${article.prix_investissement}$</span>
+  //                                     <span>Interet : ${article.rate_return}$</span>
+  //                                     <span>Periode : ${article.nb_day_return} Jours</span>
+  //                                     <div class="flex between">
+  //                                         <button onclick="state(${article.id},'${article.state}')">Changer Etat</button>
+  //                                         <button onclick="delet(${article.id})" class="danger">Supprimer</button>
+  //                                     </div>
+  //                                 </div>
+  //                             </div>
+  //                 `);
+  //       });
+  //     });
+  //   }
+
+  // get_articles()
+  // $(selector).keydown(function (e) {
+
+  // });
+  $("#search").keyup(function (e) {
+    $("#investissements>.list").html(`
             <div class="flex justify-center items-center py-16">
                 <svg class="w-12 animate-spin" viewBox="-4 -4 24.00 24.00" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#6dd765" stroke-width="1.2"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.8320000000000001"> <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd"> <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"></path> <path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"></path> </g> </g><g id="SVGRepo_iconCarrier"> <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd"> <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"></path> <path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"></path> </g> </g></svg>
             </div>
-        `)
-        $.get('/server/?investissements-all',function (e) {
-            $('#nb_investissement').text(`${e.data.length} Investissements`);
-            console.log(e);
-            db.set("investissement",e.data)
-            write_inv(e.data)
-        })
-    }
-    get_investissement()
-    function write_inv(data,message=null) {
-        if (message) {
-            $('#investissements>.list').html(`
+        `);
+    // let form=new FormData(this)
+    let invs = db.get("investissement");
+    let searched = [];
+    invs.forEach((inv) => {
+      s = search = $(this).val();
+      names = `${inv.nom} ${inv.postnom} ${inv.prenom}`;
+      names = names.toLowerCase();
+      search = s.toLowerCase();
+
+      if (!inv.terminate) {
+        inv.terminate = "";
+      }
+      if (!inv.validate) {
+        inv.validate = "";
+      }
+      if (
+        names.search(search) >= 0 ||
+        inv.title.search(search) >= 0 ||
+        inv.creation.search(search) >= 0 ||
+        inv.terminate.search(search) >= 0 ||
+        inv.validate.search(search) >= 0
+      ) {
+        searched.push(inv);
+      }
+    });
+    write_inv(searched, `Resultat pour <i class="text-green-500">'${s}'</i>`);
+  });
+
+  function get_investissement() {
+    $("#investissements>.list").html(`
+            <div class="flex justify-center items-center py-16">
+                <svg class="w-12 animate-spin" viewBox="-4 -4 24.00 24.00" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#6dd765" stroke-width="1.2"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.8320000000000001"> <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd"> <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"></path> <path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"></path> </g> </g><g id="SVGRepo_iconCarrier"> <g fill="#000000" fill-rule="evenodd" clip-rule="evenodd"> <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"></path> <path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"></path> </g> </g></svg>
+            </div>
+        `);
+    $.get("/server/?investissements-all", function (e) {
+      $("#nb_investissement").text(`${e.data.length} Investissements`);
+      console.log(e);
+      db.set("investissement", e.data);
+      write_inv(e.data);
+    });
+  }
+  get_investissement();
+  function write_inv(data, message = null) {
+    if (message) {
+      $("#investissements>.list").html(`
                 <div class="flex gap-2 items-center text-center bg-gray-200 rounded p-3 text-gray-500 text-xs">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
@@ -774,13 +1309,13 @@
                     <span>${message}</span>
 
                 </div>
-            `)
-        }else{
-            $('#investissements>.list').html("")
-        }
-    
-        if (data.length<=0) {
-            $('#investissements>.list').html(`
+            `);
+    } else {
+      $("#investissements>.list").html("");
+    }
+
+    if (data.length <= 0) {
+      $("#investissements>.list").html(`
                 <div class="grid justify-center items-center py-12 text-center bg-white my-12 rounded">
                     <span>Aucun investissement correspondant trouvé !</span>
                     <div class="flex justify-center items-center">
@@ -789,287 +1324,315 @@
                         </svg>
                     </div>
                 </div>
-            `)
-            return;
-        }
-        data.reverse().forEach(el => {
-            dat=new Date(el.validate+" 12:00:00")
-            now=new Date()
+            `);
+      return;
+    }
+    data.reverse().forEach((el) => {
+      dat = new Date(el.validate + " 12:00:00");
+      now = new Date();
 
-            validate=""
-            terminate=""
-            stat=el.state
-            if (el.state=="1") {
-                el.state="Términé depuis "+el.terminate+", Validé "+el.validate
-                cls="bg-red-500 text-white"
-                validate="hidden"
-                terminate="hidden"
-                now=new Date(el.terminate+" 12:00:00")
-            }else if(el.state=="0"){
-                el.state="Validé depuis "+el.validate
-                cls="bg-green-500 text-white "
-                validate="hidden"
-            }else{
-                dat=new Date()
-                el.state="Non validé"
-                cls="bg-gray-800 text-white "
-            }
+      validate = "";
+      terminate = "";
+      stat = el.state;
+      if (el.state == "1") {
+        el.state = "Términé depuis " + el.terminate + ", Validé " + el.validate;
+        cls = "bg-red-500 text-white";
+        validate = "hidden";
+        terminate = "hidden";
+        now = new Date(el.terminate + " 12:00:00");
+      } else if (el.state == "0") {
+        el.state = "Validé depuis " + el.validate;
+        cls = "bg-green-500 text-white ";
+        validate = "hidden";
+      } else {
+        dat = new Date();
+        el.state = "Non validé";
+        cls = "bg-gray-800 text-white ";
+      }
 
-            nb_day=Math.round((now.getTime()-dat.getTime())/(1000*60*60*24))
-            payment=el.pieces*el.rate_return
-            paymentDay=payment/el.nb_day_return
-            nb_pay = Math.floor(nb_day/el.nb_day_return)
-            total=el.rate_return*nb_pay*el.pieces
+      nb_day = Math.round(
+        (now.getTime() - dat.getTime()) / (1000 * 60 * 60 * 24)
+      );
+      payment = el.pieces * el.rate_return;
+      paymentDay = payment / el.nb_day_return;
+      nb_pay = Math.floor(nb_day / el.nb_day_return);
+      total = el.rate_return * nb_pay * el.pieces;
 
-            evolution = Math.round(paymentDay*nb_day)-total
-            if (stat==1) {
-                evolutionHtml=``
-                total+=evolution
-            }else if(stat==0){
-                evolutionHtml=`
+      evolution = Math.round(paymentDay * nb_day) - total;
+      if (stat == 1) {
+        evolutionHtml = ``;
+        total += evolution;
+      } else if (stat == 0) {
+        evolutionHtml = `
                     <span>Evolution des interets : ${evolution}$</span>
-                `
-            }else{
-                evolutionHtml=`
+                `;
+      } else {
+        evolutionHtml = `
                     <span>Evolution des interets : ${evolution}$</span>
-                `
-            }
-            $('#investissements>.list').append(`
+                `;
+      }
+      $("#investissements>.list").append(`
                 <div class="bg-white border rounded text-sm">
                     <div class="grid gap-1">
                         <div class=" ${cls} grid grid-cols-5 gap-2 py-2 px-4 items-start">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-6 span-col-1">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" />
-                            </svg> 
-                            <span class="col-span-4"> 
+                            </svg>
+                            <span class="col-span-4">
                                 ${el.state}
                             </span>
                         </div>
                         <div class="p-4 grid">
                             <span class="">Creation : le ${el.creation}</span>
-                            <span> Client : ${el.nom} ${el.postnom} ${el.prenom}</span>
+                            <span> Client : ${el.nom} ${el.postnom} ${
+        el.prenom
+      }</span>
                             <span> Produit : ${el.title}</span>
-                            <span> Prix : ${el.prix_investissement}$ </span> 
+                            <span> Prix : ${el.prix_investissement}$ </span>
                             <span> Nombre Pieces : ${el.pieces}</span>
-                            <span> Total investis : ${el.pieces*el.prix_investissement}$</span>
+                            <span> Total investis : ${
+                              el.pieces * el.prix_investissement
+                            }$</span>
                             <span> Interet par piece : ${el.rate_return}$</span>
-                            <span> Total Interet : ${Math.round(el.rate_return*el.pieces)}$</span>
-                            <span> Durée avant chaque paiement : ${el.nb_day_return} Jours </span>
+                            <span> Total Interet : ${Math.round(
+                              el.rate_return * el.pieces
+                            )}$</span>
+                            <span> Durée avant chaque paiement : ${
+                              el.nb_day_return
+                            } Jours </span>
                             <span> Nombre des Jours ecoulé :  ${nb_day} Jours</span>
                             <span> Nombre des paiements reçu : ${nb_pay}</span>
                             ${evolutionHtml}
                             <span> Total encaissé : ${total}$</span>
                         </div>
                         <div class="flex gap-3 bg-gray-700 py-2 px-4 text-white">
-                            <button class="bg-blue-500 p-2 py-1 rounded" onclick="invImg(${el.id})">
+                            <button class="bg-blue-500 p-2 py-1 rounded" onclick="invImg(${
+                              el.id
+                            })">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                                 </svg>
                             </button>
-                            <button ${validate} class="bg-green-500 p-2 rounded" onclick="inv_state(${el.id},0,'validate')">
+                            <button ${validate} class="bg-green-500 p-2 rounded" onclick="inv_state(${
+        el.id
+      },0,'validate')">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                                </svg>                                
+                                </svg>
                             </button>
-                            <button  ${terminate} class="bg-gray-900 text-white p-2 rounded" onclick="inv_state(${el.id},1,'terminate')">
+                            <button  ${terminate} class="bg-gray-900 text-white p-2 rounded" onclick="inv_state(${
+        el.id
+      },1,'terminate')">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 7.5A2.25 2.25 0 0 1 7.5 5.25h9a2.25 2.25 0 0 1 2.25 2.25v9a2.25 2.25 0 0 1-2.25 2.25h-9a2.25 2.25 0 0 1-2.25-2.25v-9Z" />
                                 </svg>
                             </button>
-                            <button class="bg-red-500 p-2 rounded" onclick="del(${el.id})">
+                            <button class="bg-red-500 p-2 rounded" onclick="del(${
+                              el.id
+                            })">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                 </svg>
 
                             </button>
                         </div>
-                        
+
                     </div>
                 </div>
             `);
-        });
+    });
+  }
+  $("#new_admin_form").submit(function (e) {
+    e.preventDefault();
+    console.log(this);
+    let data = new FormData(this);
+    if (data.get("mot_de_passe") == data.get("mot_de_passe2")) {
+      data.delete("mot_de_passe2");
+      $.post("server/?clients-new", formToDic(data), function (d) {
+        app("administrateur");
+        get_clients();
+      }).fail((e) => {
+        console.log(e.responseText);
+        swal(
+          "Erreur lors de la creation, essai de mettre un autre numero de telephone"
+        );
+      });
+    } else {
+      swal("Mot de passe incorrect!!");
     }
-    $('#new_admin_form').submit(function (e){
-        e.preventDefault()
-        console.log(this);
-        let data=new FormData(this)
-        if (data.get('mot_de_passe')==data.get('mot_de_passe2')){
-            data.delete('mot_de_passe2')
-            $.post('server/?clients-new',formToDic(data),function (d) {
-                app("administrateur")
-                get_clients()
-            }).fail(e=>{
-                console.log(e.responseText)
-                alert("Erreur lors de la creation, essai de mettre un autre numero de telephone")
-            })
-        }else{
-            alert("Mot de passe incorrect!!")
-        }
-    })
+  });
 
-    $('#new_article_form').submit(function (e){
-        e.preventDefault()
-        console.log(this);
-        let data=new FormData(this)
-        $("#loading").show();
-        $.ajax({
-            type: "POST",
-            url: "server/?articles-new",
-            data: data,
-            contentType: false,
-            processData: false,
-            success: function (response) {
-                console.log(response);
-                app("articles")
-                get_articles()
-                $("#loading").hide();
-                // alert(response)
-                // alert("Article posté avec succes!")
+  $("#new_article_form").submit(function (e) {
+    e.preventDefault();
+    console.log(this);
+    let data = new FormData(this);
+    $("#loading").show();
+    $.ajax({
+      type: "POST",
+      url: "server/?articles-new",
+      data: data,
+      contentType: false,
+      processData: false,
+      success: function (response) {
+        console.log(response);
+        app("articles");
+        get_articles();
+        $("#loading").hide();
+        // swal(response)
+        // swal("Article posté avec succes!")
 
-                // location.reload()    
-            },
-            xhr: function() {
-                // Create a new XMLHttpRequest object
-                var xhr = new XMLHttpRequest();                   
-                // Set the XMLHttpRequest object's onprogress event listener
-                xhr.upload.addEventListener("progress", function(event) {
-                    $("#progress").text(Math.round(progress)+" %");
-                });
-                return xhr;
-            },
-            error : function (error) { 
-                alert("Echec !!")
-                console.error(error.responseJSON);
-                $("#loading").hide();
-            }
+        // location.reload()
+      },
+      xhr: function () {
+        // Create a new XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+        // Set the XMLHttpRequest object's onprogress event listener
+        xhr.upload.addEventListener("progress", function (event) {
+          $("#progress").text(Math.round(progress) + " %");
         });
-        // $.post('/investissements/new',data,function (d) {
-        //     console.log(d);
-        // }).fail(e=>{
-        //     console.log(e.responseText)
-        //     // alert("Erreur lors de la creation, essai de mettre un autre numero de telephone")
-        // })
-        }
-    )
-        
-    $('#new_formation_form').submit(function (e){
-        e.preventDefault()
-        console.log(this);
-        let data=new FormData(this)
-        this.reset()
-        $("#loading").show();
-        $.ajax({
-            type: "POST",
-            url: "server/?formations-new",
-            data: data,
-            contentType: false,
-            processData: false,
-            success: function (response) {
-                console.log(response);
-        
-                // lacrea_data()
-                app("formations_")
-                // get_articles()
-                $("#loading").hide();
-                // alert(response)
-                // alert("Article posté avec succes!")
+        return xhr;
+      },
+      error: function (error) {
+        swal("Echec !!");
+        console.error(error.responseJSON);
+        $("#loading").hide();
+      },
+    });
+    // $.post('/investissements/new',data,function (d) {
+    //     console.log(d);
+    // }).fail(e=>{
+    //     console.log(e.responseText)
+    //     // swal("Erreur lors de la creation, essai de mettre un autre numero de telephone")
+    // })
+  });
 
-                // location.reload()    
-            },
-            xhr: function() {
-                // Create a new XMLHttpRequest object
-                var xhr = new XMLHttpRequest();                   
-                // Set the XMLHttpRequest object's onprogress event listener
-                xhr.upload.addEventListener("progress", function(event) {
-                    $("#progress").text(Math.round(progress)+" %");
-                });
-                return xhr;
-            },
-            error : function (error) { 
-                alert("Echec !!")
-                console.error(error.responseJSON);
-                $("#loading").hide();
-            }
-        });
-    })
-    
-    $('#new_imgs').submit(function (e){
-        e.preventDefault()
-        $(".images_investissements").hide();
-        let data=new FormData(this)
-        data.append("id_investissement",db.get("investissement"))
-        this.reset()
-        $("#loading").show();
-        $.ajax({
-            type: "POST",
-            url: "server/?images_investissement-new",
-            data: data,
-            contentType: false,
-            processData: false,
-            success: function (response) {
-                $("#new_inv").hide();
-                $(".images_investissements").show();
-                lacrea_data();
-                $("#loading").hide();    
-            },
-            xhr: function() {
-                // Create a new XMLHttpRequest object
-                var xhr = new XMLHttpRequest();                   
-                // Set the XMLHttpRequest object's onprogress event listener
-                xhr.upload.addEventListener("progress", function(event) {
-                    $("#progress").text(Math.round(progress)+" %");
-                });
-                return xhr;
-            },
-            error : function (error) { 
-                alert("Echec !!")
-                $(".images_investissements").show();
-                lacrea_data();
-                $("#loading").hide(); 
-                console.error(error.responseJSON);
-                $("#loading").hide();
-            }
-        });
-    })
-        
-    function del(id) {
-        if (confirm("voulez-vous vraiment supprimer cet investissment?")) {
-            $.getJSON("/server/?investissements-delete="+id,
-                function (data, textStatus, jqXHR) {
-                    alert(data.message)
-                    get_investissement()
-                    
-                }
-            );        
-        }
-    }
-    
-    function del_admin(id) {
-        if (confirm("voulez-vous vraiment supprimer cet utilisateur?")) {
-            $.getJSON("/server/?clients-delete="+id,
-                function (data, textStatus, jqXHR) {
-                    alert(data.message)
-                    lacrea_data()
-                }
-            );        
-        }
-    }
-    function reinitUser(id) {
-        if (confirm("voulez-vous vraiment reinitialiser le mot de pass de cet utilisateur?")) {
-            $("#loading").show();
-            $.post("/server/?clients-update="+id, {"mot_de_passe":"12345"},
-                function (data, textStatus, jqXHR) {
-                    $("#loading").hide();
-                    alert("Mot de passe reinitialisé avec succes! le nouveau mot de passe est : 12345")                    
-                },
-                "json"
-            ).fail((e)=>{
-                console.log(e);
-                $("#loading").hide();
-                alert("Echec")
-            })       
-        }
-    }
+  $("#new_formation_form").submit(function (e) {
+    e.preventDefault();
+    console.log(this);
+    let data = new FormData(this);
+    this.reset();
+    $("#loading").show();
+    $.ajax({
+      type: "POST",
+      url: "server/?formations-new",
+      data: data,
+      contentType: false,
+      processData: false,
+      success: function (response) {
+        console.log(response);
 
-lacrea_data()
+        // lacrea_data()
+        app("formations_");
+        // get_articles()
+        $("#loading").hide();
+        // swal(response)
+        // swal("Article posté avec succes!")
+
+        // location.reload()
+      },
+      xhr: function () {
+        // Create a new XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+        // Set the XMLHttpRequest object's onprogress event listener
+        xhr.upload.addEventListener("progress", function (event) {
+          $("#progress").text(Math.round(progress) + " %");
+        });
+        return xhr;
+      },
+      error: function (error) {
+        swal("Echec !!");
+        console.error(error.responseJSON);
+        $("#loading").hide();
+      },
+    });
+  });
+
+  $("#new_imgs").submit(function (e) {
+    e.preventDefault();
+    $(".images_investissements").hide();
+    let data = new FormData(this);
+    data.append("id_investissement", db.get("investissement"));
+    this.reset();
+    $("#loading").show();
+    $.ajax({
+      type: "POST",
+      url: "server/?images_investissement-new",
+      data: data,
+      contentType: false,
+      processData: false,
+      success: function (response) {
+        $("#new_inv").hide();
+        $(".images_investissements").show();
+        lacrea_data();
+        $("#loading").hide();
+      },
+      xhr: function () {
+        // Create a new XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+        // Set the XMLHttpRequest object's onprogress event listener
+        xhr.upload.addEventListener("progress", function (event) {
+          $("#progress").text(Math.round(progress) + " %");
+        });
+        return xhr;
+      },
+      error: function (error) {
+        swal("Echec !!");
+        $(".images_investissements").show();
+        lacrea_data();
+        $("#loading").hide();
+        console.error(error.responseJSON);
+        $("#loading").hide();
+      },
+    });
+  });
+
+  function del(id) {
+    if (confirm("voulez-vous vraiment supprimer cet investissment?")) {
+      $.getJSON(
+        "/server/?investissements-delete=" + id,
+        function (data, textStatus, jqXHR) {
+          swal(data.message);
+          get_investissement();
+        }
+      );
+    }
+  }
+
+  function del_admin(id) {
+    if (confirm("voulez-vous vraiment supprimer cet utilisateur?")) {
+      $.getJSON(
+        "/server/?clients-delete=" + id,
+        function (data, textStatus, jqXHR) {
+          swal(data.message);
+          lacrea_data();
+        }
+      );
+    }
+  }
+  function reinitUser(id) {
+    if (
+      confirm(
+        "voulez-vous vraiment reinitialiser le mot de pass de cet utilisateur?"
+      )
+    ) {
+      $("#loading").show();
+      $.post(
+        "/server/?clients-update=" + id,
+        { mot_de_passe: "12345" },
+        function (data, textStatus, jqXHR) {
+          $("#loading").hide();
+          swal(
+            "Mot de passe reinitialisé avec succes! le nouveau mot de passe est : 12345"
+          );
+        },
+        "json"
+      ).fail((e) => {
+        console.log(e);
+        $("#loading").hide();
+        swal("Echec");
+      });
+    }
+  }
+
+  lacrea_data();
 </script>

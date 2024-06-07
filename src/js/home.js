@@ -77,7 +77,7 @@ $.getJSON("server/?universite-all",
 
 function start(data) {
     if (data.length==0) {
-        alert("Systeme non configuré")
+        swal("Systeme non configuré")
         lacrea_load(".body","applications/apparitorat")
     }else{
         lacrea_load()
@@ -114,11 +114,11 @@ function bureau() {
                 lacrea_load('.body',`applications/${data.service}/`)
                 
             } else if(data.length>1) {
-                alert(`Conflit d'identifiant, ${data.length} compte porte le meme identifiant!`)
+                swal(`Conflit d'identifiant, ${data.length} compte porte le meme identifiant!`)
                 disconnect()
                 return
             }else{
-                alert("votre compte est bloqué, veuillez contacter l'administrateur")
+                swal("votre compte est bloqué, veuillez contacter l'administrateur")
                 disconnect()
                 return;
             }
@@ -321,7 +321,7 @@ function student_info(data) {
 }
 function cours_student(matricule) {
     if (matricule==null) {
-        alert("Etudiant non validé")
+        swal("Etudiant non validé")
         return
     }
     $.get("server/?affectation_cours-student="+matricule,
@@ -696,12 +696,12 @@ function coteCours(id){
         },
         "json"
     ).fail(e=>{
-        alert(e.responseText)
+        swal(e.responseText)
     });
 }
 function submitCode(){    
     if (db.get("user")[0].service!="Enseignant") {
-        alert("vous n'etes pas autorisé à modifier ces informations")
+        swal("vous n'etes pas autorisé à modifier ces informations")
         return
     }
     forms=$(".list>form")
@@ -713,7 +713,7 @@ function submitCode(){
         fd=formToDic(fd)
         payloads.push(fd)
         if (fd.note>20 || fd.note<0) {
-            alert("Erreur dans un champs, les cotes doivent etre entre 0 et 20!")
+            swal("Erreur dans un champs, les cotes doivent etre entre 0 et 20!")
             return
         }
     }
@@ -721,12 +721,12 @@ function submitCode(){
     // console.log(payloads);
     $.post("server/?cotes-cotes", {data:JSON.stringify(payloads)},
         function (data, textStatus, jqXHR) {
-            alert(data.message)
+            swal(data.message)
             $('.app_etudiants').remove()
         },
         "json"
     ).fail(e=>{
-        alert(e.responseText)
+        swal(e.responseText)
     });
 }
 // enseignant_cours(1)

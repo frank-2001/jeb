@@ -7,6 +7,7 @@
                     $conv=webp($_FILES['image']['tmp_name'],40,$prefix="jeb".time(),$dir='uploads/formations/');
                     $_POST["image"]=$conv["final"]["name"];
                     $output=$formations->new($_POST);
+                    notification("Nouvelle formations sur JEB : ".$_POST["titre"].", desormais sur JEB","du ".$_POST["debut"]."au ".$_POST["fin"].", hatez-vous car les places son limitée.","/","server/uploads/formations/".$_POST["image"],"ALL",$notifications,$notifications_store);
                 }
                 if (isset($_GET[$formations->table."-byId"])) {
                     $output=$formations->byId($_GET[$formations->table."-byId"]);

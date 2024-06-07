@@ -22,6 +22,15 @@
                         }
                     }
                     $output=$images_investissement->new($_POST);
+                    $id=$investissments->by(["id"=>$_POST["id_investissement"]])["data"][0];
+                    notification("Vous avez reçu des images","Les images de l'un des vos investissements.","/?apps/profile/user.html","",[$id["client_id"]],$notifications,$notifications_store);
+                    $admins=[];
+                    foreach ($clients->by(["type"=>"administrateur"])["data"] as $va) {
+                        array_push($admins,$va["id"]);
+                    }
+                    // print_r($);
+                    notification("Nouvel utilisateur JEB","Souhaitez la bienvenu à ".$_POST["nom"],"/?apps/profile/admin.html","",$admins,$notifications,$notifications_store);
+                    
                 }
                 if (isset($_GET[$images_investissement->table."-byId"])) {
                     $output=$images_investissement->byId($_GET[$images_investissement->table."-byId"]);

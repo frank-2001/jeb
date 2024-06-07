@@ -139,6 +139,9 @@
                 if (isset($_GET[$'.$key.'->table."-search"])) {
                     $output=$'.$key.'->search($_POST);
                 }
+                if (isset($_GET[$'.$key.'->table."-by"])) {
+                    $output=$'.$key.'->by($_POST);
+                }
             ';
             file_put_contents("classes/".$key.".class.php","<?php\n".$class);
             file_put_contents("controllers/".$key.".controller.php","<?php\n".$controller);
