@@ -1,5 +1,5 @@
 // Cache infos
-const VERSION_APP = "1.2";
+const VERSION_APP = "1.3";
 const NAME_APP = "JEB";
 const STATIC_CACHE_URLS = ["404.html"];
 // PWA Installation
