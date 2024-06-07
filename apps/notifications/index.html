@@ -55,7 +55,7 @@
   }
   where = { column: "id_user", data: ["-"] };
   if (db.get("user")) {
-    where.data.push(db.get("user").id);
+    where.data = [db.get("user").id];
   }
   $(".notifications_store_model").attr("where", JSON.stringify(where));
   lacrea_data();
