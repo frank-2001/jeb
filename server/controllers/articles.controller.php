@@ -8,7 +8,7 @@
                     $_POST["image"]=$conv["final"]["name"];
                     $output=$articles->new($_POST);
                     
-                    notification($_POST["title"].", desormais sur JEB","Prix ".$_POST["price"]."$, commandez et vous serez servi","/?apps/produits/","server/uploads/articles/".$_POST["image"],"ALL",$notifications,$notifications_store);
+                    notification($_POST["title"].", desormais sur JEB","Prix ".$_POST["price"]."$, commandez et vous serez servi","/?produits","server/uploads/articles/".$_POST["image"],"ALL",$notifications,$notifications_store);
                 }
                 if (isset($_GET[$articles->table."-byId"])) {
                     $output=$articles->byId($_GET[$articles->table."-byId"]);

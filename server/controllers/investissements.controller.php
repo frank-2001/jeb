@@ -11,7 +11,7 @@
                     foreach ($clients->by(["type"=>"administrateur"])["data"] as $va) {
                         array_push($admins,$va["id"]);
                     }
-                    notification("Nouvelle demande d'investissement","Investisseur : ".$id["nom"]." ".$id["postnom"]." ".$id["prenom"],"/?apps/profile/admin.html","",$admins,$notifications,$notifications_store);
+                    notification("Nouvelle demande d'investissement","Investisseur : ".$id["nom"]." ".$id["postnom"]." ".$id["prenom"],"/?profile&investissements","",$admins,$notifications,$notifications_store);
                     
                 }
                 if (isset($_GET[$investissements->table."-byId"])) {
@@ -29,4 +29,5 @@
                 if (isset($_GET[$investissements->table."-by"])) {
                     $output=$investissements->by($_POST," *,investissements.state AS state, investissements.id AS id "," INNER JOIN clients ON investissements.client_id=clients.id JOIN articles ON investissements.article_id=articles.id ");
                 }
+                
             

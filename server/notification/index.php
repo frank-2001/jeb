@@ -59,18 +59,16 @@ function notification($title,$body,$url,$image,$users="ALL",$notif,$notif_store)
         }else{
             foreach ($users as $v) {
                 // print_r($v);
+                $notif_store->new([
+                    "title"=>$title,
+                    "body"=>$body,
+                    "url"=>$url,
+                    "image"=>$image,
+                    "id_user"=>$v 
+                ]);
                 foreach ($notif->by(["id_user"=>$v])["data"] as $key) {
-                    $notif_store->new([
-                        "title"=>$title,
-                        "body"=>$body,
-                        "url"=>$url,
-                        "image"=>$image,
-                        "id_user"=>$key["id_user"] 
-                    ]);
-                    
                     $sub=Subscription::create(jsonToArray($key["subscription_id"]));
                     $webPush->queueNotification($sub,$payload);
-
                 }
             }
         }

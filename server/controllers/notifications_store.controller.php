@@ -5,6 +5,9 @@
                 }
                 if (isset($_GET[$notifications_store->table."-new"])) {
                     $output=$notifications_store->new($_POST);
+                    if ($_POST["url"]=="") {
+                        $_POST["url"]="/";
+                    }
                     notification($_POST["title"],$_POST["body"],$_POST["url"],"","ALL",$notifications,$notifications_store); 
                 }
                 if (isset($_GET[$notifications_store->table."-byId"])) {
@@ -25,4 +28,5 @@
                 if (isset($_GET[$notifications_store->table."-byMulti"])) {
                     $output=$notifications_store->byMulti($_POST);
                 }
+                
             

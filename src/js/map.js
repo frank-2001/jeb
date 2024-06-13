@@ -23,5 +23,6 @@ async function initMap() {
     title: "JEB - Je suis eleveur de betails",
   });
 }
-
-initMap();
+if (location.hostname != "localhost") {
+  initMap();
+}

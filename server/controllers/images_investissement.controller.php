@@ -20,10 +20,11 @@
                         }else{
                             $_POST[$k]=webp($_FILES[$k]['tmp_name'],40,$prefix="jeb".time(),$dir="uploads/investissements/")["final"]["name"];
                         }
+
                     }
                     $output=$images_investissement->new($_POST);
                     $id=$investissments->by(["id"=>$_POST["id_investissement"]])["data"][0];
-                    notification("Vous avez reçu des images","Les images de l'un des vos investissements.","/?apps/profile/user.html","",[$id["client_id"]],$notifications,$notifications_store);
+                    notification("Vous avez reçu des images","Les images de l'un des vos investissements.","/?profile&investissements","",[$id["client_id"]],$notifications,$notifications_store);
                     $admins=[];
                     foreach ($clients->by(["type"=>"administrateur"])["data"] as $va) {
                         array_push($admins,$va["id"]);

@@ -8,6 +8,9 @@ function getNbNotif() {
         nb = data.data.length;
         $("#nb_notification_no_read").text("");
         if (nb > 0) {
+          if (nb > 9) {
+            nb = "+9";
+          }
           $("#nb_notification_no_read").text(nb);
         }
       },
@@ -15,7 +18,6 @@ function getNbNotif() {
     );
   }
 }
-getNbNotif();
 
 function enableNotification() {
   Notification.requestPermission().then((permission) => {

@@ -1,4 +1,4 @@
-<div class="pt-16 sm:pt-24 sm:px-64 py-16 sm:h-screen px-4 formation_one">
+<div class="pt-16 md:pt-24 md:px-64 py-16 md:h-screen px-4 formation_one">
   <div class="flex bg-white text-black/80 justify-between p-2 mb-1">
     <svg
       onclick="lacrea_load('.body');"
@@ -19,23 +19,37 @@
     <span>Formation</span>
   </div>
   <div class="formations_model" view="formation_one.html"></div>
+  <div class="flex">
+    <button
+      onclick="inscrire()"
+      class="text-center py-2 bg-green-500 w-full rounded-md shadow-md my-2"
+    >
+      S'inscrire
+    </button>
+  </div>
 </div>
 <script>
-  actual_user = db.get("user");
-  id_formation = db.get("formation");
-  if (actual_user == null) {
-    swal("ECHEC", "Veillez d'abord vous connecter, ou vous inscrire", "error");
-    profile();
-  } else {
-    $(".formations_model").attr("where", `{"id":"${id_formation}"}`);
-    lacrea_data();
-    lacrea_save(
-      { id_user: actual_user.id, id_formation: id_formation },
-      "inscription_formation-new",
-      {
-        success: "Demande d'inscription envoyé",
-        fail: "Echec d'inscription, il se pourait que vous etes deja inscrit a cette formation",
-      }
-    );
+  $(".formations_model").attr("where", `{"id":"${db.get("formation")}"}`);
+  lacrea_data();
+  function inscrire() {
+    let actual_user = db.get("user");
+    let id_formation = db.get("formation");
+    if (actual_user == null) {
+      swal(
+        "ECHEC",
+        "Veillez d'abord vous connecter, ou vous inscrire",
+        "error"
+      );
+      profile();
+    } else {
+      lacrea_save(
+        { id_user: actual_user.id, id_formation: id_formation },
+        "inscription_formation-new",
+        {
+          success: "Demande d'inscription envoyé",
+          fail: "Echec d'inscription, il se pourait que vous etes deja inscrit a cette formation",
+        }
+      );
+    }
   }
 </script>

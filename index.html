@@ -21,7 +21,6 @@
     <!-- <link rel="stylesheet" href="src/css/style.css?version=6">
     <link rel="stylesheet" href="src/css/responsive.css?version=6"> -->
     <script src="src/js/jquery.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script type="module" src="src/js/map.js"></script>
     <script src="src/js/3.4.3.js"></script>
   </head>
@@ -181,10 +180,10 @@
     </div>
     <div class="show hidden" onclick="$('.show').hide()"></div>
     <div
-      class="more hidden h-screen grid py-4 fixed bg-white/50 backdrop-blur-sm justify-center items-center overflow-y-auto z-20 h-screen sm:grid sm:justify-center sm:items-center"
+      class="more hidden h-screen grid py-4 fixed bg-white/50 backdrop-blur-sm justify-center items-center overflow-y-auto z-20 h-screen md:grid md:justify-center md:items-center"
     >
       <div
-        class="investissement hidden h-screen grid sm:mx-64 mx-4 my-4 p-8 bg-white overflow-y-auto gap-4 rounded-md"
+        class="investissement hidden h-screen grid md:mx-64 mx-4 my-4 p-8 bg-white overflow-y-auto gap-4 rounded-md"
       >
         <div class="items-center between grid text-center text gap-3">
           <button
@@ -211,7 +210,7 @@
           confiance envers lui et cela dans son projeté « promotion des grands
           porcs ».
         </p>
-        <div class="sm:flex justify-center items-center gap-2">
+        <div class="md:flex justify-center items-center gap-2">
           <button
             class="bg-green-500 py-2 px-4 rounded-md"
             onclick="profile();$('.more').addClass('hidden');$('.more>div').addClass('hidden') "
@@ -247,7 +246,7 @@
         </div> -->
 
       <div
-        class="contrat hidden h-full grid justify-start items-start sm:mx-64 p-5 bg-white overflow-y-auto gap-2"
+        class="contrat hidden h-full grid justify-start items-start md:mx-64 p-5 bg-white overflow-y-auto gap-2"
       >
         <div class="grid justify-center items-center">
           <button
@@ -332,7 +331,7 @@
       class="login hidden overflow-y-auto w-full fixed z-20 backdrop-blur-sm h-screen grid items-center bg-gray-700/50"
     >
       <div
-        class="card bg-gray-700 px-4 sm:px-64 py-8 sm:py-16 mx-4 sm:mx-64 rounded-md text-white grid gap-5 hidden"
+        class="card bg-gray-700 px-4 md:px-64 py-8 md:py-16 mx-4 md:mx-64 rounded-md text-white grid gap-5 hidden"
       >
         <div class="grid justify-center items-center">
           <button
@@ -358,7 +357,9 @@
             name="mot_de_passe"
             required
           />
-          <button class="bg-green-500 px-4 py-2 rounded-md">Valider</button>
+          <button class="bg-green-500 px-4 py-2 rounded-md text-white">
+            Valider
+          </button>
         </form>
         <button
           class="text-center"
@@ -369,7 +370,7 @@
       </div>
 
       <div
-        class="card bg-gray-700 px-4 py-8 m-4 sm:mx-64 sm:px-32 rounded-md text-white grid gap-5 overflow-visible"
+        class="card bg-gray-700 px-4 py-8 m-4 md:mx-64 md:px-32 rounded-md text-white grid gap-5 overflow-visible"
       >
         <div class="grid justify-center items-center">
           <button
@@ -403,7 +404,7 @@
             required
           />
 
-          <div class="grid gap-2 sm:grid-cols-2">
+          <div class="grid gap-2 md:grid-cols-2">
             <fieldset class="grid bg-gray-800 p-2 rounded gap-1">
               <span>Numero de telephone</span>
               <input
@@ -422,7 +423,7 @@
               </select>
             </fieldset>
           </div>
-          <div class="grid gap-2 sm:grid-cols-2">
+          <div class="grid gap-2 md:grid-cols-2">
             <fieldset class="grid bg-gray-800 p-2 rounded gap-1">
               <span>Localisation</span>
               <select
@@ -446,7 +447,7 @@
               />
             </fieldset>
           </div>
-          <div class="grid gap-2 sm:grid-cols-2">
+          <div class="grid gap-2 md:grid-cols-2">
             <fieldset class="grid bg-gray-800 p-2 rounded gap-1">
               <span>Mot de passe</span>
               <input
@@ -482,8 +483,8 @@
       </div>
     </div>
 
-    <header class="w-full fixed z-10 bg-white sm:py-4 py-2 border sm:px-0 px-2">
-      <div class="flex items-stretch sm:justify-evenly justify-between">
+    <header class="w-full fixed z-10 bg-white md:py-4 py-2 border md:px-0 px-2">
+      <div class="flex items-stretch md:justify-evenly justify-between">
         <div class="flex items-center gap-2">
           <svg
             onclick="$('.menu-bar-mobile-show').removeClass('hidden')"
@@ -492,7 +493,7 @@
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="sm:hidden w-6"
+            class="md:hidden w-6"
           >
             <path
               stroke-linecap="round"
@@ -501,7 +502,7 @@
             />
           </svg>
           <h1
-            class="sm:text-4xl text-2xl font-bold"
+            class="md:text-4xl text-2xl font-bold"
             onclick="lacrea_load() ;window.open('/#home','_self');"
           >
             JEB
@@ -509,7 +510,7 @@
         </div>
 
         <div
-          class="sm:flex hidden gap-2 items-center border bg-gray-300 rounded-md"
+          class="md:flex hidden gap-2 items-center border bg-gray-300 rounded-md"
         >
           <span
             class="cursor-pointer hover:bg-white rounded-md py-2 px-4"
@@ -536,13 +537,13 @@
           ></button>
         </div>
         <section
-          class="bg-gray-300 flex items-stretch text-xs sm:gap-4 gap-2 pr-4 sm:border rounded-sm border sm:hover:bg-green-500"
+          class="bg-gray-300 flex items-stretch text-xs md:gap-4 gap-2 pr-4 md:border rounded-sm border md:hover:bg-green-500"
         >
           <button
-            class="btn_connexion sm:hidden block text-sm bg-green-500 hover:bg-white hover:text-black rounded-sm py-1 px-4 text-white flex gap-1 items-center"
+            class="btn_connexion md:hidden block text-sm bg-green-500 hover:bg-white hover:text-black rounded-sm py-1 px-4 text-white flex gap-1 items-center"
           ></button>
           <div
-            class="flex sm:text-xs text-sm sm:bg-white sm:py-2 py-1 sm:px-4 px-1 rounded-md hover:text-green-500 cursor-pointer"
+            class="flex md:text-xs text-sm md:bg-white md:py-2 py-1 md:px-4 px-1 rounded-md hover:text-green-500 cursor-pointer"
             onclick="lacrea_load('.body','apps/notifications/')"
           >
             <svg
@@ -567,7 +568,7 @@
           </div>
           <span
             id="install_button"
-            class="flex items-center sm:gap-2 hover:text-white cursor-pointer"
+            class="flex items-center md:gap-2 hover:text-white cursor-pointer"
           >
             <svg
               style="width: 20px"
@@ -584,7 +585,7 @@
                 d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
               />
             </svg>
-            <span class="sm:block hidden">Telecharger</span>
+            <span class="md:block hidden">Telecharger</span>
           </span>
         </section>
       </div>
@@ -592,11 +593,11 @@
     <!-- <div class="h-14"></div> -->
     <section class="body min-h-screen"></section>
     <footer
-      class="grid bg-gray-700 text-white p-4 py-8 sm:p-8 sm:px-64 gap-8 font-mono"
+      class="grid bg-gray-700 text-white p-4 py-8 md:p-8 md:px-64 gap-8 font-mono"
     >
       <div class="grid gap-4">
-        <h3 class="sm:text-2xl text-xl">Nos contact</h3>
-        <div class="grid sm:flex sm:gap-4 gap-1 ml-0">
+        <h3 class="md:text-2xl text-xl">Nos contact</h3>
+        <div class="grid md:flex md:gap-4 gap-1 ml-0">
           <p class="flex items-center gap-2 rounded" style="">
             <!-- <span>  -->
             <svg
@@ -647,7 +648,7 @@
         </div>
       </div>
       <div class="grid gap-4">
-        <h3 class="sm:text-2xl text-xl">Geolocalisation</h3>
+        <h3 class="md:text-2xl text-xl">Geolocalisation</h3>
         <div
           style="height: 50vh; width: 100%"
           class="bg-white rounded"
@@ -655,8 +656,8 @@
         ></div>
       </div>
       <div class="grid gap-4">
-        <h3 class="sm:text-2xl text-xl">Reseaux sociaux</h3>
-        <div class="grid gap-1 sm:flex sm:justify-between">
+        <h3 class="md:text-2xl text-xl">Reseaux sociaux</h3>
+        <div class="grid gap-1 md:flex md:justify-between">
           <div
             class="flex gap-2 items-center"
             onclick='window.open("https://www.facebook.com/profile.php?id=61559054242608&mibextid=LQQJ4d")'
@@ -844,14 +845,14 @@
       </div>
     </footer>
     <div
-      class="bg-black px-4 sm:px-16 py-2 sm:py-4 text-sm flex justify-between items-center text-white font-mono"
+      class="bg-black px-4 md:px-16 py-2 md:py-4 text-sm flex justify-between items-center text-white font-mono"
     >
       <span class="animate-pulse"> &copy; jeb-elevage.org </span>
       <span
         class="flex items-center gap-1 animate-pulse cursor-pointer"
         onclick="window.open('https://facebook.com/frankmakolongo')"
       >
-        by Frank M.
+        By &lt;Frank M./&gt;
       </span>
     </div>
     <script src="src/js/fx.js?version=10.3"></script>
@@ -863,7 +864,8 @@
     <script src="src/js/main.js?version=10.3"></script>
     <!-- prettier-ignore -->
     <script>
-     (g=>{
+      if (location.hostname!="localhost") {
+        (g=>{
         var h,a,k,p="The Google Maps JavaScript API",
         c="google",
         l="importLibrary",
@@ -880,11 +882,12 @@
                     await (a=m.createElement("script"));
                     e.set("libraries",[...r]+"");
                     for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-        ({key: "", v: "beta"});</script>
-    <script>
-      db.set("version", "version=10.3.1.1");
+        ({key: "", v: "beta"});   
+      }
+     
+      db.set("version", "version=10.4");
       if (db.get("urlApp")) {
-        console.log("url");
+        console.log(db.get("urlApp"));
         lacrea_load(".body", db.get("urlApp"), false);
         db.remove("urlApp");
       } else if (db.get("app")) {

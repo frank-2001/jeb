@@ -187,7 +187,18 @@ function urlJson() {
   page = location.href.split("?")[1];
   window.history.pushState({}, "", "/");
   if (page) {
-    db.set("urlApp", page);
+    page = page.split("&");
+    console.log(page);
+    if (page[0].split("=").length > 1) {
+      par = page[0].split("=");
+      db.set(par[0], par[1]);
+      page[0] = par[0];
+    }
+
+    db.set("urlApp", "apps/" + page[0]);
+    if (page[1]) {
+      db.set("admin_app", page[1]);
+    }
   }
 }
 urlJson();
