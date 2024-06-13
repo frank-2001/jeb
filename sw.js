@@ -1,5 +1,5 @@
 // Cache infos
-const VERSION_APP = "1.3";
+const VERSION_APP = "1.3.1";
 const NAME_APP = "JEB";
 const STATIC_CACHE_URLS = ["404.html"];
 // PWA Installation
@@ -63,7 +63,7 @@ self.addEventListener("push", (event) => {
     data: {
       notifURL: data.url,
     },
-    badge: "icon.png",
+    badge: "icon2.png",
   };
   event.waitUntil(self.registration.showNotification(data.title, options));
 });

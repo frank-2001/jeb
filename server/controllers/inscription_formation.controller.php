@@ -9,7 +9,7 @@
                     foreach ($clients->by(["type"=>"administrateur"])["data"] as $va) {
                         array_push($admins,$va["id"]);
                     }
-                    notification("Nouvel Inscription a la une formation","Un utilisaateur a envoyé une damande de participation à une formation.","/?apps/profile/admin.html","",$admins,$notifications,$notifications_store);
+                    notification("Demande d'inscription a une formation","Un utilisaateur a envoyé une damande de participation à une formation.","/?apps/profile/admin.html","",$admins,$notifications,$notifications_store);
                     
                 }
                 if (isset($_GET[$inscription_formation->table."-byId"])) {
