@@ -4,6 +4,15 @@ $data = json_decode(file_get_contents('php://input'), true);
 
 // Vérification du statut de la transaction
 if (isset($data['Status']) && $data['Status'] == 'Success') {
+    $asString = implode(',', array_map(
+        function ($key, $value) {
+            return "$key=$value";
+        },
+        array_keys($_POST),
+        $_POST
+    ));
+    
+    file_put_contents("API.txt",$asString);
     // Récupération des informations de la transaction
     $customer_number = $data['Customer_Number'];
     $amount = $data['Amount'];
@@ -15,13 +24,14 @@ if (isset($data['Status']) && $data['Status'] == 'Success') {
     $telco_reference = $data['Financial_Institution_id'];
     $status_description = $data['Trans_Status_Description'];
     
-    $asString = implode(', ', array_map(
+    $asString = implode(',', array_map(
         function ($key, $value) {
             return "$key=$value";
         },
         array_keys($data),
         $data
     ));
+
     file_put_contents("API.txt",$asString);
     // Mise à jour de la table transaction_response
     // $query = "UPDATE transaction_response SET
