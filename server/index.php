@@ -7,7 +7,7 @@
     require "notification/index.php";
     require "requirement.php";
     if (isset($_GET["testpay"])) {
-        $myDictionary = $_POST;
+        $myDictionary = $_GET;
 
         // Convert the dictionary to a string
         $asString = implode(', ', array_map(
