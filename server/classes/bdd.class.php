@@ -74,7 +74,7 @@
                     }
                     $struc=substr($struc,0,-1);
                     $sql="UPDATE ".$this->table." set ".$struc." where id=".$id;
-                    
+                    // print_r($sql);
                     return $this->return($sql,__FUNCTION__);      
                 }
                 function delete($id){

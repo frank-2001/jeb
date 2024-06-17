@@ -10,6 +10,7 @@
 	require_once  'classes/investissements.class.php';
 	require_once  'classes/notifications.class.php';
 	require_once  'classes/notifications_store.class.php';
+	require_once  'classes/paiement_achat.class.php';
 	require_once  'classes/users.class.php';
 	require_once  'controllers/annonces.controller.php';
 	require_once  'controllers/articles.controller.php';
@@ -21,4 +22,5 @@
 	require_once  'controllers/investissements.controller.php';
 	require_once  'controllers/notifications.controller.php';
 	require_once  'controllers/notifications_store.controller.php';
+	require_once  'controllers/paiement_achat.controller.php';
 	require_once  'controllers/users.controller.php';

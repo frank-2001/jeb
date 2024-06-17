@@ -25,7 +25,7 @@
     <script src="src/js/3.4.3.js"></script>
   </head>
 
-  <body class="bg-gray-300 font-mono">
+  <body class="bg-gray-300 font-mono text-xs sm:text-sm md:text-md">
     <div
       id="loading"
       class="fixed h-screen w-full grid items-center justify-center backdrop-blur-sm bg-black/50"
@@ -536,24 +536,25 @@
             class="btn_connexion bg-green-500 hover:bg-white hover:text-black rounded-md py-2 px-4 text-white flex gap-2 items-center"
           ></button>
         </div>
+
         <section
-          class="bg-gray-300 flex items-stretch text-xs md:gap-4 gap-2 pr-4 md:border rounded-sm border md:hover:bg-green-500"
+          class="bg-gray-300 shadow-md uppercase flex items-stretch text-xs md:gap-4 gap-2 pr-4 md:border rounded-sm border md:hover:bg-green-500"
         >
           <button
-            class="btn_connexion md:hidden block text-sm bg-green-500 hover:bg-white hover:text-black rounded-sm py-1 px-4 text-white flex gap-1 items-center"
+            class="btn_connexion md:hidden block text-xs bg-green-500 hover:bg-white hover:text-black rounded-sm py-1 px-4 text-white flex gap-1 items-center"
           ></button>
           <div
-            class="flex md:text-xs text-sm md:bg-white md:py-2 py-1 md:px-4 px-1 rounded-md hover:text-green-500 cursor-pointer"
+            class="flex md:text-xs text-sm md:bg-white md:py-2 py-1 md:px-4 px-1 rounded-sm hover:text-green-500 cursor-pointer"
             onclick="lacrea_load('.body','apps/notifications/')"
           >
             <svg
-              style="width: 20px"
+              style=""
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-6 h-6"
+              class="md:w-6 w-4"
             >
               <path
                 stroke-linecap="round"
@@ -562,7 +563,7 @@
               />
             </svg>
             <span
-              class="text-red-500 mt-2 text-xs rounded-xl"
+              class="text-red-500 mt-2 text-xs rounded-sm"
               id="nb_notification_no_read"
             ></span>
           </div>
@@ -571,13 +572,13 @@
             class="flex items-center md:gap-2 hover:text-white cursor-pointer"
           >
             <svg
-              style="width: 20px"
+              style=""
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-6 h-6"
+              class="md:w-6 w-4"
             >
               <path
                 stroke-linecap="round"
@@ -595,10 +596,10 @@
     <footer
       class="grid bg-gray-700 text-white p-4 py-8 md:p-8 md:px-64 gap-8 font-mono"
     >
-      <div class="grid gap-4">
-        <h3 class="md:text-2xl text-xl">Nos contact</h3>
-        <div class="grid md:flex md:gap-4 gap-1 ml-0">
-          <p class="flex items-center gap-2 rounded" style="">
+      <div class="grid gap-1 text-center justify-center">
+        <h3 class="md:text-2xl text-lg">Nos contact</h3>
+        <div class="md:flex md:gap-4 gap-1 ml-0">
+          <p class="flex items-center justify-center  rounded" style="">
             <!-- <span>  -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -606,7 +607,7 @@
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-5 h-5"
+              class="w-4 h-5"
             >
               <path
                 stroke-linecap="round"
@@ -616,12 +617,12 @@
             </svg>
             <!-- </span>  -->
             <a
-              class="bg-green-500 rounded py-1 px-2 text-white text-sm"
+              class=" rounded py-1 px-2 text-white"
               href="tel:+243 994 557 806"
               >+243 994 557 806</a
             >
           </p>
-          <p class="flex items-center gap-2">
+          <p class="flex items-center justify-center ">
             <!-- <span>  -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -629,7 +630,7 @@
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-5 h-5"
+              class="w-4 h-5"
             >
               <path
                 stroke-linecap="round"
@@ -640,7 +641,7 @@
 
             <!-- </span>  -->
             <a
-              class="bg-green-500 rounded py-1 px-2 text-white text-sm"
+              class=" rounded py-1 px-2 text-white"
               href="mailto:contact@jeb-elevage.org"
               >contact@jeb-elevage.org</a
             >
@@ -648,22 +649,22 @@
         </div>
       </div>
       <div class="grid gap-4">
-        <h3 class="md:text-2xl text-xl">Geolocalisation</h3>
+        <h3 class="md:text-2xl text-lg text-center w-full">Geolocalisation</h3>
         <div
           style="height: 50vh; width: 100%"
-          class="bg-white rounded"
+          class="bg-white rounded w-full"
           id="map"
         ></div>
       </div>
       <div class="grid gap-4">
-        <h3 class="md:text-2xl text-xl">Reseaux sociaux</h3>
-        <div class="grid gap-1 md:flex md:justify-between">
+        <h3 class="md:text-2xl text-lg text-center">Reseaux sociaux</h3>
+        <div class="flex gap-3  justify-center">
           <div
             class="flex gap-2 items-center"
             onclick='window.open("https://www.facebook.com/profile.php?id=61559054242608&mibextid=LQQJ4d")'
           >
             <svg
-              class="w-8"
+              class="md:w-8 w-6"
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
@@ -689,7 +690,7 @@
                 d="M26.707,29.301h5.176l0.813-5.258h-5.989v-2.874c0-2.184,0.714-4.121,2.757-4.121h3.283V12.46 c-0.577-0.078-1.797-0.248-4.102-0.248c-4.814,0-7.636,2.542-7.636,8.334v3.498H16.06v5.258h4.948v14.452 C21.988,43.9,22.981,44,24,44c0.921,0,1.82-0.084,2.707-0.204V29.301z"
               ></path>
             </svg>
-            <span class="text-white text-sm"
+            <span class="text-white text-xs hidden"
               >@JEB - je suis eleveur de betails</span
             >
           </div>
@@ -699,7 +700,7 @@
             onclick='window.open("https://youtube.com/@jeb_elevage?si=OBkE0Xzr3Tfs-r-a")'
           >
             <svg
-              class="w-8"
+              class="md:w-8 w-6"
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
@@ -711,14 +712,14 @@
               ></path>
               <path fill="#FFF" d="M20 31L20 17 32 24z"></path>
             </svg>
-            <span class="text-white text-sm">@jeb_elevage</span>
+            <span class="text-white text-sm hidden">@jeb_elevage</span>
           </div>
           <div
             class="flex gap-2 items-center"
             onclick='window.open("https://www.tiktok.com/@jeb.elevage_rdc?_t=8mDLIYYDhSQ&_r=1")'
           >
             <svg
-              class="w-8"
+              class="md:w-8 w-6"
               fill="#000000"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -736,14 +737,14 @@
                 ></path>
               </g>
             </svg>
-            <span class="text-white text-sm">@jeb.elevage_rdc</span>
+            <span class="text-white text-sm hidden">@jeb.elevage_rdc</span>
           </div>
           <div
             class="flex gap-2 items-center"
             onclick='window.open("https://www.instagram.com/jeb.elevage_rdc?igsh=MzRlODBiNWFlZA==")'
           >
             <svg
-              class="w-8"
+              class="md:w-8 w-6" 
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
@@ -839,20 +840,20 @@
                 ></circle>
               </g>
             </svg>
-            <span class="text-white text-sm">@jeb.elevage_rdc</span>
+            <span class="text-white text-sm hidden">@jeb.elevage_rdc</span>
           </div>
         </div>
       </div>
     </footer>
     <div
-      class="bg-black px-4 md:px-16 py-2 md:py-4 text-sm flex justify-between items-center text-white font-mono"
+      class="bg-black px-4 md:px-16 py-2 md:py-4 text-xs flex justify-between items-center text-white"
     >
       <span class="animate-pulse"> &copy; jeb-elevage.org </span>
       <span
         class="flex items-center gap-1 animate-pulse cursor-pointer"
         onclick="window.open('https://facebook.com/frankmakolongo')"
       >
-        By &lt;Frank M./&gt;
+        by &lt;Frank M./&gt;
       </span>
     </div>
     <script src="src/js/fx.js?version=10.3"></script>

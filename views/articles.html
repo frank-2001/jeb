@@ -1,27 +1,40 @@
-<div class="grid h-auto p-4 bg-white gap-2 rounded text-xs hover:bg-gray-300 cursor-pointer">
-    <div class="rounded h-40 bg-[url(server/uploads/articles/##image##)] bg-center bg-cover">
-    </div>
-    <div class="text-left grid gap-2">
-        <div class="flex justify-between items-center">
-            <span style="font-weight:bolder">
-                ##title##
-            </span>
-            <span class="primary">
-                Etat: ##state##
-            </span>
-        </div>
-        
-        <div class="state flex justify-between center">
-            
-            <span class="">
-                Prix : ##price##$ / ##unite##
-            </span>
-            <span class="">Investissement : ##prix_investissement##$</span>
-        </div>
-        <div class="flex justify-between">                                
-            <span>Interet : ##rate_return##$</span>
-            <span>Periode : ##nb_day_return## Jours</span>
-        </div>
-        <button onclick="command('##title##','##price##','##state##')" class="bg-green-500 text-center p-2 rounded w-full hover:bg-gray-800 hover:text-white" onclick="command('##title##','##price##','##state##')">Commander</button>
-    </div>
+<div
+  class="grid h-auto p-3 bg-white gap-2 rounded-sm text-xs hover:shadow-lg shadow-md cursor-pointer"
+>
+  <div
+    class="rounded-sm border shadow-md h-40 bg-[url(server/uploads/articles/##image##)] bg-center bg-cover"
+  ></div>
+  <div class="text-left grid grid-cols-2 gap-0">
+    <!-- <div class="md:flex justify-between items-center"> -->
+    <span class="uppercase font-bold"> ##title## </span>
+    <span class="primary"> Etat: ##state## </span>
+    <!-- </div> -->
+
+    <!-- <div class="state flex justify-between center"> -->
+    <span class=""> Prix : ##price##$ / ##unite## </span>
+    <span class="">Investir : ##prix_investissement##$</span>
+    <!-- </div> -->
+    <!-- <div class="flex justify-between"> -->
+    <span
+      class="col-span-2 bg-gray-300 border p-2 text-center mt-2 rounded-sm shadow-sm"
+      >Investir dans cet article vous rapportera un interet de ##rate_return##$
+      chaque ##nb_day_return## Jours pendant 1 an</span
+    >
+    <!-- </div> -->
+  </div>
+  <div class="flex justify-evenly gap-2">
+    <button
+      onclick="command('##title##','##price##','##state##','##id##')"
+      class="bg-green-500 text-center px-2 py-1 shadow-md uppercase rounded-sm w-full hover:bg-gray-800 hover:text-white"
+      onclick="command('##title##','##price##','##state##')"
+    >
+      Acheter
+    </button>
+    <button
+      class="bg-yellow-400 text-center px-2 py-1 shadow-md uppercase rounded-sm w-full hover:bg-gray-800 hover:text-white"
+      onclick="profile()"
+    >
+      Investir
+    </button>
+  </div>
 </div>

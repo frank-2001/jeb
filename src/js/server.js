@@ -11,7 +11,7 @@ function navbar() {
             `
     );
   } else {
-    $(".btn_connexion").text("Connexion");
+    $(".btn_connexion").text("INSCRIPTION");
   }
 }
 navbar();
@@ -34,27 +34,54 @@ function profile() {
   }
 }
 
-function command(title, price, state) {
+function command(title, price, state, id) {
+  // Set whatsapp message
+
+  // Payload data for db and command
+  payload = {
+    montant: price,
+    article: id,
+    categorie: "achat",
+    libele: title,
+  };
+  db.set("payment", payload);
+  // Test disponibility of the product
   if (state != "1") {
     swal("Desolé ce produit n'est pas disponible pour l'instant");
     if (!confirm("Voulez-vous malgré tout commander le produit")) {
       return;
     }
   }
-  quatity = prompt(`Quel quantité de ${title} voulez-vous commander svp? `);
-  if (quatity) {
-    msg = `Le cout de votre commande est de ${
-      price * quatity
-    }$,nous allons maintenant vous rediriger vers notre service client pour finaliser la commande!!`;
-    wp = `https://wa.me/+243994557806?text=Message venant de https://jeb-elevage.org, salut je commande *${quatity}* unite(kg, piece, litre) de *${title}*, PU : *${price}$*, PT : 
-    *${price * quatity}$`;
-    swal({
-      icon: "success",
-      title: "Commande envoyée avec succes",
-      text: msg,
-    });
-    window.open(wp);
-  }
+  // Get quantity
+  swal({
+    text: "Quelle Quantité voulez-vous commander ?",
+    content: "input",
+    button: {
+      text: "VALIDER",
+      closeModal: false,
+    },
+  }).then((e) => {
+    // Cancel case
+    if (!e) {
+      console.log("Commande annulee");
+      swal.close();
+      return;
+    }
+    wp = `https://wa.me/+243994557806?text=Message venant de https://jeb-elevage.org, salut je commande *${e}* unite(kg, piece, litre) de *${title}*, PU : *${price}$*, PT : 
+  *${price * e}$*`;
+    db.set("wp_command", wp);
+    // Get data for payment
+    payload = db.get("payment");
+    // Check user connexion
+    if (db.get("user")) {
+      payload["id_client"] = db.get("user").id;
+    }
+    // add quantity in payload
+    payload["qt"] = e;
+    db.set("payment", payload);
+    lacrea_load(".body", "apps/payment/");
+    swal.close();
+  });
 }
 
 function formation(titre, id) {

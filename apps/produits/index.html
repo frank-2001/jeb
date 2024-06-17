@@ -1,12 +1,31 @@
+<div class="grid sm:py-24 pt-16 mx-4 sm:mx-20 md:mx-32">
+    <div
+    class="flex bg-white text-black/80 justify-between rounded-sm p-2 mb-1 shadow-md"
+  >
+    <svg
+      onclick="lacrea_load('.body');"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="sm:w-6 w-4"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+      />
+    </svg>
 
-<div class="grid sm:pt-24 pt-16">
-
-    <h1 class="title text-center sm:text-3xl text-xl uppercase pt-4">Nos produits </h1>
-    <div class="articles_model h-auto grid sm:grid-cols-3 sm:mx-32 mt-4 sm:p-8 py-8 pb-32 sm:rounded  p-5 gap-4 bg-gray-800" order="DESC">
-    </div>
+    <span>Nos produits</span>
+  </div>
+  <div
+    class="articles_model h-auto grid sm:grid-cols-2 gap-2 md:grid-cols-4 mt-4 pb-32 sm:rounded sm:gap-4 bg-gray-800/0"
+    order="DESC"
+  ></div>
 </div>
 
 <script>
-    lacrea_data()
+  lacrea_data();
 </script>
-

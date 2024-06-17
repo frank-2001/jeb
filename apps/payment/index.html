@@ -1,0 +1,228 @@
+<section class="py-16 sm:py-20 md:py-28 px-4 sm:mx-16 md:mx-96">
+  <div
+    class="flex bg-white text-black/80 justify-between rounded-sm p-2 mb-1 shadow-md"
+  >
+    <svg
+      onclick="lacrea_load('.body');"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="sm:w-6 w-4"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+      />
+    </svg>
+
+    <span>PAIMENTS</span>
+  </div>
+
+  <div class="py-3 text-center">
+    <!-- <div class="w-full"> -->
+    <span class="uppercase text-center">paiements accepté</span>
+    <!-- </div> -->
+    <div
+      class="grid grid-cols-4 items-stretch justify-evenly w-full gap-2 p-4 rounded-md shadow-md my-4 bg-white"
+    >
+      <img
+        src="src/images/paiement/airtelm.png"
+        class="w-auto rounded-md shadow-md"
+        alt=""
+      />
+      <img
+        src="src/images/paiement/orangem.png"
+        class="w-auto rounded-md shadow-md"
+        alt=""
+      />
+      <img
+        src="src/images/paiement/vodacomm.jpg"
+        class="w-auto rounded-md shadow-md"
+        alt=""
+      />
+      <img
+        src="src/images/paiement/afrim.png"
+        class="w-auto rounded-md shadow-md"
+        alt=""
+      />
+    </div>
+    <div class="px-4 py-6 bg-white rounded-md">
+      <div class="text-center mb-4 font-bold uppercase">
+        <span>Facture</span>
+      </div>
+      <table class="table-auto border rounded-sm text-center w-full">
+        <thead class="border-b border-gray-100">
+          <th>No</th>
+          <th class="w-2/5 bg-blue-200">Libelé</th>
+          <th>Qt</th>
+          <th>PU</th>
+          <th>PT</th>
+        </thead>
+      </table>
+      <div class="grid mt-6 w-full items-center gap-2">
+        <button
+          onclick="pay()"
+          id="pay"
+          class="bg-green-500 p-2 rounded-sm shadow-md text-white font-bold active:shadow-2xl active:px-11 active:text-xs active:animate-none"
+        >
+          PAYER
+        </button>
+        <button
+          onclick="window.open(db.get('wp_command'))"
+          id="pay"
+          class="bg-white/30 flex gap-2 justify-evenly items-center p-2 rounded-sm shadow-md text-green-700 font-bold active:shadow-2xl active:px-11 active:text-xs active:animate-none"
+        >
+          <svg
+            viewBox="0 0 48 48"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            fill="#000000"
+            class="w-4"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <title>Whatsapp-color</title>
+              <desc>Created with Sketch.</desc>
+              <defs></defs>
+              <g
+                id="Icons"
+                stroke="none"
+                stroke-width="1"
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <g
+                  id="Color-"
+                  transform="translate(-700.000000, -360.000000)"
+                  fill="#67C15E"
+                >
+                  <path
+                    d="M723.993033,360 C710.762252,360 700,370.765287 700,383.999801 C700,389.248451 701.692661,394.116025 704.570026,398.066947 L701.579605,406.983798 L710.804449,404.035539 C714.598605,406.546975 719.126434,408 724.006967,408 C737.237748,408 748,397.234315 748,384.000199 C748,370.765685 737.237748,360.000398 724.006967,360.000398 L723.993033,360.000398 L723.993033,360 Z M717.29285,372.190836 C716.827488,371.07628 716.474784,371.034071 715.769774,371.005401 C715.529728,370.991464 715.262214,370.977527 714.96564,370.977527 C714.04845,370.977527 713.089462,371.245514 712.511043,371.838033 C711.806033,372.557577 710.056843,374.23638 710.056843,377.679202 C710.056843,381.122023 712.567571,384.451756 712.905944,384.917648 C713.258648,385.382743 717.800808,392.55031 724.853297,395.471492 C730.368379,397.757149 732.00491,397.545307 733.260074,397.27732 C735.093658,396.882308 737.393002,395.527239 737.971421,393.891043 C738.54984,392.25405 738.54984,390.857171 738.380255,390.560912 C738.211068,390.264652 737.745308,390.095816 737.040298,389.742615 C736.335288,389.389811 732.90737,387.696673 732.25849,387.470894 C731.623543,387.231179 731.017259,387.315995 730.537963,387.99333 C729.860819,388.938653 729.198006,389.89831 728.661785,390.476494 C728.238619,390.928051 727.547144,390.984595 726.969123,390.744481 C726.193254,390.420348 724.021298,389.657798 721.340985,387.273388 C719.267356,385.42535 717.856938,383.125756 717.448104,382.434484 C717.038871,381.729275 717.405907,381.319529 717.729948,380.938852 C718.082653,380.501232 718.421026,380.191036 718.77373,379.781688 C719.126434,379.372738 719.323884,379.160897 719.549599,378.681068 C719.789645,378.215575 719.62006,377.735746 719.450874,377.382942 C719.281687,377.030139 717.871269,373.587317 717.29285,372.190836 Z"
+                    id="Whatsapp"
+                  ></path>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <span class="uppercase"> Nous contacter via whatsapp? </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  if (!db.get("payment")) {
+    swal("Aucune commande trouvée", { icon: "info" });
+    lacrea_load();
+  }
+  data = db.get("payment");
+  pt = Math.round(data.montant * data.qt * 10) / 10;
+  transfert = Math.round(pt * (2.0 / 100) * 10) / 10;
+  flex = Math.round(pt * (2.5 / 100) * 10) / 10;
+  livraison = 0;
+  total = Math.round((pt + transfert + livraison + flex) * 10) / 10;
+  $("table").append(
+    `
+        <tr class="border-b border-gray-100">
+          <td>1</td>
+          <td class="">
+            ${data.libele}
+          </td>
+          <td>${data.qt}</td>
+          <td>${data.montant}$</td>
+          <td>${pt}$</td>
+        </tr>
+        <tr class="border-b border-gray-100">
+          <td>2</td>
+          <td class="">
+            Transfert
+          </td>
+          <td>1</td>
+          <td>${transfert + flex}$</td>
+          <td>${transfert + flex}$</td>
+        </tr>
+        <tr class="border-b border-gray-100">
+          <td>3</td>
+          <td class="">
+            Livraison
+          </td>
+          <td>1</td>
+          <td>${livraison}$</td>
+          <td>${livraison}$</td>
+        </tr>
+        <tr
+          class="border-b bg-gray-700 text-white py-4 font-bold rounded-md border-gray-100"
+        >
+          <td></td>
+          <td class="">
+            Total
+          </td>
+          <td>-</td>
+          <td>-</td>
+          <td>${total}$</td>
+        </tr>`
+  );
+  data = db.get("payment");
+  data["total"] = total;
+  data["amount"] = Math.round((total - flex) * 10) / 10;
+  db.set("payment", data);
+  function pay() {
+    let data = db.get("payment");
+    $("#loading").show();
+    swal({
+      text: "Numero de telephone pour le paiement, forme : 243973472538",
+      content: "input",
+
+      button: {
+        text: "Valider",
+        closeModal: false,
+      },
+    }).then((e) => {
+      $("#loading").hide();
+      if (!e || e.length != 12) {
+        swal("Numero incorect, forme : 243973472538", { icon: "error" }).then(
+          (w) => {
+            swal.close();
+            pay();
+          }
+        );
+      } else {
+        data["telephone_paiement"] = e;
+        data["montant"] = data["total"];
+        delete data.libele;
+        delete data.qt;
+        delete data.total;
+        $.post(
+          "/server/?paiement_achat",
+          data,
+          function (data, textStatus, jqXHR) {
+            db.remove("payment");
+            console.log(data);
+            if (data.code == "0") {
+              swal(data.message, { icon: "info" }).then(() => {
+                db.set("facture_last", data);
+                lacrea_load(".body", "apps/payment/verification.html");
+              });
+            } else {
+              lacrea_load();
+            }
+          },
+          "json"
+        ).fail((e) => {
+          swal("Echec veillez réessayer plus tard....", { icon: "error" });
+          console.log(e);
+        });
+        console.log("traitement");
+      }
+    });
+  }
+</script>

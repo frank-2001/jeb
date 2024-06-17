@@ -6,5 +6,6 @@
     require "classes/bdd.class.php";
     require "notification/index.php";
     require "requirement.php";
+    require "payment/flex/index.php";
     echo json_encode($output);
         
