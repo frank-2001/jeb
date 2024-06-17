@@ -599,7 +599,7 @@
       <div class="grid gap-1 text-center justify-center">
         <h3 class="md:text-2xl text-lg">Nos contact</h3>
         <div class="md:flex md:gap-4 gap-1 ml-0">
-          <p class="flex items-center justify-center  rounded" style="">
+          <p class="flex items-center justify-center rounded" style="">
             <!-- <span>  -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -616,13 +616,11 @@
               />
             </svg>
             <!-- </span>  -->
-            <a
-              class=" rounded py-1 px-2 text-white"
-              href="tel:+243 994 557 806"
+            <a class="rounded py-1 px-2 text-white" href="tel:+243 994 557 806"
               >+243 994 557 806</a
             >
           </p>
-          <p class="flex items-center justify-center ">
+          <p class="flex items-center justify-center">
             <!-- <span>  -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -641,7 +639,7 @@
 
             <!-- </span>  -->
             <a
-              class=" rounded py-1 px-2 text-white"
+              class="rounded py-1 px-2 text-white"
               href="mailto:contact@jeb-elevage.org"
               >contact@jeb-elevage.org</a
             >
@@ -658,7 +656,7 @@
       </div>
       <div class="grid gap-4">
         <h3 class="md:text-2xl text-lg text-center">Reseaux sociaux</h3>
-        <div class="flex gap-3  justify-center">
+        <div class="flex gap-3 justify-center">
           <div
             class="flex gap-2 items-center"
             onclick='window.open("https://www.facebook.com/profile.php?id=61559054242608&mibextid=LQQJ4d")'
@@ -744,7 +742,7 @@
             onclick='window.open("https://www.instagram.com/jeb.elevage_rdc?igsh=MzRlODBiNWFlZA==")'
           >
             <svg
-              class="md:w-8 w-6" 
+              class="md:w-8 w-6"
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
@@ -856,13 +854,13 @@
         by &lt;Frank M./&gt;
       </span>
     </div>
-    <script src="src/js/fx.js?version=10.3"></script>
-    <script src="src/js/localStorage.js?version=10.3"></script>
-    <script src="src/js/lacrea.js?version=10.3"></script>
-    <script src="src/js/server.js?version=10.3"></script>
+    <script src="src/js/fx.js?version=10.5"></script>
+    <script src="src/js/localStorage.js?version=10.5"></script>
+    <script src="src/js/lacrea.js?version=10.5"></script>
+    <script src="src/js/server.js?version=10.5"></script>
     <script src="src/js/swiper-element-bundle.min.js"></script>
     <script src="src/js/sweetalert.min.js"></script>
-    <script src="src/js/main.js?version=10.3"></script>
+    <script src="src/js/main.js?version=10.5"></script>
     <!-- prettier-ignore -->
     <script>
       if (location.hostname!="localhost") {
@@ -886,7 +884,7 @@
         ({key: "", v: "beta"});   
       }
      
-      db.set("version", "version=10.4");
+      db.set("version", "version=10.5");
       if (db.get("urlApp")) {
         console.log(db.get("urlApp"));
         lacrea_load(".body", db.get("urlApp"), false);
